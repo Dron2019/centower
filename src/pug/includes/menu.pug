@@ -1,14 +1,14 @@
 - 
     var headLinks = [
-        'Головна ',
-        'Про проєкт',
-        'Про комплекс',
-        'Квартири',
-        'Паркінг',
-        'Умови придбання',
-        'Контакти',
+        ['Головна ', ''],
+        ['Про проєкт', 'aboutProject'],
+        ['Про комплекс', 'aboutComplex'],
+        ['Квартири', 'flatsSubLinks'],
+        ['Паркінг', ''],
+        ['Умови придбання', 'buySubLinks'],
+        ['Контакти', ''],
         ];
-    var subLinks = [
+    var aboutProject = [
         'Характеристики',
         'Галерея',
         'Панорама',
@@ -16,15 +16,54 @@
         'Документи',
         'Забудовник',
     ];
-.menu-wrap
+    var aboutComplex = [
+        'Концепція',
+        'Локація',
+        'Тераси',
+        'Хол',
+        'Внутрішній двір',
+        'Для дітей',
+    ];
+    var flatsSubLinks = [
+        'Вибір на 3D моделі',
+        'Підбір за параметрами',
+        '1-кімнатні',
+        '2-кімнатні',
+        '3-кімнатні',
+        '4-кімнатні',
+    ];
+    var buySubLinks = [
+        'Оплата',
+        'Розстрочка',
+        'Кредит',
+    ];
+.menu-wrap(data-menu)
     .menu
         ul.menu__head-links
             each val in headLinks 
-                li 
-                    a(href='#') #{val}
+                if val[1].length === 0
+                    li
+                        a(href='#') #{val[0]}
+                else
+                    li
+                        a(href='#' data-head-link=val[1]) #{val[0]}
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line class="plus-vert-line" x1="4.875" x2="4.875" y2="10" stroke="white" stroke-width="1.75"/>
+                                <line x1="10" y1="4.875" x2="-7.64949e-08" y2="4.875" stroke="white" stroke-width="1.75"/>
+                                </svg>
         .menu__sub-links
-            .menu__sub-links-group
-                each val in subLinks 
+            .menu__sub-links-group(data-subgroup-name="aboutProject")
+                each val in aboutProject 
+                    a(href='#').link.link--metis #{val}
+            .menu__sub-links-group(data-subgroup-name="aboutComplex")
+                each val in aboutComplex 
+                    a(href='#').link.link--metis #{val}
+            .menu__sub-links-group(data-subgroup-name="flatsSubLinks")
+                each val in flatsSubLinks 
+                    a(href='#').link.link--metis #{val}
+            .menu__sub-links-group(data-subgroup-name="buySubLinks")
+                each val in buySubLinks 
                     a(href='#').link.link--metis #{val}
         .menu__image
-            img(src="./assets/images/menu-image.jpg")
+            .menu__image-fixed
+                img(src="./assets/images/menu-image.jpg" data-menu-img)
