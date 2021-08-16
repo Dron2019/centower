@@ -99,3 +99,26 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.ms-list {
+    display: flex;
+    color: var(--color-gray);
+    span {
+        font-family: MADE Coachella;
+        margin-right: 13px;
+        font-weight: 250;
+        font-size: 30px;
+        line-height: 120%;
+        /* identical to box height, or 36px */
+        letter-spacing: 0.03em;
+        color: var(--color-white);
+        
+    }
+    li {
+        display: flex;
+        align-items: center;
+    }
+    li~li {
+        margin-left: 40px;
+    }
+}

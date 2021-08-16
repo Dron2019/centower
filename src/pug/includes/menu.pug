@@ -1,1 +1,30 @@
+- 
+    var headLinks = [
+        'Головна ',
+        'Про проєкт',
+        'Про комплекс',
+        'Квартири',
+        'Паркінг',
+        'Умови придбання',
+        'Контакти',
+        ];
+    var subLinks = [
+        'Характеристики',
+        'Галерея',
+        'Панорама',
+        'Хід будівництва',
+        'Документи',
+        'Забудовник',
+    ];
 .menu-wrap
+    .menu
+        ul.menu__head-links
+            each val in headLinks 
+                li 
+                    a(href='#') #{val}
+        .menu__sub-links
+            .menu__sub-links-group
+                each val in subLinks 
+                    a(href='#').link.link--metis #{val}
+        .menu__image
+            img(src="./assets/images/menu-image.jpg")
