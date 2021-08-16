@@ -9,6 +9,7 @@
   align-content: center;
   align-items: center;
   justify-content: space-between;
+
   --links-padding: 27px;
   --links-v-padding: 16px;
   padding-left: max(calc((100vw - 1720px) / 2), var(--page-side-fields));
@@ -29,6 +30,7 @@
     margin-right: 50px;
   }
   &__logo {
+    --logo-w: 225px;
     width: var(--logo-w);
     height: var(--logo-h);
     margin-left: 50px;
@@ -76,27 +78,12 @@
     margin-left: 0;
   }
   &__tel {
-    text-decoration: none;
     color: var(--color-white);
-    font-weight: 550;
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    line-height: 1em;
-    &-icon {
-      width: 16px;
-      height: 16px;
-      margin-right: 12px;
-    }
-    @include from(1680px){
-      font-size: 24px;
-      &-icon {
-        width: 24px;
-        height: 24px;
-    margin-right: 18px;
-
-      }
-    }
+    font-size: 13px;
+    line-height: 130%;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-decoration: none;
   }
   &__menu-call {
     padding: 0;

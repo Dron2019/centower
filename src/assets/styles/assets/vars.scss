@@ -19,16 +19,16 @@ $dark: #1A2941;
 $gold: #CFA46E;
 :root {
   --color-white: #FAFAFA;  
-  
-  
-
+  --color-gray: #D2D2D2;
+  --logo-w: 225px;
+  --logo-h: calc(var(--logo-w) / 225px * 49px);
+  --black: #2D2D2D;
 
 
 
   --in: cubic-bezier(0.13, 0.81, 0.23, 0.96);
   --header-h: 80px;
-  --logo-w: 142px;
-  --logo-h: calc(var(--logo-w) / 142 * 32);
+
   --color-gold: rgba(239, 196, 127, 1);
   --color-grey: rgba(56, 62, 65, 1);
   --color-light-grey: rgba(246, 246, 246, 1);
