@@ -39,7 +39,7 @@ body {
 	line-height: 1.4em;
 	font-family: $default-font;
 	overflow-x: hidden;
-	font-size: 14px;
+	font-size: 15px;
 	color: var(--text-gray);
 	@include from(1680px){
 		font-size: 18px;
@@ -236,6 +236,13 @@ button, a {
 	font-size: 15px;
 	line-height: 130%;
 	color: var(--color-white);
+	--hover-text-color: var(--color-white);
+	&:disabled {
+		pointer-events: none;
+	}
+	&:disabled &__icon:after {
+		background-color: var(--color-gray);
+	}
 	&__icon {
 		margin-right: 20px;
 		width: 50px;
@@ -274,4 +281,41 @@ button, a {
 	&:hover svg {
 		fill: var(--color-black);
 	}
+}
+
+
+.link {
+	position: relative;
+}
+
+.link::before,
+.link::after {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  top: 100%;
+  left: 0;
+  pointer-events: none;
+}
+
+.link::before {
+  content: '';
+  /* show by default */
+}
+
+.link--metis {
+  font-family: bely-display, sans-serif;
+  text-transform: lowercase;
+}
+
+.link--metis::before {
+  transform-origin: 100% 50%;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.3s;
+}
+
+.link--metis:hover::before {
+  transform-origin: 0% 50%;
+  transform: scale3d(1, 1, 1);
 }

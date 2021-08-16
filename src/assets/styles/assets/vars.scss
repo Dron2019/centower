@@ -23,11 +23,12 @@ $gold: #CFA46E;
   --logo-w: 225px;
   --logo-h: calc(var(--logo-w) / 225px * 49px);
   --black: #2D2D2D;
+  --page-side-fields: 60px;       
 
 
 
   --in: cubic-bezier(0.13, 0.81, 0.23, 0.96);
-  --header-h: 80px;
+  --header-h: 100px;
 
   --color-gold: rgba(239, 196, 127, 1);
   --color-grey: rgba(56, 62, 65, 1);
@@ -35,7 +36,6 @@ $gold: #CFA46E;
   --color-black: #1D1D27;
   --text-gray :rgba(110, 122, 129, 1);  
   --border-radius: 100px;       
-  --page-side-fields: 50px;       
   --container-top-padding: 40px;
   --footer-margin: 100px;
 }
@@ -49,7 +49,7 @@ $gold: #CFA46E;
 }
 @media screen and (max-width: 1440px){
   :root {
-    --header-h: 80px;
+    --header-h: 100px;
     --logo-w: 142px;
     --sliceFigure-big: 362px;
   }
@@ -81,3 +81,6 @@ $gold: #CFA46E;
     --container-top-padding: 30px;
   }
 }
+
+
+
