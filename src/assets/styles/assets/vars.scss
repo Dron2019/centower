@@ -1,0 +1,83 @@
+$default-font: "TT Firs Neue",
+sans-serif;
+$default-font2: "TT Firs Neue",
+sans-serif;
+
+$mc2: #FF554C;
+$mc3: #E5DF06;
+$mc4: #4F90B6;
+$gray:rgb(135, 135, 151);
+$text: #22223E;
+$wc: #fff;
+$bc: #000;
+$bc2: #000;
+
+$mc: #1A2941;
+$bg: #FAFAFA;
+$light: #FCFCFC;
+$dark: #1A2941;
+$gold: #CFA46E;
+:root {
+  --color-white: #FAFAFA;  
+  
+  
+
+
+
+
+  --in: cubic-bezier(0.13, 0.81, 0.23, 0.96);
+  --header-h: 80px;
+  --logo-w: 142px;
+  --logo-h: calc(var(--logo-w) / 142 * 32);
+  --color-gold: rgba(239, 196, 127, 1);
+  --color-grey: rgba(56, 62, 65, 1);
+  --color-light-grey: rgba(246, 246, 246, 1);
+  --color-black: #1D1D27;
+  --text-gray :rgba(110, 122, 129, 1);  
+  --border-radius: 100px;       
+  --page-side-fields: 50px;       
+  --container-top-padding: 40px;
+  --footer-margin: 100px;
+}
+
+@media screen and (min-width: 1440px){
+  :root {
+    --header-h: 100px;
+    --logo-w: 180px;
+    --sliceFigure-big: 362px;
+  }
+}
+@media screen and (max-width: 1440px){
+  :root {
+    --header-h: 80px;
+    --logo-w: 142px;
+    --sliceFigure-big: 362px;
+  }
+}
+@media screen and (max-width: 992px){
+  :root {
+    --header-h: 80px;
+    --logo-w: 90px;
+    --sliceFigure-big: 44px;
+    --page-side-fields: 20px;   
+  }
+}
+@media screen and (max-width: 576px){
+  :root {
+    --header-h: 60px;
+    --sliceFigure: 100px;
+    --sliceFigure-big: 100px;
+    --logo-w: 120px;
+    --container-top-padding: 30px;
+    --footer-margin: 50px;
+  }
+}
+@media screen and (max-width: 350px){
+  :root {
+    --header-h: 60px;
+    --sliceFigure: 100px;
+    --sliceFigure-big: 100px;
+    --logo-w: 90px;
+    --container-top-padding: 30px;
+  }
+}

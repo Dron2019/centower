@@ -1,0 +1,198 @@
+.menu-wrap {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    // transition: opacity .5s ease-in-out;
+    &.opened {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+.menu {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  --right-offset: 127px;
+  &>* {
+      width: 50%;
+      position: relative;
+  }
+  &__left {
+      @include from-to(576px, 769px){
+          height: 100vh;
+      }
+  }
+  &__left-bg {
+    //   position: absolute;
+    //   left: 0;
+    //   top: 0;
+    //   width: 100%;
+    //   height: 100%;
+  }
+  &__left-bg>* {
+    //   position: absolute;
+    //   left: 50%;
+    //   top: 50%;
+    //   width: 100%;
+    //   height: 100%;
+    //   transform: translate(-50%,-50%);
+  }
+
+  .building-transparent {
+    object-fit: contain;
+    object-position: bottom;
+  }
+  .menu-bg{
+      object-fit: cover;
+  }
+  &__big-links {
+      width: calc(50% - (var(--right-offset) / 2));
+  }
+  &__big-links a {
+      text-decoration: none;
+      color: var(--color-grey);
+      font-size: 22px;
+        line-height: 100%;
+  }
+  &__big-links li~li {
+      margin-top: 35px;
+  }
+  &__right {
+      padding-left: calc(100% / 12);
+      padding-right: calc(100% / 12);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      padding-top: calc(var(--header-h) + 100px);
+      background-color: var(--color-white);
+  }
+  &__small-links {
+        width: calc(50% - (var(--right-offset) / 2));
+  }
+  &__small-links a {
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--text-gray);
+    text-decoration: none;
+  }
+  &__small-links li~li {
+    margin-top: 33px;
+    }
+    &__right-bottom {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    &__social-block  {
+        display: flex;
+        align-items: center;
+        &>*:nth-child(n+2) {
+            margin-left: 40px;
+        }
+        a {
+            font-size: 10px;
+            line-height: 100%;
+            /* identical to box height, or 10px */
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-grey);
+        }
+    }
+    .perfect-logo {
+        width: 101px;
+        height: 48px;
+        margin-right: auto;
+    }
+    &__langs {
+        display: flex;
+        flex-wrap: wrap;
+        @include from(576px){
+            display: none;    
+        }
+        a {
+            text-decoration: none;
+            color: var(--color-grey);
+            font-size: 10px;
+            line-height: 100%;
+            /* identical to box height, or 10px */
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        a.active {
+            font-weight: 800;
+        }
+        a~a {
+            margin-left: 10px;
+        }
+    }
+    @include to(1240px){
+        --right-offset: 60px;
+        &__right {
+            padding-left: calc(100% / 24);
+            padding-right: calc(100% / 24);
+        }
+    } 
+
+    @include from-to(576px, 950px){
+        &__right-bottom {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        .perfect-logo {
+            margin-bottom: 20px;
+        }
+    }
+    @include to(575px){
+        flex-wrap:wrap;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        &__right {
+            padding-top: calc(var(--header-h) + 50px);
+            padding-bottom: var(--page-side-fields);
+            padding-left: var(--page-side-fields);
+            padding-right: var(--page-side-fields);
+        }
+        &__left {
+            display: none;
+        }
+        &>* {
+            width: 100%;
+        }
+        &__big-links a {
+            font-size: 18px;
+        }
+        &__small-links,
+        &__big-links {
+            align-self: flex-start;
+        }
+        &__small-links li ~ li,
+        &__big-links li ~ li {
+            margin-top: 15px;
+        }
+        &__right-bottom {
+            flex-wrap: wrap;
+            margin-top: auto;
+            padding-bottom: 60px;
+        }
+        .perfect-logo {
+            margin-bottom: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-left: 0;
+            margin-bottom: 25px;
+        }
+        &__social-block {
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+    }
+}

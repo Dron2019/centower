@@ -1,0 +1,14 @@
+/**/.DS_Store
+/**/_backstage
+/**/Thumbs.db
+/.git/
+/out/
+/node_modules/
+/help-scripts/
+/.idea/
+/yarn.lock
+/package-lock.json
+/dist/
+/prod/
+/.vscode/
+/src/assets/svg-sprite/sprite/symbol_sprite.php

@@ -1,0 +1,212 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: var(--header-h);
+  width: 100%;
+  padding: 0 var(--page-side-fields);
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  --links-padding: 27px;
+  --links-v-padding: 16px;
+  padding-left: max(calc((100vw - 1720px) / 2), var(--page-side-fields));
+  padding-right: max(calc((100vw - 1720px) / 2), var(--page-side-fields));
+  @include from(1720px){
+    --links-v-padding: 19px;
+    --links-padding: 40px;
+    padding-left: calc((100vw - 1680px) / 2);
+      padding-right: calc((100vw - 1680px) / 2);
+  }
+  background: rgba(56, 62, 65, 1);
+  z-index: 100;
+  @include to(1440px) {
+    padding: 0 var(--page-side-fields);
+  }
+  .langs-header {
+
+    margin-right: 50px;
+  }
+  &__logo {
+    width: var(--logo-w);
+    height: var(--logo-h);
+    margin-left: 50px;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    @include from(1680px){
+      margin-left: 75px;
+    }
+  }
+  &__links {
+    transition: opacity .3s ease-in-out, transform .5s ease-in-out;
+    margin-left: 50px;
+    margin-right: auto;
+    border-radius: var(--border-radius);
+    background-color: var(--color-gold);
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: var(--links-v-padding);
+    padding-bottom: var(--links-v-padding);
+    display: flex;
+    align-items: center;
+    @include from(1680px){
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    a:first-child {
+      font-weight: 550;
+    }
+    a:nth-child(n+2) {
+      padding-left: var(--links-padding);
+    }
+    a {
+      text-decoration: none;
+      color: var(--color-grey);
+      line-height: 1em;
+    }
+  }
+  &__links:first-child {
+    margin-left: 0;
+  }
+  &__tel {
+    text-decoration: none;
+    color: var(--color-white);
+    font-weight: 550;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    line-height: 1em;
+    &-icon {
+      width: 16px;
+      height: 16px;
+      margin-right: 12px;
+    }
+    @include from(1680px){
+      font-size: 24px;
+      &-icon {
+        width: 24px;
+        height: 24px;
+    margin-right: 18px;
+
+      }
+    }
+  }
+  &__menu-call {
+    padding: 0;
+    color: var(--color-white);
+    font-weight: 550;
+    text-transform: uppercase;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    line-height: 1em;
+    // width: 141px;
+    @include from(1680px){
+      font-size: 14px;
+    }
+    &-icon {
+      border: 1px solid var(--color-gold);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 12px;
+        height: 12px;
+        pointer-events: none;
+      }
+      @include from(1680px){
+        width: 56px;
+        height: 56px;
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+    &-text {
+      padding-left: 10px;
+    }
+    &-text:after {
+      transition-delay: .5s;
+      transition: .3s ease-in-out;
+      content: attr(data-open);
+    }
+  }
+  @include from(769px){
+    &__menu-call {
+      // display: none;   
+    }
+    &__links {
+      // margin-left: 0;
+    }
+  }
+  @include from-to(1680px, 2560px) {
+    &__links a:last-child {
+      display: none;
+    }
+  }
+  @include to(1440px){
+    &__links a:last-child {
+      display: none;
+    }
+  }
+  @include to(1380px){
+    &__links a:nth-last-child(2) {
+      display: none;
+    }
+  }
+  @include to(1320px){
+    &__links a:nth-last-child(3) {
+      display: none;
+    }
+  }
+  @include to(1120px){
+    &__links {
+      display: none;
+    }
+  }
+  @include to(575px){
+   
+    &__logo {
+      margin-left: 18px;
+    }
+    &__menu-call {
+      font-size: 12px;
+    }
+    &__menu-call-icon {
+      width: 40px;
+      height: 40px;
+      svg {
+        width: 10px;
+        height: 10px;
+      }
+    }
+    &__tel {
+      margin-left: auto;
+    }
+    &__tel-text {
+      display: none;
+    }
+  }
+}
+.menu-open .header__menu-call-text:after {
+  transition-delay: .5s;
+    content: attr(data-close);
+}
+.menu-open .header__links {
+  transform: translateY(-100%);
+  opacity: 0;
+}
