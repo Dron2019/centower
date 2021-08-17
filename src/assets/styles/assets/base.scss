@@ -343,3 +343,24 @@ button, a {
 		fill: var(--color-gray);
 	}
 }
+
+.button-std-3 {
+	font-size: 36px;
+	line-height: 140%;
+	color: var(--color-gray);
+	text-decoration: none;
+	text-transform: uppercase;
+	svg {
+		margin-left: 30px;
+	}
+	path {
+	transition: .3s ease-in-out;
+	transform-box: fill-box;
+	transform-origin: right;
+	transform: translateX(0%);
+}
+&:hover path {
+		transform: translateX(-30px);
+
+	}
+}

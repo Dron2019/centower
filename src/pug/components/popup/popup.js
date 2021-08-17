@@ -1,7 +1,15 @@
 /* eslint-disable linebreak-style */
 import gsap from 'gsap';
 
-
+/**
+ * @param {Object} props
+ * @namespace
+ * @property {NodeElement}  props.content           - Контент попапа.
+ * @property {NodeList}  props.call       - Кнопка вызова попапа
+ * @property {Object}  props.styles         - Стили попапа.
+ * @property {NodeElement}  [props.close]      - Кнопка закрытия.
+ * @property {Function}  props.afterOpenCb - Коллбек после первого открытия попапа.
+ */
 export default class Popup {
   constructor(props) {
     this.call = props.call;

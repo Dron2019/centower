@@ -256,7 +256,7 @@ color: var(--color-black);
 
 [data-succes-overlay] {
     position: absolute;
-    top: 50px;
+    top: 0;
     left: 0;
     background-color: #fff;
     width: 100%;
@@ -265,11 +265,24 @@ color: var(--color-black);
     z-index: 15;
     opacity: 0;
     pointer-events: none;
+    .succes-overlay__subtitle {
+        color: var(--color-black);
+        margin-top: 30px;
+        max-width: 345px;
+    }
+    .button-std-3 path {
+        fill: var(--color-black);
+    }
     .form-std__subtitle {
         margin-bottom: 30px;
     }
     .button-std {
         margin-top: 30px;
+    }
+    @include from(951px){
+        .popup-decor-group {
+            transform: translateY(115px);
+        }
     }
 }
 
@@ -294,15 +307,16 @@ color: var(--color-black);
     width: 50%;
     padding-left: 57px;
     margin-left: auto;
-    p {
+    p,
+    .button-std-3 {
         position: absolute;
         left: 60%;
         top: 50%;
-        width: 50%;
+        width: 55%;
         transform: translate(-50%,-50%);
         color: var(--color-black);
     }
-    svg {
+    .ellipse-with-stars {
         width: 100%;
         height: 100%;
     }

@@ -257,5 +257,10 @@ const formCallPopup = new Popup({
   call: document.querySelectorAll('[data-call-form-popup]'),
   close: document.querySelector('[data-popup-close]'),
 });
+
+document.querySelector('[data-popup-overlay-close]').addEventListener('click', () => {
+  gsap.to('[data-succes-overlay]', { autoAlpha: 0 });
+});
 console.log(formCallPopup);
 formCallPopup.openPopup();
+gsap.to(formCallPopup.mountedPopup.querySelector('.succes-overlay'), { autoAlpha: 1, pointerEvents: 'all' });
