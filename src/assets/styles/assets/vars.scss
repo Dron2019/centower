@@ -24,6 +24,7 @@ $gold: #CFA46E;
   --logo-w: 225px;
   --logo-h: calc(var(--logo-w) / 225px * 49px);
   --black: #2D2D2D;
+  --color-black: #2D2D2D;
   --page-side-fields: 60px;       
   --color-gold: #D9B48F;
 
@@ -34,7 +35,7 @@ $gold: #CFA46E;
 
   --color-grey: rgba(56, 62, 65, 1);
   --color-light-grey: rgba(246, 246, 246, 1);
-  --color-black: #1D1D27;
+  // --color-black: #1D1D27;
   --border-radius: 100px;       
   --container-top-padding: 40px;
   --footer-margin: 100px;

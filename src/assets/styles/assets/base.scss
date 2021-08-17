@@ -372,6 +372,10 @@ button, a {
 	line-height: 100%;
 	color: var(--color-milk);
 	text-transform: uppercase;
+	&.dark {
+		
+		color: var(--color-black);
+	}
 }
 
 .ellipse-common {
@@ -379,9 +383,16 @@ button, a {
 	display: inline-block;
 	text-decoration: none;
 	color: inherit;
+	.button-std-3 {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+		width: 45%;
+	}
 	&__text {
 		font-size: 15px;
-line-height: 140%;
+		line-height: 140%;
 		position: absolute;
 		left: 50%;
 		top: 50%;

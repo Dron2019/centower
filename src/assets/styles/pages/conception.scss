@@ -2,16 +2,16 @@
 
 .page-section {
   @include row-flex();
+  @include shift-padding(2);
   align-content: flex-start;
   margin-top: 83px;
   .round-image-on-first-section {
-    @include size(10);
-    @include shift-left(0);
-    @include shift-right(2);
+    @include size(12);
+    @include shift(0);
   }
   .page-section-common-block {
-    @include shift-left(2);
-    @include size(10);
+    @include shift(0);
+    @include size(12);
   }
   .ellipse-common {
     @include shift-left(-2);
@@ -24,9 +24,8 @@
   }
 }
 .conception-img2 {
-  @include size(8.5);
-  @include shift-left(2);
-  @include shift-right(0);
+  @include size(10);
+  @include shift(0);
 }
 
 
@@ -44,12 +43,103 @@
   line-height: 140%;
   text-transform: uppercase;
   color: var(--color-gray);
+  &.dark {
+    color: var(--color-black);
+
+  }
 }
 
 .conception-paragraph1 {
-  @include size(10);
-  @include shift-right(2);
-  @include shift-left(1.5);
+  @include size(12);
+  @include shift-right(0); 
+  @include shift-left(2);
   margin-top: auto;
   margin-bottom: auto;
+}
+.conception-block-with-text {
+  p {
+    margin-top: 20px;
+    @include size(14);
+  }
+}
+.conception-block-with-text1 {
+  @include size(14.4);
+  @include shift(0);
+}
+.conception-block-with-text2 {
+  @include size(8.4);
+  @include shift-left(1);
+  @include shift-right(0);
+}
+.conception-paragraph2 {
+  @include size(10.8);
+  @include shift(0);
+}
+.conception-img3 {
+  @include size(12);
+  @include shift-left(1);
+  @include shift-right(0);
+}
+.conception-img4 {
+  @include size(12);
+  @include shift(0);
+  height: auto;
+}
+
+.conception-block-with-stars {
+  @include size(13.2);
+  @include shift-padding-left(0.5);
+  @include shift-right(-1.2);
+  .button-std-3 {
+    margin-top: 55px;
+  }
+}
+
+.conception-white-section {
+  background-color: var(--color-milk);
+  @include row-flex();
+  padding-left: calc(8.33333% + 12.5px + var(--page-side-fields));
+  padding-right: calc(8.33333% + 12.5px + var(--page-side-fields));
+  margin-left: calc(var(--page-side-fields) * -1 - #{$offset / 2});
+  margin-right: calc(var(--page-side-fields) * -1 - #{$offset / 2});
+  // padding-left: var(--page-side-fields);
+  // padding-right: var(--page-side-fields);
+  position: relative;
+  padding-top: 202px;
+  padding-bottom: 150px;
+  &__decor-pattern {
+    position: absolute;
+    top: -2px;
+    right: 12%;
+    width: 48%;
+    height: 202px;
+  }
+  .page-title {
+    @include size(24);
+    @include shift(0);
+    text-align: right;
+    margin-top: 50px;
+  }
+  .conception-paragraph {
+    margin-top: 30px;
+    @include size(15.2);
+    @include shift(0);
+  }
+  &__block {
+    position: relative;
+    @include size(24);
+    @include shift(0);
+    &-img {
+      
+      position: absolute;
+      right: calc((8.33333% + 12.5px) * -1);
+      bottom: -120px;
+      z-index: 0;
+      width: 45%;
+    }
+    &-image {
+      position: relative;
+      z-index: 1;
+    }
+  }
 }
