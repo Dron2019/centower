@@ -1,5 +1,5 @@
 .popup-wrapper {
-    position: fixed;
+    // position: fixed;
     left: 0;
     top: 0;
     width: 100vw;
@@ -15,7 +15,7 @@
         background-color: #ffffff;
         position: relative;
     }
-    display: none;
+    // display: none;
     @include to(575px){
      padding-top: var(--header-h);
      align-items: center;  
@@ -23,10 +23,10 @@
     }
 }
 .popup {
-    max-width: 530px;
+    // max-width: 530px;
     cursor: initial;
     @include from(1680px){
-        max-width: 630px;
+        // max-width: 630px;
     }
     &__close {
         position: absolute;
@@ -78,14 +78,14 @@ color: var(--color-black);
         color: #878787;
     }
     .required-alert:before {
-        content: '';
-        display: inline-block;
-        margin-right: 10px;
-        width: 15px;
-        height: 15px;
-        background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H15V15C6.71573 15 0 8.28427 0 0Z' fill='%23EFC47F'/%3E%3C/svg%3E%0A");
-        background-repeat: no-repeat;
-        background-size: contain;
+        // content: '';
+        // display: inline-block;
+        // margin-right: 10px;
+        // width: 15px;
+        // height: 15px;
+        // background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H15V15C6.71573 15 0 8.28427 0 0Z' fill='%23EFC47F'/%3E%3C/svg%3E%0A");
+        // background-repeat: no-repeat;
+        // background-size: contain;
     }
     [data-animation="none"] .input-message {
         bottom: auto;
@@ -283,4 +283,12 @@ color: var(--color-black);
     .button-std {
         margin-top: 30px;
     }
+}
+
+
+.popup-title {
+    font-weight: 300;
+    font-size: 100px;
+    line-height: 100%;
+    color: var(--color-black);
 }

@@ -71,16 +71,21 @@ function insertUrlParam(key, value) {
 const overlay = document.querySelector('.ms-slider-overlay ');
 const slides = document.querySelectorAll('.ms-slide');
 const navs = document.querySelectorAll('[data-circle]');
+const nextSlideButton = document.querySelector('[data-ms-next-slide]');
 const params = {
   isOnSlider: false,
   isAnimating: false,
   curentIndex: 0,
   url: 'slide',
+  autoSlide: setTimeout(() => {
+    
+  }, 7000),
 };
 
 navs.forEach(resetStrokeValue);
 navs.forEach((el, index) => {
   el.addEventListener('click', function () {
+    clearTimeoutAndSetNew();
     simulatePathDrawing(navs[index], 1.5, '5');
     resetStrokeValue(navs[params.curentIndex]);
     changeScreenWithEffects(slides[index], slides[params.curentIndex], () => {
@@ -88,6 +93,7 @@ navs.forEach((el, index) => {
       params.isAnimating = false;
       insertUrlParam(params.url, index);
     });
+    
   });
 });
 gsap.set('.ms-slide:not(:first-child)', { display: 'none' });
@@ -106,8 +112,22 @@ window.addEventListener('load', function () {
         insertUrlParam(params.url, c);
       },
     );
+    clearTimeoutAndSetNew();
   }
 });
+
+nextSlideButton.addEventListener('click',function(evt){
+  const nextIndex = getNextIndex(params.curentIndex, slides, 1);
+  simulatePathDrawing(navs[nextIndex], 1.5, '5');
+  resetStrokeValue(navs[params.curentIndex]);
+  changeScreenWithEffects(slides[nextIndex], slides[params.curentIndex], () => {
+    params.curentIndex = nextIndex;
+    params.isAnimating = false;
+    insertUrlParam(params.url, nextIndex);
+  });
+  clearTimeoutAndSetNew();
+});
+
 overlay.addEventListener('mouseenter', function () {
   locoScroll.stop();
   params.isOnSlider = true;
@@ -118,6 +138,7 @@ overlay.addEventListener('mouseleave', function () {
 });
 window.addEventListener('wheel', function (evt) {
   if (params.isOnSlider && params.isAnimating === false) {
+
     evt.preventDefault();
     params.isAnimating = true;
     const direction = evt.deltaY > 0 ? 1 : -1;
@@ -134,6 +155,7 @@ window.addEventListener('wheel', function (evt) {
       },
       direction,
     );
+    clearTimeoutAndSetNew();
   }
 }, true);
 
@@ -175,6 +197,25 @@ function resetStrokeValue(pathArgs) {
   path.style.strokeDashoffset = length;
 }
 
+function clearTimeoutAndSetNew() {
+  clearTimeout(params.autoSlide);
+  params.autoSlide = setTimeout(() => {
+    const nextIndex = getNextIndex(params.curentIndex, slides, 1);
+    simulatePathDrawing(navs[nextIndex], 1.5, '7');
+    resetStrokeValue(navs[params.curentIndex]);
+    changeScreenWithEffects(
+      slides[nextIndex],
+      slides[params.curentIndex],
+      () => {
+        params.curentIndex = nextIndex;
+        params.isAnimating = false;
+        insertUrlParam(params.url, nextIndex);
+      },
+      1,
+    );
+    clearTimeoutAndSetNew();
+  }, 7000);
+}
 
 /**
  * @param {number} current текущий слайд

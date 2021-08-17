@@ -1,12 +1,13 @@
 /* eslint-disable linebreak-style */
 import gsap from 'gsap';
 
+
 export default class Popup {
   constructor(props) {
     this.call = props.call;
     this.overlayClass = 'my-popup-overlay';
     this.uniqueClass = `${this.overlayClass}-${Math.random().toString().replace('.', '')}`;
-    this.styles = props.styles;
+    this.styles = props.styles || {};
     this.content = props.content;
     this.close = props.close;
     this.afterOpenCb = props.afterOpenCb || function () {};

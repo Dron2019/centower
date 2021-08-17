@@ -120,15 +120,6 @@ forms.forEach((form) => {
             valid: false,
             error: [],
           },
-          agreement: {
-            inputWrapper: new SexyInput({ animation: 'none', $field: $form.querySelector('[data-field-agree]'), typeInput: 'checkbox' }),
-            rule: yup
-              .string().nullable().required('Необхідно відмітити згоду'),
-
-            defaultMessage: i18next.t('phone'),
-            valid: false,
-            error: [],
-          },
         },
 
       },
@@ -169,37 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
 /** ******************************* */
 
 
-/** form popup handler */
-
-const popup = document.querySelector('[data-popup-with-form]');
-const closePopup = popup.querySelector('[data-popup-close]');
-const callFormPopup = document.querySelectorAll('[data-call-popup-form]');
-const succesOverlay = popup.querySelector('[data-succes-overlay]');
-function closePopupAnimation(popupToAnimate) {
-  gsap.timeline()
-    .to(popupToAnimate.querySelector('form'), { autoAlpha: 0, y: 100 })
-    .set(popupToAnimate, { display: 'none' });
-}
-closePopup.addEventListener('click', () => {
-  closePopupAnimation(popup);
-  succesOverlay.style.opacity = 0;
-  succesOverlay.style.pointerEvents = 'none';
-});
-
-popup.addEventListener('click', (evt) => {
-  if (evt.target.dataset.popupWithForm !== undefined) {
-    closePopupAnimation(popup);
-  }
-});
-callFormPopup.forEach((el) => {
-  el.addEventListener('click', () => {
-    gsap.timeline()
-      .set(popup, { display: 'flex' })
-      .set(popup.querySelector('form'), { autoAlpha: 0, y: -100 })
-      .to(popup.querySelector('form'), { autoAlpha: 1, y: 0 });
-  });
-});
-/** form popup handler END */
 const options = {
   rootMargin: '0px',
   threshold: 0.1,
@@ -292,9 +252,8 @@ blockForUpdatingLocoScroll.forEach((image) => {
   observer.observe(target);
 });
 
-
-document.querySelectorAll('[data-up]').forEach((arrow) => {
-  arrow.addEventListener('click', () => {
-    if (locoScroll !== undefined) locoScroll.scrollTo(0, 0);
-  });
-});
+const formCallPopup = new Popup({
+  content: document.querySelector('[data-popup-with-form]'),
+  call: document.querySelectorAll('[data-call-form-popup]'),
+  close: document.querySelector('[data-popup-close]'),
+})

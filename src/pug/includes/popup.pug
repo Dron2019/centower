@@ -6,35 +6,21 @@
             p Дякуємо за звернення! Очікуйте на дзвінок від менеджера La Manche.
             p Бажаємо приємного дня та гарного настрою!)
             +a('На головну', 'gold', 'index.html')
-        <svg data-popup-close class="popup__close " width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 0H45V45C20.1472 45 0 24.8528 0 0Z" fill="#EFC47F"/>
-            <path d="M21 24L31 14M31 24L21 14" stroke="white"/>
+        <svg data-popup-close class="popup__close " width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="50" height="50" rx="25" fill="#2D2D2D"/>
+            <path d="M19 31L31 19M31 31L19 19" stroke="#F3EFE9"/>
             </svg>
-        .form-std__subtitle.subtitle Потрібна консультація?
-        .text обов'язкове для заповнення
+        .popup-title Замовити дзвінок
         .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
             input(type='text' name="name" placeholder="Ім’я:").form-field__input
             .input-message(data-input-message)
             .input-placeholder Ваше ім’я
-            .requaired-block-ico.requaired-block-ico--position
-                +svg('requaired')
         .form-field-message Введіть ваш телефон
         .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
             input(type='text' name="phone" placeholder="Телефон:").form-field__input
             .input-message(data-input-message)
             .input-placeholder Ваш телефон
-            .requaired-block-ico.requaired-block-ico--position
-                +svg('requaired')
             .mask-absolute.js-mask-absolute
-        .form-textarea.form-field
-            .form-field-message Введіть ваше повідомлення
-            textarea(placeholder="Повідомлення:" name="message")
-        .form-field.form-field-checkbox.disabled.form-field-input(data-field-input data-field-agree data-status="field--inactive")
-            input(type='checkbox' name="agreement" placeholder="Телефон:" id="popup-agree").form-field__input
-            label.checkbox-decor(for="popup-agree")
-            label.input-placeholder(for="popup-agree") Я погоджуюсь на обробку своїх персональних даних
-            label.input-message(data-input-message)
         .form-btn-wrap.df.jcsb.aic
-            .required-alert обов’язкове поле для заповнення
             +btn('Замовити дзвінок', 'gold')(type="submit" data-btn-submit)
                 div(data-btn-submit-text)
