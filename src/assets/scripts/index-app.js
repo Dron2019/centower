@@ -256,4 +256,6 @@ const formCallPopup = new Popup({
   content: document.querySelector('[data-popup-with-form]'),
   call: document.querySelectorAll('[data-call-form-popup]'),
   close: document.querySelector('[data-popup-close]'),
-})
+});
+console.log(formCallPopup);
+formCallPopup.openPopup();
