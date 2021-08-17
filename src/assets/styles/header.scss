@@ -14,6 +14,12 @@
   --between-margin: 50px;
   padding-left: max(calc((100vw - 1720px) / 2), var(--page-side-fields));
   padding-right: max(calc((100vw - 1720px) / 2), var(--page-side-fields));
+  transition: padding .3s ease-in-out, background-color .3s ease-in-out;
+  &.not-on-top {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgba(38, 37, 37, 0.8);
+  }
   @include to(1120px){
     --between-margin: 30px;
     

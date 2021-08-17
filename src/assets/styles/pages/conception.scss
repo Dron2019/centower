@@ -1,0 +1,55 @@
+
+
+.page-section {
+  @include row-flex();
+  align-content: flex-start;
+  margin-top: 83px;
+  .round-image-on-first-section {
+    @include size(10);
+    @include shift-left(0);
+    @include shift-right(2);
+  }
+  .page-section-common-block {
+    @include shift-left(2);
+    @include size(10);
+  }
+  .ellipse-common {
+    @include shift-left(-2);
+    @include size(26);
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .page-title {
+    white-space: nowrap;
+  }
+}
+.conception-img2 {
+  @include size(8.5);
+  @include shift-left(2);
+  @include shift-right(0);
+}
+
+
+.round-image-on-first-section {
+  height: auto;
+  width: 100%;
+}
+.page-section-common-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.conception-paragraph {
+  font-size: 36px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: var(--color-gray);
+}
+
+.conception-paragraph1 {
+  @include size(10);
+  @include shift-right(2);
+  @include shift-left(1.5);
+  margin-top: auto;
+  margin-bottom: auto;
+}

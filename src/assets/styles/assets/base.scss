@@ -40,7 +40,8 @@ body {
 	font-family: $default-font;
 	overflow-x: hidden;
 	font-size: 15px;
-	color: var(--text-gray);
+	color: var(--color-gray);
+	background-color: var(--color-black);
 	@include from(1680px){
 		font-size: 18px;
 	}
@@ -362,5 +363,33 @@ button, a {
 &:hover path {
 		transform: translateX(-30px);
 
+	}
+}
+
+.page-title {
+	font-weight: 300;
+	font-size: 100px;
+	line-height: 100%;
+	color: var(--color-milk);
+	text-transform: uppercase;
+}
+
+.ellipse-common {
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	color: inherit;
+	&__text {
+		font-size: 15px;
+line-height: 140%;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+		width: 45%;
+	}
+	&__decor {
+		height: auto;
+		width: 100%;
 	}
 }

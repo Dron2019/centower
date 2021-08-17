@@ -135,6 +135,9 @@ overlay.addEventListener('mouseenter', function () {
 overlay.addEventListener('mouseleave', function () {
   locoScroll.start();
   params.isOnSlider = false;
+  clearTimeout(params.autoSlide);
+  params.autoSlide = setTimeout(() => {
+  }, 7000);
 });
 window.addEventListener('wheel', function (evt) {
   if (params.isOnSlider && params.isAnimating === false) {
@@ -158,7 +161,11 @@ window.addEventListener('wheel', function (evt) {
     clearTimeoutAndSetNew();
   }
 }, true);
-
+window.addEventListener('blur', function() {
+  clearTimeout(params.autoSlide);
+  params.autoSlide = setTimeout(() => {
+  }, 7000);
+});
 
 // gsap.defaults({ duration: 1 });
 
