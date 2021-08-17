@@ -351,6 +351,8 @@ button, a {
 	color: var(--color-gray);
 	text-decoration: none;
 	text-transform: uppercase;
+	border: none;
+	background-color: transparent;
 	svg {
 		margin-left: 30px;
 	}

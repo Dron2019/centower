@@ -1,6 +1,7 @@
 
 
 .page-section {
+  --bottom-block-margin: 100px;
   @include row-flex();
   @include shift-padding(2);
   align-content: flex-start;
@@ -12,6 +13,8 @@
   .page-section-common-block {
     @include shift(0);
     @include size(12);
+    position: relative;
+    z-index: 3;
   }
   .ellipse-common {
     @include shift-left(-2);
@@ -26,9 +29,26 @@
 .conception-img2 {
   @include size(10);
   @include shift(0);
+  position: relative;
+  margin-bottom: var(--bottom-block-margin);
+  .icon--round-text {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,-50%);
+    z-index: 3;
+    animation: rotation 30s infinite;
+  }
 }
 
-
+@keyframes rotation {
+  from {
+    transform: translate(-50%,-50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%,-50%) rotate(360deg);
+  }
+}
 .round-image-on-first-section {
   height: auto;
   width: 100%;
@@ -70,6 +90,7 @@
   @include size(8.4);
   @include shift-left(1);
   @include shift-right(0);
+  margin-bottom: var(--bottom-block-margin);
 }
 .conception-paragraph2 {
   @include size(10.8);
@@ -79,11 +100,13 @@
   @include size(12);
   @include shift-left(1);
   @include shift-right(0);
+  margin-bottom: var(--bottom-block-margin);
 }
 .conception-img4 {
   @include size(12);
   @include shift(0);
   height: auto;
+  
 }
 
 .conception-block-with-stars {
@@ -94,7 +117,19 @@
     margin-top: 55px;
   }
 }
-
+.conception-block-with-text3 {
+  @include size(15);
+  @include shift(0);
+}
+.conception-img5 {
+  @include size(7.55);
+  @include shift-left(1);
+  @include shift-right(0);
+}
+.w-100 {
+  @include size(24);
+  @include shift(0);
+}
 .conception-white-section {
   background-color: var(--color-milk);
   @include row-flex();
@@ -107,6 +142,15 @@
   position: relative;
   padding-top: 202px;
   padding-bottom: 150px;
+  .icon--star {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%,-50%);
+    z-index: 3;
+    width: 68px;
+    height: 68px;
+  }
   &__decor-pattern {
     position: absolute;
     top: -2px;
@@ -129,6 +173,7 @@
     position: relative;
     @include size(24);
     @include shift(0);
+    margin-top: 50px;
     &-img {
       
       position: absolute;
@@ -141,5 +186,26 @@
       position: relative;
       z-index: 1;
     }
+  }
+}
+.conception-last-section {
+  .page-title {
+    margin-bottom: 50px;
+  }
+  .conception-paragraph {
+    margin-bottom: 150px;
+  }
+  .conception-img5,
+  .conception-block-with-text {
+    margin-bottom: var(--bottom-block-margin);
+  }
+  .ellipse-common{
+    @include size(13.8);
+    @include shift(0);
+    margin-left: auto;
+  }
+  .button-std-3 {
+    width: 100%;
+    top: 40%;
   }
 }
