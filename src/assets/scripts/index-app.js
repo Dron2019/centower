@@ -22,8 +22,8 @@ const locoScroll = new LocomotiveScroll({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true,
   smoothMobile: false,
-  inertia: 1.1,
-  lerp: 1,
+  // inertia: 1.1,
+  // lerp: 1,
 });
 
 global.locoScroll = locoScroll;
@@ -252,6 +252,7 @@ blockForUpdatingLocoScroll.forEach((image) => {
   observer.observe(target);
 });
 
+// eslint-disable-next-line no-unused-vars
 const formCallPopup = new Popup({
   content: document.querySelector('[data-popup-with-form]'),
   call: document.querySelectorAll('[data-call-form-popup]'),
@@ -260,4 +261,29 @@ const formCallPopup = new Popup({
 
 document.querySelector('[data-popup-overlay-close]').addEventListener('click', () => {
   gsap.to('[data-succes-overlay]', { autoAlpha: 0 });
+});
+
+function handleVisibilityOnScroll(elems = [], direction = 'up') {
+  elems.forEach((elem) => {
+    switch (direction) {
+      case 'down':
+        elem[0].classList.add(elem[1]);
+        break;
+      default:
+        elem[0].classList.remove(elem[1]);
+        break;
+    }
+  });
+}
+const header = document.querySelector('header');
+locoScroll.on('scroll', (position) => {
+  if (position.scroll.y > 150) {
+    handleVisibilityOnScroll([
+      [header, 'not-on-top'],
+    ], 'down');
+  } else {
+    handleVisibilityOnScroll([
+      [header, 'not-on-top'],
+    ]);
+  }
 });
