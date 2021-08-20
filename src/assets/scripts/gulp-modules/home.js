@@ -240,3 +240,43 @@ function getNextIndex(current, $nodeList, direction) {
   }
   return nextIndex;
 }
+
+
+
+
+function some() {
+  const section = document.querySelector('[data-curtain]');
+
+const d11 = 'M 0 0 Q 55 0 110 0 Q 110 0 110 0 Q 97 2 -1 0 Q 0 0 0 0'
+const d12 = 'M 0 0 Q 55 0 110 0 Q 110 0 110 0 Q 107 110 -1 0 Q 0 0 0 0';
+const d13 = 'M 0 0 Q 55 0 110 0 Q 110 0 110 0 Q 107 110 35 48 Q -1 92 0 67';
+const d14 = 'M 780 1031 Q 492 776 7 982 L 1 -61 Q 392 -474 743 -38 Z';
+const d15 = 'M 0 0 Q 37 86 110 0 Q 110 0 110 0 Q 107 110 34 98 Q -1 92 0 67';
+const d16 = 'M 0 67 Q 31 25 121 70 Q 121 70 120 70 Q 107 110 34 98 Q -1 92 0 67';
+const d17 = 'M 0 67 Q 40 110 121 70 Q 121 70 120 70 Q 107 110 34 98 Q -1 92 0 67';
+
+
+
+  const tl = gsap.timeline({
+    paused: true,
+    scrollTrigger: {
+      triggerHook: 1,
+      trigger: section,
+      // start: '0% bottom',
+      end: '200% bottom',
+      // scrub: 0.5,
+    },
+  });
+  // tl.timeScale(0.5);
+  tl.to(section.querySelector('path'), { ease: 'none', attr: { d: d11 } });
+  tl.to(section.querySelector('path'), { ease: 'none', attr: { d: d12 } });
+  tl.to(section.querySelector('path'), { ease: 'none', attr: { d: d13 } });
+  // // tl.to(section.querySelector('path'), { ease: 'linear', attr: { d: d14 } });
+  tl.to(section.querySelector('path'), { ease: 'none', attr: { d: d15 } });
+  tl.to(section.querySelector('path'), { ease: 'none', attr: { d: d17 } });
+  // tl.play();
+  gsap.to(tl, {time:tl.duration(), duration:tl.duration(), 
+    ease:"power3.easeInOut", repeat:10, yoyo:true, repeatDelay:1, delay:1});
+}
+
+some();
