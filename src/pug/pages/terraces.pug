@@ -2,9 +2,9 @@
 extends ../layout/main
 block variable
   -
-    var title_page = 'Локація'
-    var id_page = 'id-page-location'
-    var class_page = 'class-page-location'
+    var title_page = 'Тераси'
+    var id_page = 'id-page-terraces'
+    var class_page = 'class-page-terraces'
     var breadcrumbsSubitem = [
     ]
   
@@ -19,14 +19,14 @@ block scripts
   script(defer src='./assets/scripts/libs.js')
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/menu.js')
-  script(defer src='./assets/scripts/location.js')
+  script(defer src='./assets/scripts/terraces.js')
 block content
   section.page-section
     .page-section-common-block
       include ../includes/breadcrumbs.pug
       h1.page-title  #{title_page}
       a(href="#").ellipse-common
-        .ellipse-common__text CENTOWER знаходитися в самому центрі Дніпра, на проспекті Дмитра Яворницького, 43, недалеко від перетину з вулицею Гоголя, в історичній частині міста. 
+        .ellipse-common__text Покрівля житлової частини є експлуатованою та служить зоною відпочинку для мешканців будинку з критим зимовим садом і відкритою терасою. 
         <svg data-motion-svg class="ellipse-common__decor" width="573" height="375" viewBox="15 50 573 375" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path class="circle1" d="M452.189 102.294C463.835 102.294 467.162 106.367 467.162 118.003C467.162 106.367 471.044 102.294 482.135 102.294C471.044 102.294 467.162 98.2211 467.162 86.0029C467.162 98.2211 463.835 102.294 452.189 102.294Z" fill="#D9B48F"/>
           <path class="circle2" d="M102.826 368.294C114.471 368.294 117.799 372.367 117.799 384.003C117.799 372.367 121.68 368.294 132.771 368.294C121.68 368.294 117.799 364.221 117.799 352.003C117.799 364.221 114.471 368.294 102.826 368.294Z" fill="#D9B48F"/>
@@ -57,22 +57,16 @@ block content
       <stop/>
       <stop offset="1" stop-opacity="0"/>
       </linearGradient>
-      <image x="-100" id="image0" width="1500" height="1101" xlink:href="./assets/images/location/img1.jpg">
+      <image x="-100" id="image0" width="1500" height="1101" xlink:href="./assets/images/terraces/img1.jpg">
       </defs>
       </svg>
-    .location-img2
+    .terraces-img2.with-round-text
       +svg('round-text')
-      img(src="./assets/images/location/img2.jpg", alt="")
-    .conception-paragraph.location-paragraph1 Вся інфраструктура буквально у Ваших ніг, не те щоб в п'ятихвилинної доступності, а навіть менше.
-  section.location-white-block
-    <svg class="location-white-block__decor" width="399" height="199" viewBox="0 0 399 199" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0.672852C155.167 0.672852 199.5 52.091 199.5 199C199.5 52.091 251.222 0.672852 399 0.672852C251.222 0.672852 199.5 0.672852 199.5 0.672852C199.5 0.672852 155.167 0.672852 0 0.672852Z" fill="#2D2D2D"/>
-      </svg>
-    .page-title.dark інфраструктура
-    include ../components/map/map.pug
+      img(src="./assets/images/terraces/img2.jpg", alt="")
+    .conception-paragraph.terraces-paragraph1 Приватні тераси передбачені з 9 по 12 поверхи.
   section.page-last-section 
-    a(href="terraces").ellipse-common
-      +btn3('Тераси', '#')
+    a(href="hall").ellipse-common
+      +btn3('Хол ', '#')
       <svg data-motion-svg class="ellipse-common__decor" width="573" height="375" viewBox="15 50 573 375" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path class="circle1" d="M452.189 102.294C463.835 102.294 467.162 106.367 467.162 118.003C467.162 106.367 471.044 102.294 482.135 102.294C471.044 102.294 467.162 98.2211 467.162 86.0029C467.162 98.2211 463.835 102.294 452.189 102.294Z" fill="#D9B48F"/>
         <path class="circle2" d="M102.826 368.294C114.471 368.294 117.799 372.367 117.799 384.003C117.799 372.367 121.68 368.294 132.771 368.294C121.68 368.294 117.799 364.221 117.799 352.003C117.799 364.221 114.471 368.294 102.826 368.294Z" fill="#D9B48F"/>

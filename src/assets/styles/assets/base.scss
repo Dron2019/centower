@@ -392,6 +392,15 @@ button, a {
 		transform: translate(-50%,-50%);
 		width: 45%;
 		white-space: nowrap;
+
+
+		top: 45%;
+    transform: translate(0%, -50%);
+    width: 45%;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+		left: 0;
 	}
 	&__text {
 		font-size: 15px;
@@ -434,6 +443,9 @@ text-transform: uppercase;
   .round-image-on-first-section {
     @include size(12);
     @include shift(0);
+		@include from(1680px){
+			max-height: 75vh;
+		}
   }
   .page-section-common-block {
     @include shift(0);
@@ -462,4 +474,14 @@ text-transform: uppercase;
 		@include shift-left(12);
 		@include shift-right(1);
 	}
+}
+
+.with-round-text {
+  position: relative;
+  .icon--round-text {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translate(-50%,-50%);
+  }
 }
