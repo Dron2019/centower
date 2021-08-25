@@ -287,3 +287,24 @@ locoScroll.on('scroll', (position) => {
     ]);
   }
 });
+
+function handleUnloadLinks(link) {
+  const isChangeLocationLink = link.href.match(/#|tel:|mailto:/g);
+  link.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    gsap.set('.loader-wrap', { transition: 'none' });
+    if (isChangeLocationLink === null) {
+      gsap.timeline()
+        .to('.loader-wrap', {
+          autoAlpha: 1,
+          duration: 0.45,
+        })
+        .to('.right-letters', { yPercent: -120 }, '<+0.2')
+        .to('.left-letters', { yPercent: 120 }, '<')
+        .add(() => {
+          window.location = link.href;
+        });
+    }
+  });
+}
+document.querySelectorAll('a').forEach(handleUnloadLinks);

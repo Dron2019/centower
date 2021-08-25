@@ -1,27 +1,30 @@
 extends ../layout/main
-	
+  
 block meta
-	title= '404'
-	meta(name='description', content='')
+  title= '404'
+  meta(name='description', content='')
 block head
-		link(rel='stylesheet', href="./assets/styles/main.min.css")
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
 block scripts
-	script(src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/menu.js')
 
 block content
-	section(class="page404-wrap container" style="background-image: url(./assets/images/home/home-screen-bg.jpg)")
-		h1(class="page-title") 404
-			span(class="page404__title-small") помилка
-		p(class="page404__subtitle") Щось пішло не так, сторінка не знайдена
-		div(class="link-wrap")
-			+btn('Назад', 'gold')( onclick="window.history.go(-1);")
-			+a('На головну', 'grey', 'index.html')(class="button-std--invert")
+  section(class="page404-wrap container" style="background-image: url(./assets/images/home/home-screen-bg.jpg)")
+    h1(class="page-title") 404
+      span(class="page404__title-small") помилка
+    p(class="page404__subtitle") Щось пішло не так, сторінка не знайдена
+    div(class="link-wrap")
+      +btn4('Назад', 'gold')( onclick="window.history.go(-1);")
+      +a4('На головну', 'index.html')(class="button-std--invert")
 
 block footer
-	footer.footer
-		include ../includes/footer.pug
+  include ../includes/footer.pug
 
 block header
-	header.header
-		include ../includes/header.pug
+  include ../includes/header.pug
 

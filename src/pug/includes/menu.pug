@@ -17,12 +17,12 @@
         'Забудовник',
     ];
     var aboutComplex = [
-        'Концепція',
-        'Локація',
-        'Тераси',
-        'Хол',
-        'Внутрішній двір',
-        'Для дітей',
+        ['Концепція','conception',],
+        ['Локація','location',],
+        ['Тераси','terraces',],
+        ['Хол','hall',],
+        ['Внутрішній двір','#',],
+        ['Для дітей','#',],
     ];
     var flatsSubLinks = [
         'Вибір на 3D моделі',
@@ -57,7 +57,7 @@
                     a(href='#').link.link--metis #{val}
             .menu__sub-links-group(data-subgroup-name="aboutComplex")
                 each val in aboutComplex 
-                    a(href='#').link.link--metis #{val}
+                    a(href=val[1]).link.link--metis #{val[0]}
             .menu__sub-links-group(data-subgroup-name="flatsSubLinks")
                 each val in flatsSubLinks 
                     a(href='#').link.link--metis #{val}
