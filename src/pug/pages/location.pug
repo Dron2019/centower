@@ -18,7 +18,7 @@ block scripts
   script(defer src='./assets/scripts/index.bundle.js')
   script(defer src='./assets/scripts/libs.js')
   script(defer src='./assets/scripts/index.js')
-  //- script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/menu.js')
   script(defer src='./assets/scripts/location.js')
 block content
   section.page-section
@@ -69,8 +69,7 @@ block content
       <path d="M0 0.672852C155.167 0.672852 199.5 52.091 199.5 199C199.5 52.091 251.222 0.672852 399 0.672852C251.222 0.672852 199.5 0.672852 199.5 0.672852C199.5 0.672852 155.167 0.672852 0 0.672852Z" fill="#2D2D2D"/>
       </svg>
     .page-title.dark інфраструктура
-    .map
-      include ../components/map/map.pug
+    include ../components/map/map.pug
 block footer
   include ../includes/footer.pug
 

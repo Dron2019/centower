@@ -53,42 +53,11 @@ function initMap() {
     scaleControl: false,
     draggable: true,
     language: 'en',
-    styles: [{
-      featureType: 'all',
-      stylers: [{
-        saturation: 0,
-      }, {
-        hue: '#e7ecf0',
-      }],
-    }, {
-      featureType: 'road',
-      stylers: [{
-        saturation: -70,
-      }],
-    }, {
-      featureType: 'transit',
-      stylers: [{
-        visibility: 'off',
-      }],
-    }, {
-      featureType: 'poi',
-      stylers: [{
-        visibility: 'off',
-      }],
-    }, {
-      featureType: 'water',
-      stylers: [{
-        visibility: 'simplified',
-      }, {
-        saturation: -60,
-      }],
-    }],
-
   });
   const filterMarkers = function (category, categoriesArray) {
+    console.log(categoriesArray);
     gmarkers1.forEach((el) => {
-      console.log(el);
-      if (categoriesArray.has(el.category)) {
+      if (categoriesArray.has(el.category) || categoriesArray.size === 1) {
         el.setMap(map);
         el.setAnimation(google.maps.Animation.DROP);
       } else {
@@ -100,7 +69,6 @@ function initMap() {
     item.addEventListener('click', (evt) => {
       evt.stopImmediatePropagation();
       item.classList.toggle('active');
-      console.log(choosedCategories);
       if (item.classList.contains('active')) {
         choosedCategories.add(item.dataset.category);
       } else {
@@ -112,29 +80,25 @@ function initMap() {
 
   // var baseFolder = '/wp-content/themes/rusaniv/assets/images/markers/';
   const baseFolder = './assets/images/markers/';
-  const defaultMarkerSize = new google.maps.Size(40, 50);
-  const buildLogoSize = new google.maps.Size(70, 87);
+  const defaultMarkerSize = new google.maps.Size(60, 81);
+  const buildLogoSize = new google.maps.Size(125, 55);
   const markersAdresses = {
     main: `${baseFolder}marker-main.svg`,
-    sport: `${baseFolder}marker-sport-complex.svg`,
-    school: `${baseFolder}marker-school.svg`,
-    bank: `${baseFolder}marker-bank.svg`,
-    kindergarden: `${baseFolder}marker-kindergarden.svg`,
-    park: `${baseFolder}marker-park.svg`,
-    meal: `${baseFolder}marker-meal.svg`,
-    dentist: `${baseFolder}marker-dentist.svg`,
-    medicine: `${baseFolder}marker-medicine.svg`,
-    metro: `${baseFolder}marker-metro.svg`,
-    post: `${baseFolder}marker-post.svg`,
+    cafe: `${baseFolder}marker-cafe.svg`,
+    kinder: `${baseFolder}marker-kindergarden.svg`,
     shop: `${baseFolder}marker-shop.svg`,
-    supermarkets: `${baseFolder}marker-supermarkets.svg`,
+    sport: `${baseFolder}marker-sport.svg`,
+    education: `${baseFolder}marker-education.svg`,
+    meal: `${baseFolder}marker-meal.svg`,
+    med: `${baseFolder}marker-medicine.svg`,
+    bank: `${baseFolder}marker-bank.svg`,
   };
   const markerPopupStyle = `
         style="
-        background: #1798D5;
+        background: #2D2D2D;
+        color:#fff;
         padding:5px 10px;
-        font-weight: 500;
-        font-size: 14px;
+        font-size: 18px;
         line-height: 22px;"
         `;
 
@@ -148,10 +112,10 @@ function initMap() {
       icon: { url: markersAdresses.main, scaledSize: buildLogoSize },
     },
     {
-      content: `<div ${markerPopupStyle}>PARK</div>`,
+      content: `<div ${markerPopupStyle}>sport</div>`,
       position: { lat: 50.478303, lng: 30.516779 },
-      type: 'park',
-      icon: { url: markersAdresses.park, scaledSize: defaultMarkerSize },
+      type: 'sport',
+      icon: { url: markersAdresses.sport, scaledSize: defaultMarkerSize },
     },
     {
       content: `<div ${markerPopupStyle}>Shop</div>`,
@@ -162,8 +126,8 @@ function initMap() {
     {
       content: `<div ${markerPopupStyle}>Post</div>`,
       position: { lat: 50.482303, lng: 30.516779 },
-      type: 'post',
-      icon: { url: markersAdresses.post, scaledSize: defaultMarkerSize },
+      type: 'cafe',
+      icon: { url: markersAdresses.cafe, scaledSize: defaultMarkerSize },
     },
     {
       content: `<div ${markerPopupStyle}>Bank</div>`,
