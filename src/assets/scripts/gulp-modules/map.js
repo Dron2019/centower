@@ -87,6 +87,7 @@ function initMap() {
   });
   const filterMarkers = function (category, categoriesArray) {
     gmarkers1.forEach((el) => {
+      console.log(el);
       if (categoriesArray.has(el.category)) {
         el.setMap(map);
         el.setAnimation(google.maps.Animation.DROP);
@@ -96,8 +97,10 @@ function initMap() {
     });
   };
   filterItems.forEach((item) => {
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (evt) => {
+      evt.stopImmediatePropagation();
       item.classList.toggle('active');
+      console.log(choosedCategories);
       if (item.classList.contains('active')) {
         choosedCategories.add(item.dataset.category);
       } else {

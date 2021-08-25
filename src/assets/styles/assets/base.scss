@@ -256,8 +256,8 @@ button, a {
 		border-radius: 50%;
 		svg {
 			position: relative;
-			width: 55%;
-			height: 55%;
+			width: 45%;
+			height: 45%;
 			fill: var(--color-white);
 			z-index: 3;
 			transition: .3s ease-in-out;
@@ -405,4 +405,15 @@ button, a {
 		height: auto;
 		width: 100%;
 	}
+}
+
+.link {
+	text-decoration: none;
+	color: var(--color-white);
+	font-size: 13px;
+line-height: 130%;
+/* identical to box height, or 17px */
+
+letter-spacing: 0.03em;
+text-transform: uppercase;
 }
