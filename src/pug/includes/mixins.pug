@@ -99,3 +99,32 @@ mixin a3(text, href)
 
 mixin social(text, href)
 	a(href=href target='_blank' class="social-icon") #{text}
+
+mixin roundImageOnFirstSection(href)
+	<svg class="round-image-on-first-section" preserveAspectRatio="xMidYMin slice" width="638" height="937" viewBox="0 0 638 937" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="638" height="937">
+		<path d="M0 300C0 134.315 134.315 0 300 0H338C503.685 0 638 134.315 638 300V937H0V300Z" fill="url(#pattern0)"/>
+		<path d="M0 300C0 134.315 134.315 0 300 0H338C503.685 0 638 134.315 638 300V937H0V300Z" fill="url(#paint0_linear)" fill-opacity="0.07"/>
+		</mask>
+		<g mask="url(#mask0)">
+		<path d="M-43 240C-43 74.3146 91.3146 -60 257 -60H337C502.685 -60 637 74.3146 637 240V938H-43V240Z" fill="url(#pattern1)"/>
+		<path d="M-43 240C-43 74.3146 91.3146 -60 257 -60H337C502.685 -60 637 74.3146 637 240V938H-43V240Z" fill="url(#paint1_linear)" fill-opacity="0.07"/>
+		</g>
+		<defs>
+		<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+		<use xlink:href="#image0" transform="translate(-0.452712) scale(0.00145077 0.00100127)"/>
+		</pattern>
+		<pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+		<use xlink:href="#image0" transform="translate(-0.452712) scale(0.00145077 0.00100127)"/>
+		</pattern>
+		<linearGradient id="paint0_linear" x1="319" y1="0" x2="319" y2="937" gradientUnits="userSpaceOnUse">
+		<stop/>
+		<stop offset="1" stop-opacity="0"/>
+		</linearGradient>
+		<linearGradient id="paint1_linear" x1="297" y1="-60" x2="297" y2="938" gradientUnits="userSpaceOnUse">
+		<stop/>
+		<stop offset="1" stop-opacity="0"/>
+		</linearGradient>
+		<image x="-100" id="image0" width="1500" height="1101" xlink:href=#{href}>
+		</defs>
+		</svg>

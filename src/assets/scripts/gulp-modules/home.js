@@ -85,9 +85,11 @@ const params = {
 navs.forEach(resetStrokeValue);
 navs.forEach((el, index) => {
   el.addEventListener('click', function () {
+    if (params.isAnimating === true) return;
     clearTimeoutAndSetNew();
     simulatePathDrawing(navs[index], 1.5, '5');
     resetStrokeValue(navs[params.curentIndex]);
+    params.isAnimating = true;
     changeScreenWithEffects(slides[index], slides[params.curentIndex], () => {
       params.curentIndex = index;
       params.isAnimating = false;
@@ -103,6 +105,7 @@ window.addEventListener('load', function () {
   const url = new URL(urlString);
   const c = +url.searchParams.get(params.url);
   if (typeof c === 'number' && slides[c] !== undefined && +c !== 0) {
+    params.isAnimating = true;
     changeScreenWithEffects(
       slides[c],
       slides[0],
@@ -117,9 +120,12 @@ window.addEventListener('load', function () {
 });
 
 nextSlideButton.addEventListener('click',function(evt){
+
+  if (params.isAnimating === true) return;
   const nextIndex = getNextIndex(params.curentIndex, slides, 1);
   simulatePathDrawing(navs[nextIndex], 1.5, '5');
   resetStrokeValue(navs[params.curentIndex]);
+  params.isAnimating = true;
   changeScreenWithEffects(slides[nextIndex], slides[params.curentIndex], () => {
     params.curentIndex = nextIndex;
     params.isAnimating = false;
@@ -279,4 +285,4 @@ const d17 = 'M 0 67 Q 40 110 121 70 Q 121 70 120 70 Q 107 110 34 98 Q -1 92 0 67
     ease:"power3.easeInOut", repeat:10, yoyo:true, repeatDelay:1, delay:1});
 }
 
-some();
+// some();
