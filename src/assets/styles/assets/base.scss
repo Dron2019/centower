@@ -388,9 +388,10 @@ button, a {
 	.button-std-3 {
 		position: absolute;
 		left: 50%;
-		top: 50%;
+		top: 45%;
 		transform: translate(-50%,-50%);
 		width: 45%;
+		white-space: nowrap;
 	}
 	&__text {
 		font-size: 15px;
@@ -416,4 +417,49 @@ line-height: 130%;
 
 letter-spacing: 0.03em;
 text-transform: uppercase;
+}
+
+
+.page-section {
+  --bottom-block-margin: 100px;
+  @include row-flex();
+  @include shift-padding(2);
+  @include to(1120px){
+    
+    padding-left: 0;
+    padding-right: 0;
+  }
+  align-content: flex-start;
+  margin-top: 83px;
+  .round-image-on-first-section {
+    @include size(12);
+    @include shift(0);
+  }
+  .page-section-common-block {
+    @include shift(0);
+    @include size(12);
+    position: relative;
+    z-index: 3;
+  }
+  .ellipse-common {
+    @include shift-left(-2);
+    @include size(26);
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .page-title {
+    white-space: nowrap;
+  }
+}
+.page-last-section {
+	--top-padding: 146px;
+	--bottom-padding: 100px;
+	padding-top: var(--top-padding);
+	padding-top: var(--bottom-padding);
+	@include row-flex();
+	.ellipse-common {
+		@include size(11);
+		@include shift-left(12);
+		@include shift-right(1);
+	}
 }

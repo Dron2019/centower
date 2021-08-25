@@ -20,6 +20,7 @@ $gold: #CFA46E;
 :root {
   --color-white: #FAFAFA;  
   --color-gray: #D2D2D2;
+  --color-grey: #989898;
   --color-milk: #F3EFE9;
   --logo-w: 225px;
   --logo-h: calc(var(--logo-w) / 225px * 49px);
@@ -33,7 +34,6 @@ $gold: #CFA46E;
   --in: cubic-bezier(0.13, 0.81, 0.23, 0.96);
   --header-h: 100px;
 
-  --color-grey: rgba(56, 62, 65, 1);
   --color-light-grey: rgba(246, 246, 246, 1);
   // --color-black: #1D1D27;
   --border-radius: 100px;       

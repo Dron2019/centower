@@ -1,0 +1,13 @@
+.social-icon {
+  font-size: 12px;
+  line-height: 120%;
+  color: var(--color-white);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .3s ease-in-out;
+  @include from(950px){
+    &:hover {
+      color: var(--color-gold);
+    }
+  }
+}

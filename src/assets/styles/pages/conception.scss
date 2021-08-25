@@ -1,36 +1,4 @@
 
-
-.page-section {
-  --bottom-block-margin: 100px;
-  @include row-flex();
-  @include shift-padding(2);
-  @include to(1120px){
-    
-    padding-left: 0;
-    padding-right: 0;
-  }
-  align-content: flex-start;
-  margin-top: 83px;
-  .round-image-on-first-section {
-    @include size(12);
-    @include shift(0);
-  }
-  .page-section-common-block {
-    @include shift(0);
-    @include size(12);
-    position: relative;
-    z-index: 3;
-  }
-  .ellipse-common {
-    @include shift-left(-2);
-    @include size(26);
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-  .page-title {
-    white-space: nowrap;
-  }
-}
 .conception-img2 {
   @include size(10);
   @include shift(0);

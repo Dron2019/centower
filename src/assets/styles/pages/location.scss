@@ -2,6 +2,10 @@
   @include size(10.2);
   @include shift(0);
   position: relative;
+  @include from(950px){
+    margin-bottom: -100px;
+  z-index: 10;
+  }
   .icon--round-text {
     position: absolute;
     left: 0;
