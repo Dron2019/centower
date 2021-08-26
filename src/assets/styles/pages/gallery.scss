@@ -1,0 +1,59 @@
+.gallery-slider-wrapper {
+  margin-left: calc(var(--page-side-fields) * -1);
+  margin-right: calc(var(--page-side-fields) * -1);
+  .swiper-slide {
+    height: 52.5vw;
+    object-fit: cover;
+    object-position: bottom;
+  }
+}
+
+.moving-arrow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  transition: transform .3s ease-in-out;
+  will-change: left, top;     
+  &.left-side {
+    transform: rotate(-180deg);
+  }
+}
+
+.gallery-nav {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  left: var(--page-side-fields);
+  bottom: 50px;
+  z-index: 5;
+  &__current {
+    font-family: MADE Coachella;
+    font-size: 140px;
+    line-height: 100%;
+    /* identical to box height, or 140px */
+
+    letter-spacing: -0.03em;
+    -webkit-text-stroke: var(--color-white);
+    -webkit-text-stroke-width: 1px;
+    color: transparent;
+    overflow: hidden;
+    min-width: 170px;
+  }
+  &__current span {
+    display: inline-block;
+  }
+  &__all {
+    color: var(--color-white);
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 100%;
+    /* identical to box height, or 36px */
+
+    letter-spacing: -0.03em;
+    margin-left: 20px;
+  }
+  &__all:before {
+    content: '/';
+  }
+}
