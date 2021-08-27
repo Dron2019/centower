@@ -1,0 +1,73 @@
+.build-card {
+  --side-padding: 20px;
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
+  width: calc(100% - 25px);
+  border-left:1px solid rgba(152, 152, 152, 0.25);
+  border-right:1px solid rgba(152, 152, 152, 0.25);
+  position: relative;
+  &__delimiter {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(152, 152, 152, 0.25);
+    margin-bottom: 30px;
+  }
+  &__title {
+    color: var(--color-gray);
+    margin-bottom: 30px;
+    padding-right: 5%;
+  }
+  &__day {
+    font-family: 'MADE Coachella';
+    font-size: 100px;
+    line-height: 70%;
+    padding-top: 0.3em;
+    /* identical to box height, or 100px */
+
+    letter-spacing: -0.03em;
+    color: transparent;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: var(--color-white);
+  }
+  &__year {
+    font-size: 20px;
+    line-height: 130%;
+    /* identical to box height, or 26px */
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    /* fon */
+    color: #F1F1F1;
+    position: absolute;
+    top: 0;
+    right: var(--side-padding);
+  }
+  &__month {
+    font-size: 15px;
+    line-height: 130%;
+    color: var(--color-grey);
+    text-transform: uppercase;
+    align-self: flex-end;
+    margin-left: 5px;
+  }
+  &__date-group {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+  }
+  &__img {
+    height: Max(25vh, 258px);
+    object-fit: cover;
+  }
+}
+
+.build-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  &>* {
+    @include size(12);
+    margin-bottom: 100px;
+  }
+  &>*:nth-child(even) {
+    margin-left: -1px;
+  }
+}

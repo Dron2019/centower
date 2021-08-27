@@ -468,16 +468,65 @@ text-transform: uppercase;
     margin-top: auto;
     margin-bottom: auto;
   }
+  .page-section-common-block.image-down .ellipse-common {
+    @include shift-left(0);
+    @include size(13.2);
+		margin-top: 100px;
+  }
   .page-title {
     white-space: nowrap;
   }
 }
+
+.page-white-section {
+  background-color: var(--color-milk);
+  @include row-flex();
+  padding-left: calc(8.33333% + 12.5px + var(--page-side-fields));
+  padding-right: calc(8.33333% + 12.5px + var(--page-side-fields));
+  margin-left: calc(var(--page-side-fields) * -1 - #{$offset / 2});
+  margin-right: calc(var(--page-side-fields) * -1 - #{$offset / 2});
+  @include to(1120px){
+    
+    padding-left: var(--page-side-fields);
+    padding-right: var(--page-side-fields);
+    margin-left: calc( -1 * var(--page-side-fields));
+    margin-right: calc( -1 * var(--page-side-fields));
+  }
+  // padding-left: var(--page-side-fields);
+  // padding-right: var(--page-side-fields);
+  position: relative;
+  padding-top: 202px;
+  padding-bottom: 150px;
+  &__decor-pattern {
+    position: absolute;
+    top: -2px;
+    right: 12%;
+    width: 48%;
+    height: 202px;
+  }
+  .page-title {
+    @include size(24);
+    @include shift(0);
+    text-align: right;
+    margin-top: 50px;
+  }
+}
+
 .page-last-section {
 	--top-padding: 146px;
 	--bottom-padding: 100px;
 	padding-top: var(--top-padding);
 	padding-top: var(--bottom-padding);
+	position: relative;
+	--decor-height: 200px;
 	@include row-flex();
+	&__decor-pattern {
+		position: absolute;
+    left: 0;
+    top: -2px;
+    height: var(--decor-height);
+		@include shift-left(2);
+	}
 	.ellipse-common {
 		@include size(11);
 		@include shift-left(12);
