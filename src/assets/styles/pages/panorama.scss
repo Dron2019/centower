@@ -1,0 +1,35 @@
+.panorama-wrapper {
+  width: 100vw;
+  height: 668px;
+  margin-left: calc(var(--page-side-fields) * -1);
+  margin-right: calc(var(--page-side-fields) * -1);
+  position: relative;
+  [data-panorama] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__faq {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;align-items: center;
+    img {
+      width: 112px;
+      height: 124px;
+      margin-bottom: 30px;
+    }
+    &-text {
+      width: 175px;
+      text-align: center;
+    }
+  }
+}
