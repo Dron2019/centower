@@ -6,6 +6,11 @@
     object-fit: cover;
     object-position: bottom;
   }
+  @include from(950px){
+    .swiper-wrapper {
+      transition-timing-function: ease-in-out;
+    }
+  }
 }
 
 .moving-arrow {
@@ -30,7 +35,7 @@
   &__current {
     font-family: MADE Coachella;
     font-size: 140px;
-    line-height: 100%;
+    line-height: 80%;
     /* identical to box height, or 140px */
 
     letter-spacing: -0.03em;

@@ -90,6 +90,7 @@ function sideSwitchArrow(swiper, arrowArgs, conArgs) {
 /** СТрелка переключатель в зависимости от положения на єкране END */
 const swiper = new Swiper('[data-swiper]', {
   loop: true,
+  speed: 1000,
 });
 
 
@@ -98,10 +99,10 @@ const currentSlideShow = [
   document.querySelector('[data-second-digit]'),
 ];
 currentSlideShow[0].textContent = 0;
-currentSlideShow[1].textContent = swiper.activeIndex;
-document.querySelector('.gallery-nav__all').textContent = swiper.imagesLoaded;
+currentSlideShow[1].textContent = swiper.realIndex + 1;
+document.querySelector('.gallery-nav__all').textContent = swiper.imagesLoaded - 2;
 swiper.on('activeIndexChange', (self) => {
-  const splitedIndex = self.activeIndex.toString().split('');
+  const splitedIndex = (self.realIndex + 1).toString().split('');
   const firstDigit = splitedIndex.length > 1 ? splitedIndex[0] : 0;
   const secondDigit = splitedIndex.length > 1 ? splitedIndex[1] : splitedIndex[0];
   gsap.timeline()
@@ -110,10 +111,9 @@ swiper.on('activeIndexChange', (self) => {
       currentSlideShow[1].textContent = secondDigit;
     })
     .fromTo(currentSlideShow[1], { yPercent: -100 }, { yPercent: 0 });
-  if (
-    currentSlideShow[0].textContent != firstDigit) {
+  if (currentSlideShow[0].textContent != firstDigit) {
     gsap.timeline()
-      .fromTo(currentSlideShow[1], { yPercent: 0 }, { yPercent: 100 })
+      .fromTo(currentSlideShow[0], { yPercent: 0 }, { yPercent: 100 })
       .add(() => {
         currentSlideShow[0].textContent = firstDigit;
       })
