@@ -17,7 +17,18 @@ block variable
       { id: "106", day: '17', month:'Грудень', year:'2021', title:'Ділимось з вами новим звітом по будівництву унікального CENTOWER'},
       { id: "107", day: '26', month:'Січень', year:'2022', title:'Ділимось з вами новим звітом по будівництву унікального CENTOWER'},
       { id: "108", day: '11', month:'Лютий', year:'2022', title:'Ділимось з вами новим звітом по будівництву унікального CENTOWER'},
-    ]
+    ];
+    var statuses = [
+      {name: 'фундамент', activeClass: '',},
+      {name: 'Зведення каркаса', activeClass: '',},
+      {name: 'кровельні роботи', activeClass: '',},
+      {name: 'зовнішні мережі', activeClass: '',},
+      {name: 'кладочні роботи', activeClass: 'active',},
+      {name: 'внутрішні мережі', activeClass: '',},
+      {name: 'внутрішнє оздоблення', activeClass: '',},
+      {name: 'роботи з благоустрою', activeClass: '',},
+      {name: 'введення в експлутацію', activeClass: '',},
+    ];
   
 block meta
   title= title_page
@@ -59,6 +70,13 @@ block content
       <path d="M0 0.672607C155.167 0.672607 199.5 52.0908 199.5 199C199.5 52.0908 251.222 0.672607 399 0.672607C251.222 0.672607 199.5 0.672714 199.5 0.672714C199.5 0.672714 155.167 0.672607 0 0.672607Z" fill="#2D2D2D"/>
       </svg>
     .page-title.dark статус робіт
+    .statuses-wrapper
+      each val in statuses
+        div(class="status "+val.activeClass) 
+          <svg class="status__star" width="30" height="32" viewBox="0 0 30 32" fill="#2D2D2D" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 16.2909C11.6454 16.2909 14.9727 20.3636 14.9727 32C14.9727 20.3636 18.8545 16.2909 29.9454 16.2909C18.8545 16.2909 14.9727 12.2182 14.9727 0C14.9727 12.2182 11.6454 16.2909 0 16.2909Z" />
+            </svg>
+          span #{val.name}
   section.page-last-section
     <svg class="page-last-section__decor-pattern" data-first-screen-anim="" width="399" height="199" viewBox="0 0 399 199" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0.672607C155.167 0.672607 199.5 52.0908 199.5 199C199.5 52.0908 251.222 0.672607 399 0.672607C251.222 0.672607 199.5 0.672714 199.5 0.672714C199.5 0.672714 155.167 0.672607 0 0.672607Z" fill="#F3EFE9"></path>
@@ -73,11 +91,16 @@ block content
         </svg>
   .build-detail-popup(data-build-popup)
     .build-detail-popup__content
-      .build-detail-popup__content-close(data-detail-close) закрити
+      div(data-detail-close).build-detail-popup__content-close
+        span закрити
+        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="50" height="50" rx="25" fill="#2D2D2D"></rect>
+          <path d="M19 31L31 19M31 31L19 19" stroke="#F3EFE9"></path>
+          </svg>
       .build-detail-popup__content-date(data-detail-date)  08 червня
       .build-detail-popup__content-text(data-detail-text) закрити
-      iframe(href="").build-detail-popup__content-frame(data-detail-frame) закрити
-      .build-detail-popup__content-star закрити
+      iframe(data-detail-frame href="").build-detail-popup__content-frame
+      .build-detail-popup__content-star
 
 block footer
   include ../includes/footer.pug

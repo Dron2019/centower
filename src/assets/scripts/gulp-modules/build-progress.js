@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-undef */
 const popupContentInit = {
   title: 'Title',
@@ -9,13 +11,13 @@ const renderTargets = {
   title: () => {
   },
   text: (val) => {
-    document.querySelector('[data-detail-text]').textContent = val;
+    document.querySelector('[data-detail-text]').innerHTML = val;
   },
   date: (val) => {
-    document.querySelector('[data-detail-date]').textContent = val;
+    document.querySelector('[data-detail-date]').innerHTML = val;
   },
   url: (val) => {
-    document.querySelector('[data-detail-frame]').href = val;
+    document.querySelector('[data-detail-frame]').src = val;
   },
 };
 const buildPopup = new Popup({
@@ -34,14 +36,14 @@ const popupContent = new Proxy(popupContentInit, {
 
 cards.forEach((card) => {
   card.addEventListener('click', () => {
-    requestBuildDetails(card.dataset.id , (response) => {
+    requestBuildDetails(card.dataset.id, (response) => {
       popupContent.title = response.title;
       popupContent.text = response.text;
       popupContent.url = response.url;
       popupContent.date = response.date;
     });
   });
-})
+});
 
 
 function requestBuildDetails(id, cb = () => {}) {
