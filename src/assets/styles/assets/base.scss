@@ -543,3 +543,51 @@ text-transform: uppercase;
     transform: translate(-50%,-50%);
   }
 }
+
+.ellipse-on-white-field {
+	position: relative;
+	color: var(--color-black);
+	&>svg {
+		width: 100%;
+		height: auto;
+	}
+	&__text {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+	}
+}
+
+.heartbeat {
+	-webkit-animation: heartbeat 0.5s ease-in-out infinite both;
+	        animation: heartbeat 0.5s ease-in-out infinite both;
+}
+@-webkit-keyframes heartbeat {
+	0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.25);
+            transform: scale(1.25);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes heartbeat {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.25);
+            transform: scale(1.25);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}

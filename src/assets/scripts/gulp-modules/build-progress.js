@@ -59,3 +59,7 @@ function requestBuildDetails(id, cb = () => {}) {
       cb(el);
     });
 }
+
+
+
+locoScroll.scrollTo(document.querySelector('.build-status-section'))
