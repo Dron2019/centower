@@ -290,8 +290,9 @@ locoScroll.on('scroll', (position) => {
 
 function handleUnloadLinks(link) {
   const isChangeLocationLink = link.href.match(/#|tel:|mailto:/g);
+  const isBlank = link.getAttribute('target');
   link.addEventListener('click', (evt) => {
-    evt.preventDefault();
+    if (isBlank === null) evt.preventDefault();
     gsap.set('.loader-wrap', { transition: 'none' });
     if (isChangeLocationLink === null) {
       gsap.timeline()
