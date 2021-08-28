@@ -180,6 +180,7 @@ lazyImages.forEach((imageArgs) => {
       if (entry.isIntersecting) {
         const lazyImage = entry.target;
         lazyImage.src = lazyImage.dataset.src;
+        image.style.transition = '';
         observer.unobserve(target);
       }
     });
