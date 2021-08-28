@@ -1,0 +1,15 @@
+.developer-img2 {
+  @include size(10.8);
+  @include shift(0);
+  @include shift-padding-right(0.5);
+  svg {
+    mix-blend-mode: difference;
+  }
+}
+.developer-paragraph1 {
+  @include size(12);
+  @include shift-left(1.2);
+  @include shift-right(0);
+  margin-top: 100px;
+  margin-bottom: auto;
+}
