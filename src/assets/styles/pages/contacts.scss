@@ -76,3 +76,21 @@
     }
   }
 }
+
+
+[data-line-test] {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgba($color: #26aa89, $alpha: 1.0);
+  z-index: 50;
+}
+[data-line-test1] {
+  position: fixed;
+  left: 0;
+  top: 155px;
+  width: 100%;
+  background-color: rgba($color: #26aa89, $alpha: 1.0);
+  z-index: 50;
+}

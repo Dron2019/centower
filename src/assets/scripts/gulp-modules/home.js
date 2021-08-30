@@ -4,10 +4,11 @@
 /* eslint-disable no-undef */
 gsap.registerPlugin(MotionPathPlugin);
 function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, direction = 1) {
+  const SPEED = 0.75;
   switch (direction) {
     case -1:
       gsap.timeline()
-        .timeScale(1)
+        .timeScale(SPEED)
         .set(toOpenElement, { display: '', yPercent: -100 }, '<')
         .to(toCloseElement, {
           yPercent: 100, autoAlpha: 1, clearProps: 'all', duration: 2, ease: 'power4.out',
@@ -37,7 +38,7 @@ function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, d
       break;
     case 1:
       gsap.timeline()
-        .timeScale(1)
+        .timeScale(SPEED)
         .set(toOpenElement, { display: '', yPercent: 100 }, '<')
         .to(toCloseElement, {
           yPercent: -100, autoAlpha: 1, clearProps: 'all', duration: 2, ease: 'power4.out',
