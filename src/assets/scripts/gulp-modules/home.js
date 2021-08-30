@@ -12,6 +12,7 @@ function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, d
         .to(toCloseElement, {
           yPercent: 100, autoAlpha: 1, clearProps: 'all', duration: 2, ease: 'power4.out',
         }, '<')
+        .to(toCloseElement.querySelector('img'), { scale: 1.2, duration: 1.75, ease: 'power4.out',}, '<')
         .fromTo(
           toOpenElement,
           { yPercent: -100, autoAlpha: 1 },
@@ -23,6 +24,11 @@ function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, d
           },
           '<',
         )
+        .fromTo(
+          toOpenElement.querySelector('img'), 
+          { scale: 1.2 }, 
+          { scale: 1, duration: 1.75, ease: 'power4.out',}, 
+          '<')
         .set(toCloseElement, { display: 'none' })
         .add(() => {
           locoScroll.update();
@@ -36,6 +42,7 @@ function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, d
         .to(toCloseElement, {
           yPercent: -100, autoAlpha: 1, clearProps: 'all', duration: 2, ease: 'power4.out',
         }, '<')
+        .to(toCloseElement.querySelector('img'), { scale: 1.2, duration: 1.75, ease: 'power4.out', }, '<')
         .fromTo(
           toOpenElement,
           { yPercent: 100, autoAlpha: 1 },
@@ -47,6 +54,11 @@ function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, d
           },
           '<',
         )
+        .fromTo(
+          toOpenElement.querySelector('img'), 
+          { scale: 1.2 }, 
+          { scale: 1, duration: 1.75, ease: 'power4.out',}, 
+          '<')
         .set(toCloseElement, { display: 'none' })
         .add(() => {
           locoScroll.update();

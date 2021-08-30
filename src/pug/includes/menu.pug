@@ -6,7 +6,7 @@
         ['Квартири', 'flatsSubLinks'],
         ['Паркінг', ''],
         ['Умови придбання', 'buySubLinks'],
-        ['Контакти', ''],
+        ['Контакти', '', 'contacts'],
         ];
     var aboutProject = [
         ['Характеристики','characteristics',],
@@ -43,7 +43,7 @@
             each val in headLinks 
                 if val[1].length === 0
                     li
-                        a(href='#') #{val[0]}
+                        a(href=val[2]) #{val[0]}
                 else
                     li
                         a(href='#' data-head-link=val[1]) #{val[0]}

@@ -1,0 +1,78 @@
+.contacts-button {
+  text-decoration: none;
+  color: var(--color-white);
+  background-color: transparent;
+  border: 1px solid var(--color-gold);
+  border: 1px solid rgba(217, 180, 143, 0.5);
+  border-radius: 100px;
+  padding: 15px 40px;
+  overflow: hidden;
+  --hover-color: rgba(217, 180, 143, 0.8);
+    --hover-text-color: var(--color-white);
+    position: relative;
+    display: inline-block;
+}
+
+.contacts {
+  &__map-wrapper {
+    @include size(12);
+    @include shift(0);
+    
+  }
+  &__map {
+    position: relative;
+    padding-bottom: 95%;
+  }
+  .map {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: calc(100% + (30.33333% + (var(--page-side-fields))) + 12.5px);
+    height: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    // margin-right: calc((8.33333% + (var(--page-side-fields) * -1)) + 12.5px);
+    min-height: auto
+  }
+  &__text {
+    @include size(12);
+    @include shift(0);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    
+    .contacts-button {
+      margin-top: 50px;
+    }
+    &-tel {
+      display: flex;
+      align-items: center;
+      font-family: 'MADE Coachella';
+      font-size: 36px;
+      line-height: 140%;
+      font-weight: 300;
+      /* or 50px */
+      text-transform: uppercase;
+      color: var(--color-milk);
+      text-decoration: none;
+    }
+    &-adress {
+      font-size: 36px;
+      line-height: 140%;
+      color: var(--color-milk);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    &-subtitle {
+      text-transform: uppercase;
+      color: var(--color-grey);
+      margin-bottom: 10px;
+    }
+    &-scheldule {
+      margin-bottom: 50px;
+    }
+  }
+}

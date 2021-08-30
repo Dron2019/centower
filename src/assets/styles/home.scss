@@ -29,6 +29,7 @@
     transform-origin: center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
     picture {
         pointer-events: none;
     }
