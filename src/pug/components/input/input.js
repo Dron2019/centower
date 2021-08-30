@@ -1,4 +1,5 @@
 import Cleave from 'cleave.js';
+import SuccesEvent from '../form/succes-event';
 
 export default class SexyInput {
   constructor(setting) {
@@ -123,6 +124,16 @@ export default class SexyInput {
         prefix: '+380',
         blocks: [4, 2, 3, 2, 2],
         delimiters: [' ', ' ', ' ', ''],
+      });
+      input.addEventListener(SuccesEvent.name, () => {
+        cleave.destroy();
+        cleave = new Cleave(input, {
+          /* eslint-enable */
+          numericOnly: true,
+          prefix: '+380',
+          blocks: [4, 2, 3, 2, 2],
+          delimiters: [' ', ' ', ' ', ''],
+        });
       });
       // input.addEventListener('countrychange', () => {
       //   const currentCountry = input.intTelIput.getSelectedCountryData();

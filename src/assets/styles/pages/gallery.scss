@@ -20,6 +20,7 @@
   z-index: 10;
   transition: transform .3s ease-in-out;
   will-change: left, top;     
+  opacity: 0;
   &.left-side {
     transform: rotate(-180deg);
   }

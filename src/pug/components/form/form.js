@@ -117,6 +117,7 @@ export default class FormMonster {
       form: setting.elements.fields,
       status: 'filling',
     };
+    this.succesEventName = setting.succesEventName;
     this.fieldsKey = Object.keys(this.elements.fields);
     this.watchedState = initView(this.state, this.elements);
 
@@ -217,11 +218,13 @@ export default class FormMonster {
     this.fieldsKey.map((key) => {
       const { input } = this.elements.fields[key].inputWrapper;
       input.addEventListener('input', this.changeInput(this.watchedState));
+      input.succesEventName = this.succesEventName;
       return null;
     });
   }
 
   init() {
+    console.log(this);
     this.listers();
   }
 }

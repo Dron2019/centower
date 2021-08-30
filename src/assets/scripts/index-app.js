@@ -39,66 +39,27 @@ const forms = [
   '[data-home-contact]',
   '[data-popup-form]',
 ];
-const formsWithRedirect = [
-  '[data-footer-form]',
-];
-
-formsWithRedirect.forEach((form) => {
-  const $form = document.querySelector(form);
-  if ($form) {
-    /* eslint-disable */
-    new FormMonster({
-      /* eslint-enable */
-      elements: {
-        $form,
-        showSuccessMessage: false,
-        successAction: () => { window.location.href = 'message'; },
-        $btnSubmit: $form.querySelector('[data-btn-submit]'),
-        fields: {
-          name: {
-            inputWrapper: new SexyInput({ animation: 'none', $field: $form.querySelector('[data-field-name]') }),
-            rule: yup.string().required(i18next.t('required')).trim(),
-            defaultMessage: i18next.t('name'),
-            valid: false,
-            error: [],
-          },
-
-          phone: {
-            inputWrapper: new SexyInput({ animation: 'none', $field: $form.querySelector('[data-field-phone]'), typeInput: 'phone' }),
-            rule: yup
-              .string()
-              .required(i18next.t('required'))
-              .min(16, i18next.t('field_too_short', { cnt: 19 - 7 })),
-
-            defaultMessage: i18next.t('phone'),
-            valid: false,
-            error: [],
-          },
-        },
-
-      },
-    });
-
-    $form.querySelector('.js-mask-absolute').addEventListener('click', () => {
-      $form.querySelector('[name="phone"]').focus();
-    }, false);
-  }
-});
-
+function changFormOverlay($form) {
+  const overlay = $form.querySelector('[data-succes-overlay]');
+  gsap.timeline()
+    .fromTo(overlay, { scale: 0.5, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, ease: 'expo.inOut' });
+  console.log(gsap);
+  // overlay.style.opacity = 1;
+  overlay.style.pointerEvents = 'all';
+  overlay.style.visibility = 'visible';
+}
 forms.forEach((form) => {
   const $form = document.querySelector(form);
   if ($form) {
     /* eslint-disable */
     new FormMonster({
       /* eslint-enable */
+      succesEventName: 'succesSend',
       elements: {
         $form,
         showSuccessMessage: false,
         successAction: () => {
-          const overlay = $form.querySelector('[data-succes-overlay]');
-          overlay.style.opacity = 1;
-          overlay.style.pointerEvents = 'all';
-          overlay.style.visibility = 'visible';
+          changFormOverlay($form);
         },
         $btnSubmit: $form.querySelector('[data-btn-submit]'),
         fields: {

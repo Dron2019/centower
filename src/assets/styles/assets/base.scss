@@ -433,6 +433,7 @@ text-transform: uppercase;
 
 .page-section {
   --bottom-block-margin: 100px;
+	perspective: 200px;
   @include row-flex();
   @include shift-padding(2);
   @include to(1120px){

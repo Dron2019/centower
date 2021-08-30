@@ -1,7 +1,7 @@
 import onChange from 'on-change';
 import i18next from 'i18next';
 import MyToster from '../toster/toster';
-
+import SuccesEvent from './succes-event';
 // BEGIN
 
 const renderForm = (form, elements, toast) => {
@@ -53,6 +53,7 @@ const renderForm = (form, elements, toast) => {
         const field = elementsParamFn.fields[key];
         field.inputWrapper.showDefaultStyle();
         field.inputWrapper.removeSelectedStyle();
+        SuccesEvent.dispatch(field.inputWrapper.$input);
       });
       elementsParamFn.$form.reset();
       elementsParamFn.$btnSubmit.removeAttribute('disabled');
