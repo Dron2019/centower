@@ -25,10 +25,10 @@ ScrollTrigger.scrollerProxy(document.body, {
 ScrollTrigger.addEventListener('fixed', () => locoScroll.update());
 
 ScrollTrigger.refresh();
-gsap.defaults({
-  ease: 'none',
-  duration: 1,
-});
+// gsap.defaults({
+//   ease: 'none',
+//   duration: 1,
+// });
 gsap.set('.developer-img3 img', { scale: 1.2 });
 gsap.set('.developer-paragraph-with-text__img img', { scale: 1.2 });
 const dev3 = document.querySelector('.developer-img3');

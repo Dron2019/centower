@@ -55,7 +55,7 @@ const renderForm = (form, elements, toast) => {
         field.inputWrapper.removeSelectedStyle();
       });
       elementsParamFn.$form.reset();
-      elementsParamFn.$btnSubmit.setAttribute('disabled', false);
+      elementsParamFn.$btnSubmit.removeAttribute('disabled');
       elementsParamFn.$btnSubmit.querySelector('[data-btn-submit-text]').innerHTML = i18next.t(
         'send',
       );

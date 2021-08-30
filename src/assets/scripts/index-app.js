@@ -98,6 +98,7 @@ forms.forEach((form) => {
           const overlay = $form.querySelector('[data-succes-overlay]');
           overlay.style.opacity = 1;
           overlay.style.pointerEvents = 'all';
+          overlay.style.visibility = 'visible';
         },
         $btnSubmit: $form.querySelector('[data-btn-submit]'),
         fields: {

@@ -5,7 +5,12 @@ import initView from './form-view';
 import { langDetect } from '../../../assets/scripts/modules/helpers/helpers';
 
 const sendForm = async (data) => {
-  const response = await axios.post('/wp-admin/admin-ajax.php', data);
+  let URL = '/wp-admin/admin-ajax.php';
+  if (window.location.href.match(/localhost/)) {
+    URL = './static/application.php';
+  }
+  // const response = await axios.post('/wp-admin/admin-ajax.php', data);
+  const response = await axios.post(URL, data);
   return response.data;
 };
 

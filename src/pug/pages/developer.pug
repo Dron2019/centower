@@ -48,7 +48,7 @@ block content
       p Ми працюємо тільки із якісними матеріалами, обираємо надійних підрядників та дотримуємось усіх стандартів надійного та безпечного будівництва.
     .developer-img3
       img(src="./assets/images/developer/img4.jpg")
-    <svg class="dev-mask2" width="504" height="740" viewBox="0 0 504 740" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg preserveAspectRatio="xMidYMin slice" class="dev-mask2" width="504" height="740" viewBox="0 0 504 740" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="504" height="740">
       <path d="M0 252C0 112.824 112.824 0 252 0V0C391.176 0 504 112.824 504 252V740H0V252Z" fill="url(#pattern00)"/>
       </mask>
@@ -65,7 +65,13 @@ block content
       <image id="image123" width="1640" height="1640" xlink:href="./assets/images/developer/img5.jpg">
       </defs>
       </svg>
-    +ellipseCommon('Також серед наших пріоритетів - це благоустрій та інфраструктура для кожного нашого проєкту, щоб ви відчували комфорт.')(class="dev-ellipse-bottom")
+    .dev-bottom-block
+      +ellipseCommon('Також серед наших пріоритетів - це благоустрій та інфраструктура для кожного нашого проєкту, щоб ви відчували комфорт.')(class="dev-ellipse-bottom")
+      <a class="button-std-3 red" href="https://dmgroup.in.ua/" rel="nofollow" target='_blank' >
+        <span>Сайт</span>  <svg width="85" height="26" viewBox="0 0 85 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M70.5641 0L69.9584 0.515873L78.1354 12.381L7.51898e-10 12.381L8.20822e-10 13.5159L78.1354 13.5159L69.9584 25.4841L70.5641 26L85 13.2063L85 12.6905L70.5641 0Z" fill="#D9B48F"></path>
+        </svg><br>
+        <span>забудовника</span></a>
   section.page-last-section
     a(href="characteristics").ellipse-common
         +btn3('Характеристики', '#')
