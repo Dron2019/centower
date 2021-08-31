@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const pathe = document.querySelector('[data-line-test] path');
 const dValueInit = pathe.getAttribute('d').split(' ');
 
@@ -16,7 +17,7 @@ function render() {
     attr: {
       d: dValue.join(' '),
     },
-    duration: .5,
+    duration: 0.5,
     ease: 'none',
   });
 
@@ -74,7 +75,7 @@ function movePath(svg) {
       duration: 1,
       ease: 'linear',
     });
-  
+
     setTimeout(() => {
       requestAnimationFrame(render1);
     }, 1000);
@@ -85,19 +86,17 @@ function movePath(svg) {
 // movePath(document.querySelector('[data-line-test1]'));
 
 
-
-
-const morph1 = `M0 125L1430 125V62.1211C1430 62.1211 1140.32 0 708.523 0C276.728 0 0 62.1211 0 62.1211V125Z`;
-const morph2 = `M0 125L1430 125V62.1211C1430 62.1211 1140.32 125 708.523 125C276.728 125 0 62.1211 0 62.1211V125Z`;
-gsap.timeline({ repeat: 10, yoyo: true })
+const morph1 = 'M0 125L1430 125V62.1211C1430 62.1211 1140.32 0 708.523 0C276.728 0 0 62.1211 0 62.1211V125Z';
+const morph2 = 'M0 125L1430 125V62.1211C1430 62.1211 1140.32 125 708.523 125C276.728 125 0 62.1211 0 62.1211V125Z';
+gsap.timeline({ repeat: -1, yoyo: true })
   .fromTo(document.querySelector('[data-line-test1] path'), {
     attr: {
-      d: morph1
-    }
+      d: morph1,
+    },
   }, {
     attr: {
-      d: morph2
-    }
-  }
-  
-  )
+      d: morph2,
+    },
+    duration: 2,
+    ease: 'linear',
+  });
