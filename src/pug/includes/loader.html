@@ -75,7 +75,7 @@
     const loaderDuration = 2.5;
     const tl = gsap.timeline({ paused: true })
       .to('.loader-wrap', {  yPercent: -100, duration: loaderDuration, ease: 'expo.inOut' })
-      // .from('.page-title', { autoAlpha: 0, y: 200, duration: 2, ease: 'expo.out' },`<+=${loaderDuration / 4}`)
+      .to('.loader-wrap svg', {  scale: 0.5, duration: loaderDuration, ease: 'expo.inOut', clearProps: 'all' }, '<')
       .fromTo('.page-title', {
         y: "3em",
         z: .01,

@@ -163,6 +163,7 @@ function initMap() {
 window.addEventListener('load', () => {
   /** Выдвижная панель маркеров на мобильной версии */
   const legend = document.querySelector('[data-mob-accordeon]');
+  if (legend === null) return;
   const legendTitle = legend.querySelector('.map__legend-title');
   legendTitle.addEventListener('click', () => {
     legend.classList.toggle('opened');
