@@ -50,6 +50,9 @@
   margin-bottom: auto;
 }
 .conception-block-with-text {
+  div {
+    order: -1;
+  }
   p {
     margin-top: 20px;
     @include size(14);

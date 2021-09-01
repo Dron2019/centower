@@ -11,8 +11,16 @@ function handleMapLegendOpening() {
     gsap.to(markersText, { autoAlpha: 1, stagger: 0.05 });
     gsap.fromTo(
       legend,
-      { clipPath: 'polygon(0% 0%, 21% 0%, 20% 100%, 0% 100%)', webkitClipPath: 'polygon(0% 0%, 21% 0%, 20% 100%, 0% 100%)' },
-      { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', webkitClipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' },
+      {
+        clipPath: 'polygon(0% 0%, 21% 0%, 20% 100%, 0% 100%)',
+        webkitClipPath: 'polygon(0% 0%, 21% 0%, 20% 100%, 0% 100%)',
+      },
+      {
+        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+        webkitClipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+        ease: 'power4.inOut',
+        duration: 1.2,
+      },
     );
   });
   legend.addEventListener('mouseleave', () => {

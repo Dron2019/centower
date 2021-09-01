@@ -24,78 +24,32 @@ ScrollTrigger.scrollerProxy(document.body, {
   pinType: document.querySelector('[data-scroll-container]').style.transform ? 'transform' : 'fixed',
 });
 ScrollTrigger.addEventListener('fixed', () => locoScroll.update());
-
 ScrollTrigger.refresh();
-// gsap.defaults({
-//   ease: 'none',
-//   duration: 1,
-// });
-gsap.set('.developer-img3 img', { scale: 1.2 });
-gsap.set('.developer-paragraph-with-text__img img', { scale: 1.2 });
-const dev3 = document.querySelector('.developer-img3');
-const dev3Img = dev3.querySelector('img');
-gsap.timeline({
-  ease: 'none',
-  scrollTrigger: {
-    trigger: dev3,
-    scrub: 0.5,
-    markers: true,
-  },
-})
-  .fromTo(dev3Img, {
-    y: -45,
-  }, {
-    y: 45,
-    ease: 'linear',
-  })
-  .fromTo('.developer-paragraph-with-text img', {
-    y: -45,
-  }, {
-    y: 45,
-    ease: 'linear',
-  }, '<');
-gsap.set('.developer-img2 img', { scale: 1.2 });
-gsap.timeline({
-  ease: 'none',
-  scrollTrigger: {
-    trigger: '.developer-img2',
-    scrub: 0.5,
-    markers: true,
-  },
-})
-  .fromTo('.developer-img2 img', {
-    y: -45,
-  }, {
-    y: 45,
-    ease: 'linear',
-  });
-
-gsap.timeline({
-  ease: 'none',
-  scrollTrigger: {
-    trigger: '.dev-mask2',
-    scrub: 0.5,
-    markers: true,
-  },
-})
-  .fromTo('[mask="url(#mask1)"] path', {
-    y: -45,
-  }, {
-    y: 45,
-    ease: 'linear',
-  });
 
 
-function timelineParams(params, trigger = undefined) {
-  const initialParams = {
+
+const paralaxImages = document.querySelectorAll('[data-paralax]');
+paralaxImages.forEach((image) => {
+  const wrap = document.createElement('div');
+  wrap.style.overflow = 'hidden';
+  image.parentElement.prepend(wrap);
+  wrap.prepend(image);
+
+  gsap.timeline({
+    ease: 'none',
     scrollTrigger: {
-      trigger,
+      trigger: wrap,
       scrub: 0.5,
       markers: true,
     },
-  };
-  return Object.assign(initialParams, params);
-}
+  })
+    .fromTo(image, {
+      y: -45,
+    }, {
+      y: 45,
+      ease: 'linear',
+    });
+});
 
 
 const splitTolines = document.querySelectorAll('[data-split-to-lines]');
@@ -168,3 +122,21 @@ splitTolines.forEach((eleArgs) => {
     ));
   }
 });
+
+const svgMaskParalax = document.querySelectorAll('[data-svg-paralax]');
+svgMaskParalax.forEach((svg) => {
+  gsap.timeline({
+    ease: 'none',
+    scrollTrigger: {
+      trigger: svg,
+      scrub: 0.5,
+      markers: true,
+    },
+  })
+    .fromTo(svg.querySelector('[mask] path'), {
+      y: -45,
+    }, {
+      y: 45,
+      ease: 'linear',
+    });
+})

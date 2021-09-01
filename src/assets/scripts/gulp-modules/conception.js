@@ -43,3 +43,41 @@ firstScreenCircle.forEach((section) => {
   });
   tl.to(section.querySelector('path'), { attr: { d: morph3 } });
 });
+
+
+const stars = document.querySelectorAll('.conception-white-section__block');
+stars.forEach((block) => {
+  const tl = gsap.timeline({
+    paused: true,
+    scrollTrigger: {
+      triggerHook: 1,
+      trigger: block,
+      scrub: 0.5,
+      end: '50% center',
+    },
+  });
+  tl.from(block.querySelector('.icon--star'), {
+    y: () => block.getBoundingClientRect().height / 2,
+  });
+});
+
+
+function effectOnScroll(element) {
+  gsap.set(element, { webkitClipPath: 'polygon(30% 0%, 70% 0%, 70% 100%, 30% 100%)' });
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: element,
+      // once: true,
+      // scrub: 0.5,
+      end: '50% center',
+      once: true,
+      onUpdate: (e) => {
+        const percentage = 70 + (30 * e.progress);
+        const bottomPercentage = 30 - 30 * e.progress;
+        gsap.to(element, { webkitClipPath: `polygon(${bottomPercentage}% 0%, ${percentage}% 0%, ${percentage}% 100%, ${bottomPercentage}% 100%)` });
+      },
+    },
+  });
+}
+const clipEntrie = document.querySelectorAll('[data-clip-enter]');
+clipEntrie.forEach(effectOnScroll);
