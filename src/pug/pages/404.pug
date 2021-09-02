@@ -12,15 +12,18 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/menu.js')
+  script(defer src='./assets/scripts/404.js')
 
 block content
-  section(class="page404-wrap container" style="background-image: url(./assets/images/home/home-screen-bg.jpg)")
+  section(class="page404-wrap" style="background-image: url(./assets/images/home/home-screen-bg.jpg)")
+    .pattern-404-wrap
+      include ../components/404/404-pattern.svg
     h1(class="page-title") 404
       span(class="page404__title-small") помилка
-    p(class="page404__subtitle") Щось пішло не так, сторінка не знайдена
+    //- p(class="page404__subtitle") Щось пішло не так, сторінка не знайдена
     div(class="link-wrap")
       +btn4('Назад', 'gold')( onclick="window.history.go(-1);")
-      +a4('На головну', 'index.html')(class="button-std--invert")
+      +a4('На головну', 'index.html')(class="button-std--invert to-home-link")
 
 block footer
   include ../includes/footer.pug
