@@ -2,37 +2,44 @@
 /* eslint-disable prefer-arrow-callback */
 /* eslint-disable func-names */
 /* eslint-disable no-undef */
+locoScroll.destroy();
+document.querySelector('.page__content').style.transform = '';
+document.querySelector('body').style.overflow = 'hidden';
 gsap.registerPlugin(MotionPathPlugin);
 function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, direction = 1) {
-  const SPEED = 0.75;
+  const SPEED = 0.9;
+  const EASE = 'power2.inOut';
+  const openSlideInnerElems = toOpenElement.querySelectorAll('.ms-slide-text-wrap>*');
   switch (direction) {
     case -1:
       gsap.timeline()
         .timeScale(SPEED)
         .set(toOpenElement, { display: '', yPercent: -100 }, '<')
         .to(toCloseElement, {
-          yPercent: 100, autoAlpha: 1, clearProps: 'all', duration: 2, ease: 'power4.out',
+          yPercent: 100, autoAlpha: 1, duration: 2, ease: EASE,
         }, '<')
-        .to(toCloseElement.querySelector('img'), { scale: 1.2, duration: 1.75, ease: 'power4.out',}, '<')
+        .to(toCloseElement.querySelector('img'), { scale: 1.2, duration: 2, ease: EASE,}, '<')
         .fromTo(
           toOpenElement,
           { yPercent: -100, autoAlpha: 1 },
           {
             yPercent: 0,
             autoAlpha: 1,
-            duration: 1.75,
-            ease: 'power4.out',
+            duration: 2,
+            ease: EASE,
           },
           '<',
-        )
+          )
+        .fromTo(openSlideInnerElems, { y: -100, autoAlpha: 0 }, { y: 0, autoAlpha: 1, ease: EASE, duration: 2, stagger: 0.1 }, '<')
+        // .from(toOpenElement.querySelectorAll('.ms-slide-text-wrap>*'), { stagger: 0.1, autoAlpha: 0, y: -150, duration: 2, clearProps: 'all' }, '<')
         .fromTo(
           toOpenElement.querySelector('img'), 
           { scale: 1.2 }, 
-          { scale: 1, duration: 1.75, ease: 'power4.out',}, 
+          { scale: 1, duration: 2, ease: EASE,}, 
           '<')
         .set(toCloseElement, { display: 'none' })
         .add(() => {
-          locoScroll.update();
+          // locoScroll.update();
           cb();
         });
       break;
@@ -41,28 +48,30 @@ function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, d
         .timeScale(SPEED)
         .set(toOpenElement, { display: '', yPercent: 100 }, '<')
         .to(toCloseElement, {
-          yPercent: -100, autoAlpha: 1, clearProps: 'all', duration: 2, ease: 'power4.out',
+          yPercent: -100, autoAlpha: 1, duration: 2, ease: EASE,
         }, '<')
-        .to(toCloseElement.querySelector('img'), { scale: 1.2, duration: 1.75, ease: 'power4.out', }, '<')
+        .to(toCloseElement.querySelector('img'), { scale: 1.2, duration: 1.75, ease: EASE, }, '<')
         .fromTo(
           toOpenElement,
           { yPercent: 100, autoAlpha: 1 },
           {
             yPercent: 0,
             autoAlpha: 1,
-            duration: 1.75,
-            ease: 'power4.out',
+            duration: 2,
+            ease: EASE,
           },
           '<',
         )
+        .fromTo(openSlideInnerElems, { y: 100, autoAlpha: 0 }, { y: 0, autoAlpha: 1, ease: EASE, duration: 2, stagger: 0.1 }, '<')
+        // .from(toOpenElement.querySelectorAll('.ms-slide-text-wrap>*'), { stagger: 0.1, autoAlpha: 0, y: 150, duration: 2, clearProps: 'all' }, '<')
         .fromTo(
           toOpenElement.querySelector('img'), 
           { scale: 1.2 }, 
-          { scale: 1, duration: 1.75, ease: 'power4.out',}, 
+          { scale: 1, duration: 2, ease: EASE,}, 
           '<')
         .set(toCloseElement, { display: 'none' })
         .add(() => {
-          locoScroll.update();
+          // locoScroll.update();
           cb();
         });
       break;

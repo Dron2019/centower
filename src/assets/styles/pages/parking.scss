@@ -1,8 +1,9 @@
-.page-section {
-  min-height: 100vh;
-}
+
 
 #id-page-parking .page__inner {
   width: 100vw;
   height: 100vh;
+  .page-section {
+    min-height: 100vh;
+  }
 }
