@@ -9,11 +9,11 @@ pathes404.forEach((el, i) => {
 
   const bottomValue = multipleByRandom(-50);
   const topAmplitudeValue = multipleByRandom(50);
-  gsap.timeline({ repeat: -1 })
+  gsap.timeline({ repeat: -1, yoyo: true })
     .to(el,
-      { x: i % 2 === 0 ? multipleByRandom(50) : multipleByRandom(-50), duration: 10 })
+      { x: i % 2 === 0 ? topAmplitudeValue : bottomValue, duration: 5 })
     .to(el,
-      { x: i % 2 === 0 ? multipleByRandom(-50) : multipleByRandom(50), duration: 10 })
+      { x: i % 2 === 0 ? bottomValue : topAmplitudeValue, duration: 5 })
 });
 
 function multipleByRandom(digit) {
@@ -25,3 +25,4 @@ function multipleByRandom(digit) {
   
 //   gsap.fromTo(svg404, { rotate: 0 }, { rotate: 360 });
 // });
+
