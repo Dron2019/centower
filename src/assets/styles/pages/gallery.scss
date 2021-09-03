@@ -1,6 +1,7 @@
 .gallery-slider-wrapper {
   margin-left: calc(var(--page-side-fields) * -1);
   margin-right: calc(var(--page-side-fields) * -1);
+  margin-top: 50px;
   .swiper-slide {
     height: 52.5vw;
     object-fit: cover;
@@ -21,6 +22,10 @@
   transition: transform .3s ease-in-out;
   will-change: left, top;     
   opacity: 0;
+  @include from(1680px){
+   width: 120px;
+   height: 120px; 
+  }
   &.left-side {
     transform: rotate(-180deg);
   }
@@ -33,6 +38,9 @@
   left: var(--page-side-fields);
   bottom: 50px;
   z-index: 5;
+  @include from(1680px){
+   bottom: 110px; 
+  }
   &__current {
     font-family: MADE Coachella;
     font-size: 140px;
@@ -45,6 +53,10 @@
     color: transparent;
     overflow: hidden;
     min-width: 170px;
+    @include from(1680px){
+      min-width: 190px;
+     font-size: 160px; 
+    }
   }
   &__current span {
     display: inline-block;
@@ -55,6 +67,10 @@
     font-size: 36px;
     line-height: 100%;
     /* identical to box height, or 36px */
+    @include from(1680px){
+      font-size: 40px;
+      line-height: 100%;
+    }
 
     letter-spacing: -0.03em;
     margin-left: 20px;

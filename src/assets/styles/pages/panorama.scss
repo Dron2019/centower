@@ -4,6 +4,11 @@
   margin-left: calc(var(--page-side-fields) * -1);
   margin-right: calc(var(--page-side-fields) * -1);
   position: relative;
+  margin-top: 50px;
+  @include from(1680px){
+    
+    height: calc(100vh - var(--header-h));
+  }
   [data-panorama] {
     position: absolute;
     left: 0;

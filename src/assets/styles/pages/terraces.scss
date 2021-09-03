@@ -9,4 +9,7 @@
   @include shift-left(1.2);
   margin-bottom: auto;
   margin-top: 100px;
+  @include from(1680px){
+   margin-top: 120px; 
+  }
 }

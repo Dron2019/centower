@@ -107,6 +107,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @include from(1680px){
+     width: 65px;
+     height: 65px; 
+    }
     svg {
       width: 55%;
       height: 55%;
