@@ -38,7 +38,9 @@
   color: var(--color-gray);
   &.dark {
     color: var(--color-black);
-
+  }
+  @include from(1680px){
+    font-size: 40px;
   }
 }
 
@@ -56,6 +58,10 @@
   p {
     margin-top: 20px;
     @include size(14);
+    @include from(1680px){
+     font-size: 24px; 
+     line-height: 140%;
+    }
   }
 }
 .conception-block-with-text1 {
@@ -98,6 +104,14 @@
   @include shift-right(-1.2);
   .button-std-3 {
     margin-top: 55px;
+    width: 320px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  @include from(1680px){
+
   }
 }
 .conception-block-with-text3 {
@@ -153,11 +167,17 @@
     @include shift(0);
     text-align: right;
     margin-top: 50px;
+    @include from(1680px){
+      margin-top: 60px;
+    }
   }
   .conception-paragraph {
     margin-top: 30px;
     @include size(15.2);
     @include shift(0);
+    @include from(1680px){
+     margin-top: 40px; 
+    }
   }
   &__block {
     position: relative;
@@ -190,6 +210,10 @@
   .page-title {
     margin-top: 50px;
     margin-bottom: 50px;
+    @include from(1680px){
+     margin-top: 60px;
+     margin-bottom: 60px; 
+    }
   }
   .conception-paragraph {
     margin-bottom: 150px;

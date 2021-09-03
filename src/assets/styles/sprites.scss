@@ -1,6 +1,10 @@
 .icon--round-text {
     width: 78px;
     height: 78px;
+    @include from(1680px){
+        width: 127px;
+        height: 127px;
+    }
 }
 
 .icon--clock {

@@ -43,7 +43,7 @@ body {
 	color: var(--color-gray);
 	background-color: var(--color-black);
 	@include from(1680px){
-		font-size: 18px;
+		font-size: 19px;
 	}
 	@include to(575px){
 		font-size: 15px;
@@ -229,6 +229,11 @@ button, a {
 	color: var(--color-white);
 	border: 1px solid rgba(217, 180, 143, 0.5);
 	border-radius: 100px;
+	@include from(1680px){
+		--v-padding: 20px;
+		--side-padding: 55px;
+		font-size: 19px;
+	}
 }
 
 .button-std-1 {
@@ -240,6 +245,9 @@ button, a {
 	line-height: 130%;
 	color: var(--color-white);
 	--hover-text-color: var(--color-white);
+	@include from(1680px){
+		font-size: 19px;
+	}
 	&:disabled {
 		pointer-events: none;
 	}
@@ -355,6 +363,12 @@ button, a {
 	text-transform: uppercase;
 	border: none;
 	background-color: transparent;
+	@include from(1680px){
+	font-size: 40px;	
+	}
+	@include from(1680px){
+		font-size: 40px;
+	}
 	svg {
 		margin-left: 30px;
 	}
@@ -377,8 +391,10 @@ button, a {
 	color: var(--color-milk);
 	text-transform: uppercase;
 	&.dark {
-		
 		color: var(--color-black);
+	}
+	@include from(1680px){
+		font-size: 120px;	
 	}
 }
 
@@ -412,6 +428,9 @@ button, a {
 		top: 50%;
 		transform: translate(-50%,-50%);
 		width: 55%;
+		@include from(1680px){
+		font-size: 19px;	
+		}
 	}
 	&__decor {
 		height: auto;
@@ -436,6 +455,10 @@ text-transform: uppercase;
 	perspective: 500px;
   @include row-flex();
   @include shift-padding(2);
+	@include from(1680px){
+		
+		--bottom-block-margin: 120px;
+	}
   @include to(1120px){
     
     padding-left: 0;
@@ -447,7 +470,7 @@ text-transform: uppercase;
     @include size(12);
     @include shift(0);
 		@include from(1680px){
-			max-height: 75vh;
+			max-height: 100vh;
 		}
   }
   .page-section-common-block {

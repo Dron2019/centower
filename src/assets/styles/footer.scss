@@ -9,6 +9,9 @@
   color: var(--color-grey);
   font-size: 10px;
 line-height: 120%;
+@include from(1680px){
+ font-size: 14px; 
+}
   &:before {
     content: '';
     position: absolute;

@@ -31,3 +31,5 @@ if (document.querySelector('.gsap-marker-scroller-start')) {
     gsap.set(markers, { marginTop: -offset.y })
   });
 }
+bodyScrollBar.setMomentum(0, 50)
+console.log(bodyScrollBar);

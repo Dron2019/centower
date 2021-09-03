@@ -41,6 +41,11 @@ $gold: #CFA46E;
   --footer-margin: 100px;
 }
 
+@media screen and (min-width: 1680px){
+  :root {
+    --page-side-fields: 110px;  
+  }
+}
 @media screen and (min-width: 1440px){
   :root {
     --header-h: 100px;
