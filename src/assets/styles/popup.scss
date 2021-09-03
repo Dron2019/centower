@@ -39,6 +39,16 @@ body>.popup-wrapper {
         width: 45px;
         height: 45px;
         cursor: pointer;
+        rect {
+            transition: all .3s ease-in-out;
+        }
+        @include from(1680px){
+            width: 65px;
+            height: 65px;   
+        }
+    }
+    &__close:hover rect{
+        fill: var(--color-gold);
     }
     .form-std__subtitle {
         font-size: 22px;
@@ -60,6 +70,17 @@ color: var(--color-black);
     padding-bottom: 94px;
     width: 100vw;
     max-width: 1366px;
+    @include from(1680px){
+        max-width: none;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-top: 70px;
+        padding-bottom: 190px;
+        padding-left: 180px;
+        padding-right: 146px;
+    }
     @include to(1120px){
         padding-left: var(--page-side-fields);
         padding-right: var(--page-side-fields);
@@ -167,12 +188,16 @@ color: var(--color-black);
     align-items: flex-start;
     margin-left: calc((var(--offset) / 2) * -1);
     margin-right: calc((var(--offset) / 2) * -1);
+    @include from(1680px){
+        justify-content: flex-end;
+    }
     .required-alert {
         @include customOffsetWidth(39, var(--offset));
     }
     .button-std {
         @include customOffsetWidth(60, var(--offset));
     }
+    
     @include to(575px){
         --offset:16px;
         .button-std {
@@ -288,6 +313,11 @@ color: var(--color-black);
             transform: translateY(115px);
         }
     }
+    @include from(1680px){
+        .button-std-3 {
+            max-width: 320px;
+        }
+    }
 }
 
 
@@ -301,8 +331,12 @@ color: var(--color-black);
     width: 50%;
     text-transform: uppercase;
     padding-right: 57px;
-    @include from(1440px){
-        font-size: min(7vw, 100px);
+    @include from(1680px){
+        font-size: min(7vw, 120px);
+        margin-top: auto;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
     }
 }
 
@@ -311,6 +345,11 @@ color: var(--color-black);
     width: 50%;
     padding-left: 57px;
     margin-left: auto;
+    @include from(1680px){
+        width: 46.7%;
+        align-self: flex-end;
+        padding-left: 0px;
+    }
     p,
     .button-std-3 {
         position: absolute;
@@ -330,4 +369,8 @@ color: var(--color-black);
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
+    @include from(1680px){
+        align-items: flex-start;
+        align-self: stretch;
+    }
 }

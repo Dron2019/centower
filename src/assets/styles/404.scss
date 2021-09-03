@@ -13,6 +13,7 @@
     }
     .link-wrap {
         // margin-top: auto;
+        
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -27,6 +28,9 @@
             }
         }
     }
+    .button-std-4 {
+        --side-padding: 25px;
+    }
     .page-title {
         font-size: 96px;
         // margin-bottom: auto;
@@ -34,7 +38,7 @@
         color: var(--color-white);
         margin-bottom: 40px;
         @include from(1680px){
-            font-size: 115px;
+            font-size: 140px;
         }
         @include to(950px){
             font-size: 64px;
@@ -49,6 +53,12 @@
         line-height: 1.5em;
         color: var(--color-gold);
         @include to(950px){
+            text-align: center;
+        }
+    }
+    @include from(1680px){
+        .link-wrap>* {
+            width: 265px;
             text-align: center;
         }
     }

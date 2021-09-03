@@ -97,6 +97,9 @@ form {
   font-size: 36px;
     line-height: 140%;
   color: var(--color-black, #000000);
+  @include from(1680px){
+   font-size: 40px; 
+  }
   &::placeholder {
     color: var(--color-black, #000000);
     font-size: 36px;
@@ -221,6 +224,10 @@ form {
     letter-spacing: 0.03em;
   line-height: 100%;
   transform: translate(0%, 100%);
+  @include from(1680px){
+    font-size: 16px;
+line-height: 130%;
+  }
   // @include to(1440px) {
   //   font-size: 12px;
   // }
@@ -401,8 +408,14 @@ form {
   margin-right: calc((var(--offset) / 2) * -1);
   align-items: center;
   margin-top: 75px;
+  @include from(1680px){
+    --offset: 137px;
+}
+  @include from(1680px){
+    width: 100%;
+  }
   @include to(950px){
-    --offset: 30px
+    --offset: 30px;
   }
   .form-field {
     @include customOffsetWidth(40, var(--offset));

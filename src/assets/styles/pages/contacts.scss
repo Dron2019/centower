@@ -11,6 +11,9 @@
     --hover-text-color: var(--color-white);
     position: relative;
     display: inline-block;
+    @include from(1680px){
+      padding: 20px 53px;
+    }
 }
 
 .contacts {
@@ -46,6 +49,9 @@
     
     .contacts-button {
       margin-top: 50px;
+      @include from(1680px){
+        margin-top: 60px;
+       }
     }
     &-tel {
       display: flex;
@@ -58,6 +64,9 @@
       text-transform: uppercase;
       color: var(--color-milk);
       text-decoration: none;
+      @include from(1680px){
+        font-size: 40px; 
+       }
     }
     &-adress {
       font-size: 36px;
@@ -65,6 +74,9 @@
       color: var(--color-milk);
       text-transform: uppercase;
       margin-bottom: 20px;
+      @include from(1680px){
+       font-size: 40px; 
+      }
     }
     &-subtitle {
       text-transform: uppercase;
@@ -93,4 +105,12 @@
   width: 100%;
   background-color: rgba($color: #26aa89, $alpha: 1.0);
   z-index: 50;
+}
+
+.ellipse-common .contacts-last-button {
+  width: 351px;
+  white-space: initial;
+  text-align: left;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
