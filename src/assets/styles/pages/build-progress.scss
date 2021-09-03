@@ -4,6 +4,9 @@
   }
   .statuses-wrapper {
     margin-bottom: 50px;
+    @include from(1680px){
+     margin-bottom: 60px; 
+    }
   }
   .statuses-text-block {
     @include size(10.8);
@@ -35,6 +38,9 @@
     color: var(--color-gray);
     margin-bottom: 30px;
     padding-right: 5%;
+    @include from(1680px){
+     margin-bottom: 35px; 
+    }
   }
   &__day {
     font-family: 'MADE Coachella';
@@ -47,6 +53,9 @@
     color: transparent;
     -webkit-text-stroke: 1px;
     -webkit-text-stroke-color: var(--color-white);
+    @include from(1680px){
+      font-size: 120px;
+    }
   }
   &__year {
     font-size: 20px;
@@ -59,6 +68,9 @@
     position: absolute;
     top: 0;
     right: var(--side-padding);
+    @include from(1680px){
+      font-size: 24px;
+    }
   }
   &__month {
     font-size: 15px;
@@ -67,6 +79,10 @@
     text-transform: uppercase;
     align-self: flex-end;
     margin-left: 5px;
+    @include from(1680px){
+     font-size: 18px; 
+     margin-left: 10px;
+    }
   }
   &__date-group {
     display: flex;
@@ -89,6 +105,10 @@
   &>*:nth-child(even) {
     margin-left: -1px;
   }
+  @include from(1680px){
+    
+    margin-bottom: 120px;
+  }
 }
 
 .build-detail-popup {
@@ -98,11 +118,23 @@
   padding-top: 146px;
   padding-bottom: 90px;
   position: relative;
+  @include from(1680px){
+   height: calc(100vh); 
+   padding-top: 116px;
+   display: flex;
+    align-items: center;
+  }
   @include shift-padding(2);
   
   color: var(--color-black);
   &__content {
     @include row-flex();
+    align-self: flex-start;
+   
+    width: 100%;
+    @include from(1680px){
+      margin-top: 40px;
+    }
   }
   &__content-close {
     position: absolute;
@@ -118,15 +150,36 @@
     svg {
       margin-left: 20px;
     }
+    rect {
+      transition: all .3s ease-in-out;
+    }
+    @include from(1680px){
+      right: var(--page-side-fields);
+      top: 60px;
+      font-size: 18px;
+      svg {
+        width: 60px;
+        height: 60px;
+        
+      }
+    }
+  }
+  &__content-close:hover rect {
+    fill: var(--color-gold);
   }
   &__content-date {
-    @include size(24);
-    @include shift(0);
+    @include size(23);
+    @include shift-right(1);
+    @include shift-left(0);
     font-size: 36px;
     line-height: 140%;
     text-transform: uppercase;
     text-align: right;
     margin-bottom: 10px;
+    @include from(1680px){
+      font-size: 39px;
+     margin-bottom: 20px; 
+    }
   }
   &__content-text {
     @include size(7.2);
@@ -137,15 +190,34 @@
     font-size: 15px;
     line-height: 130%;
     padding-right: 25px;
+    @include from(1680px){
+      height: 509px;
+      font-size: 19px;
+    }
+  }
+  &__content-star {
+    position: absolute;
+    width: 40%;
+    // height: 470px;
+    // height: auto;
+    right: var(--page-side-fields);
+    bottom: 0;
+    z-index: 0;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
   &__content-text::-webkit-scrollbar-thumb {
     background-color: var(--color-black);
     -webkit-box-shadow: inset 0 0 6px var(--color-black);
   }
   &__content-frame {
-    @include size(15.6);
-    @include shift-right(0);
+    @include size(14.6);
+    @include shift-right(1);
     margin-left: calc(5% + 12.5px);
+    position: relative;
+    z-index: 2;
   }
   li {
     position: relative;
@@ -199,6 +271,14 @@
   color: var(--color-black);
   white-space: nowrap;
   --star-height: 30px;
+
+  @include from(1680px){
+    font-size: 18px;
+    padding-bottom: 60px;
+  }
+  @include from(1680px){
+    --star-height: 39px;
+  }
   &.active {
     color: var(--color-gold);
   }
@@ -244,5 +324,8 @@
     line-height: 140%;
     text-transform: uppercase;
     margin-bottom: 20px;
+    @include from(1680px){
+      font-size: 40px;
+    }
   }
 }

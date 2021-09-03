@@ -19,6 +19,8 @@
 .developer-paragraph-with-text {
   @include size(14.4);
   @include shift(0);
+  font-size: 18px;
+  line-height: 140%;
   overflow: hidden;
   &__img {
     overflow: hidden;
@@ -26,6 +28,10 @@
   p {
     margin-top: 20px;
     @include size(16);
+  }
+  @include from(1680px){
+    font-size: 24px;
+line-height: 140%;
   }
 }
 .developer-img3 {
@@ -41,6 +47,9 @@
   @include size(12);
   @include shift(0);
   margin-top: 100px;
+  @include from(1680px){
+    height: 90vh;
+  }
 }
 .dev-bottom-block {
   display: flex;
@@ -61,6 +70,16 @@
     align-self: center;
     margin-bottom: auto;
     margin-top: 55px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 273px;
+    svg {
+      margin-left: auto;
+    }
+    @include from(1680px){
+      width: 305px;
+    }
   }
 }
 .page-section {

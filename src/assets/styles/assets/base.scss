@@ -543,6 +543,9 @@ text-transform: uppercase;
     @include shift(0);
     text-align: right;
     margin-top: 50px;
+		@include from(1680px){
+		margin-top: 60px;	
+		}
   }
 }
 
@@ -550,13 +553,13 @@ text-transform: uppercase;
 	--top-padding: 146px;
 	--bottom-padding: 100px;
 	padding-top: var(--top-padding);
-	padding-top: var(--bottom-padding);
+	padding-bottom: var(--bottom-padding);
 	position: relative;
 	--decor-height: 200px;
 	@include row-flex();
 	@include from(1680px){
 		--top-padding: 165px;
-		--bottom-padding: 165px;
+		--bottom-padding: 145px;
 		padding-bottom: var(--bottom-padding);
 	}
 	&__decor-pattern {
