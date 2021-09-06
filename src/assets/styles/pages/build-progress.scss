@@ -100,7 +100,7 @@
   flex-wrap: wrap;
   &>* {
     @include size(12);
-    @include shift(0);
+    // @include shift(0);
     margin-bottom: 100px;
   }
   &>*:nth-child(even) {
