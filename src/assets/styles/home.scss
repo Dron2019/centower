@@ -196,4 +196,24 @@
     left: 50%;
     bottom: var(--page-side-fields);
     transform: translateX(-50%);
+
+    circle {
+        animation: pulseDots 2s infinite ease-in-out;
+    }
+}
+
+@for $i from 1 through 3 {
+    .ms-slide-dots circle:nth-child(#{$i}) {
+        animation-name: pulseDots;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        animation-delay: #{$i/2}s;
+        // animation: pulseDots 2s infinite ease-in-out #{$i};
+    }
+  }
+@keyframes pulseDots {
+    from { fill-opacity: 0; }
+    50% { fill-opacity: 1; }
+    to { fill-opacity: 0; }
 }
