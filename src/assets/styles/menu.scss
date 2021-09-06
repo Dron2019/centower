@@ -12,6 +12,8 @@
     background-color: var(--color-black);
     display: flex;
     align-items: center;
+    will-change: clip-path;
+    will-change: -webkit-clip-path;
     &.opened {
         opacity: 1;
         pointer-events: all;
@@ -22,6 +24,7 @@
     width: calc(100% + #{$offset});
     align-items: flex-start;
     align-content: flex-start;
+
     &__head-links {
         @include size(5);
         @include shift-right(0);

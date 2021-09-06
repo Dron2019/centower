@@ -7,8 +7,8 @@ document.querySelector('.page__content').style.transform = '';
 document.querySelector('body').style.overflow = 'hidden';
 gsap.registerPlugin(MotionPathPlugin);
 function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, direction = 1) {
-  const SPEED = 0.9;
-  const EASE = 'power2.inOut';
+  const SPEED = 0.75;
+  const EASE = 'power4.inOut';
   const openSlideInnerElems = toOpenElement.querySelectorAll('.ms-slide-text-wrap>*');
   switch (direction) {
     case -1:
@@ -223,13 +223,15 @@ function simulatePathDrawing(pathArgs, strokeWidth = '3', duration = '1.5') {
 
 function resetStrokeValue(pathArgs) {
   const path = pathArgs;
-  const length = path.getTotalLength();
+  const length = 900;
+  console.log(length);
   // Clear any previous transition
   // eslint-disable-next-line no-multi-assign
   path.style.transition = path.style.WebkitTransition = 'none';
   // Set up the starting positions
-  path.style.strokeDasharray = `${length} ${length}`;
+  path.style.strokeDasharray = `${length} ${length}`.replace(/px/g, '');
   path.style.strokeDashoffset = length;
+  console.log('i clear path cvalue', path.style.strokeDashoffset);
 }
 
 function clearTimeoutAndSetNew() {

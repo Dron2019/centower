@@ -82,7 +82,7 @@
     const tl = gsap.timeline({ paused: true })
       .to('.loader-wrap', {  yPercent: -100, duration: loaderDuration, ease: 'expo.inOut' })
       .to('.loader-wrap svg', {  scale: 0.5, duration: loaderDuration, ease: 'expo.inOut', clearProps: 'all' }, '<')
-      .fromTo('.page-title', {
+      .fromTo('.page-title:not(.ms-title)', {
         y: "3em",
         z: .01,
         rotationX: "-32.5",
