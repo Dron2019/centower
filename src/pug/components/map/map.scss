@@ -114,6 +114,9 @@
     svg {
       width: 55%;
       height: 55%;
+      width: 50%;
+      height: 50%;
+  
     }
   }
   // &__legend-marker [fill]{
@@ -173,10 +176,8 @@
   @include from-to(576px,950px){
     &__legend {
       position: absolute;
-      top: auto;
       bottom: var(--self-vertical-padding);
       // transform: translateY(-50%);
-      left: 20px;
     }
     &__legend-marker:nth-last-child(n+1){
   }

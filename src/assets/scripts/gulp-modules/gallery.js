@@ -126,3 +126,10 @@ sideSwitchArrow(
   document.querySelector('.moving-arrow'),
   document.querySelector('[data-swiper]'),
 );
+
+
+window.addEventListener('wheel',function some(evt){
+  locoScroll.scrollTo(document.querySelector('.swiper-wrapper'));
+  window.removeEventListener('wheel', some);
+});
+// locoScroll.scrollTo(document.querySelector('.swiper-wrapper'));

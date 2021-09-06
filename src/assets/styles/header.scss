@@ -33,6 +33,11 @@
   @include from(1680px){
     --between-margin: 78px;
   }
+  @include from-to(576px, 950px){
+    padding-top: 0;
+    --between-margin: 20px;
+    justify-content: space-between;
+  }
   z-index: 100;
   .langs-header {
 
@@ -59,11 +64,24 @@
     @include to(1120px){
       --logo-w: 175px;
     }
+    @include from-to(576px, 950px){
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
   }
   &__link {
     margin-right: var(--between-margin);
     @include from(1680px){
         margin-right: calc(var(--between-margin) + 20px);
+    }
+
+  }
+
+  [data-call-form-popup] {
+    @include from-to(576px, 950px){
+     display: none; 
     }
   }
   &__tel {
@@ -75,6 +93,9 @@
     text-decoration: none;
     @include from(1680px){
       font-size: 16px;
+    }
+    @include from-to(576px, 950px){
+      display: none;
     }
   }
   &__menu-call {
@@ -104,6 +125,11 @@
         height: 12px;
         pointer-events: none;
       }
+      rect {
+        transform-origin: center;
+        transform-box: fill-box;
+        transition: .3s ease-in-out;
+      }
       @include from(1680px){
         width: 65px;
         height: 65px;
@@ -112,6 +138,9 @@
           height: 15px;
         }
       }
+    }
+    @include from(950px){
+      
     }
     &-icon-path {
       transform-origin: right;
@@ -129,6 +158,13 @@
   }
   &__menu-call:hover &__menu-call-icon-path {
     transform: scaleX(1.4);
+
+  }
+  &__menu-call:hover [data-open-icon] {
+    stroke: var(--color-black);
+  }
+  &__menu-call:hover rect:not(.hover-bg) {
+    transform: scale(0);
   }
   @include from(769px){
     &__menu-call {

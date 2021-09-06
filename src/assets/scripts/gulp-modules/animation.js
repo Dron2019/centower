@@ -27,12 +27,12 @@ ScrollTrigger.addEventListener('fixed', () => locoScroll.update());
 ScrollTrigger.refresh();
 
 
-
 const paralaxImages = document.querySelectorAll('[data-paralax]');
 paralaxImages.forEach((image) => {
   const wrap = document.createElement('div');
   wrap.style.overflow = 'hidden';
   image.parentElement.prepend(wrap);
+  gsap.set(image, { willChange: 'transform' });
   wrap.prepend(image);
 
   gsap.timeline({
@@ -125,6 +125,7 @@ splitTolines.forEach((eleArgs) => {
 
 const svgMaskParalax = document.querySelectorAll('[data-svg-paralax]');
 svgMaskParalax.forEach((svg) => {
+  gsap.set(svg.querySelector('[mask] path'), { willChange: 'transform' });
   gsap.timeline({
     ease: 'none',
     scrollTrigger: {
@@ -139,4 +140,4 @@ svgMaskParalax.forEach((svg) => {
       y: 45,
       ease: 'linear',
     });
-})
+});

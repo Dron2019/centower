@@ -4,6 +4,7 @@
     font-size: 120px;
     line-height: 100%;
     font-weight: 300;
+    text-transform: initial;
     @include from(1680px){
         font-size: 140px;
     }
@@ -82,9 +83,9 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    right: 50px;
-    top: 50vh;
+    right: var(--page-side-fields);    top: 50vh;
     transform: translateY(-50%);
+    top: calc(50% + var(--header-h) / 2);
     z-index: 10;
     svg {
         cursor: pointer;
@@ -92,12 +93,7 @@
     svg~svg {
         margin-top: 20px;
     }
-    svg[data-ms-next-slide] {
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 50%;
-        padding: 21px 18px;
-    }
+    
     .ms-next-slide {
         
         position: relative;
@@ -129,6 +125,18 @@
         }
         svg~svg {
             margin-top: 30px;
+        }
+    }
+    svg[data-ms-next-slide] {
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50%;
+        padding: 21px 18px;
+        width: 50px;
+        height: 50px;
+        @include from(1680px){
+            width: 65px;
+            height: 65px;
         }
     }
 }
@@ -182,3 +190,10 @@
     }
 }
 
+
+.ms-slide-dots {
+    position: absolute;
+    left: 50%;
+    bottom: var(--page-side-fields);
+    transform: translateX(-50%);
+}

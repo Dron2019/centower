@@ -62,4 +62,4 @@ function requestBuildDetails(id, cb = () => {}) {
 
 
 
-locoScroll.scrollTo(document.querySelector('.build-status-section'))
+// locoScroll.scrollTo(document.querySelector('.build-status-section'))

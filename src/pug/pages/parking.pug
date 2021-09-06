@@ -6,10 +6,6 @@ block variable
     var id_page = 'id-page-parking'
     var class_page = 'class-page-parking'
     var breadcrumbsSubitem = [
-      {
-        label: 'About',
-        link: pagesLink[0].about
-      }
     ]
   
 block meta
@@ -22,6 +18,7 @@ block scripts
   script(defer src='./assets/scripts/index.bundle.js')
   //- script(defer src='./assets/scripts/libs.js')
   //- script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/menu.js')
   script(defer src='./assets/scripts/parking.js')
   script(defer src='./assets/scripts/conception.js')
   script(defer src='./assets/scripts/animation.js')

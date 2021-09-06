@@ -100,6 +100,7 @@
   flex-wrap: wrap;
   &>* {
     @include size(12);
+    @include shift(0);
     margin-bottom: 100px;
   }
   &>*:nth-child(even) {
@@ -109,12 +110,16 @@
     
     margin-bottom: 120px;
   }
+  @include from-to(576px, 950px){
+   justify-content: center; 
+  }
 }
 
 .build-detail-popup {
   width: 100vw;
   background-color: var(--color-milk);
   height: 668px;
+  height: 100vh;
   padding-top: 146px;
   padding-bottom: 90px;
   position: relative;
@@ -138,8 +143,8 @@
   }
   &__content-close {
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: var(--page-side-fields);
+    top: var(--page-side-fields);
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -283,8 +288,8 @@
     color: var(--color-gold);
   }
   &.active &__star {
-    -webkit-animation: heartbeat 3s ease-in-out infinite both;
-    animation: heartbeat 3s ease-in-out infinite both;
+    -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+    animation: heartbeat 1.5s ease-in-out infinite both;
   }
   &.disabled {
     color: var(--color-grey);

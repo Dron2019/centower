@@ -8,7 +8,7 @@ function handleMapLegendOpening() {
   gsap.set(markersText, { autoAlpha: 0 });
   gsap.set(legend, { clipPath: `polygon(0% 0%, ${percentToScale}% 0%, ${percentToScale}% 100%, 0% 100%)`, webkitClipPath: `polygon(0% 0%, ${percentToScale}% 0%, ${percentToScale}% 100%, 0% 100%)` });
   legend.addEventListener('mouseenter', () => {
-    gsap.to(legendTop, { yPercent: 0 });
+    // gsap.to(legendTop, { yPercent: 0 });
     gsap.to(markersText, { autoAlpha: 1, stagger: 0.05 });
     gsap.fromTo(
       legend,
@@ -25,7 +25,7 @@ function handleMapLegendOpening() {
     );
   });
   legend.addEventListener('mouseleave', () => {
-    gsap.to(legendTop, { yPercent: -100 });
+    // gsap.to(legendTop, { yPercent: -100 });
     gsap.to(markersText, { autoAlpha: 0 });
     gsap.fromTo(
       legend,

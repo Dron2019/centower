@@ -244,6 +244,7 @@ button, a {
 	font-size: 15px;
 	line-height: 130%;
 	color: var(--color-white);
+	padding: 0;
 	--hover-text-color: var(--color-white);
 	@include from(1680px){
 		font-size: 19px;
@@ -282,7 +283,7 @@ button, a {
 		content: '';
 		transform-origin: center;
 		transition: .3s ease-in-out;
-		background-color: rgba(217, 180, 143, 0.8);
+		background-color: rgba(217, 180, 143, 1);
 		width: 100%;
 		height: 100%;
 		position: absolute;
@@ -377,6 +378,10 @@ button, a {
 	@include from(1680px){
 		font-size: 40px;
 	}
+
+	@include from-to(576px, 951px){
+		font-size: 24px;
+	}
 	svg {
 		margin-left: 30px;
 	}
@@ -403,6 +408,9 @@ button, a {
 	}
 	@include from(1680px){
 		font-size: 120px;	
+	}
+	@include from-to(576px, 950px){
+		font-size: 72px;
 	}
 }
 
@@ -473,6 +481,9 @@ text-transform: uppercase;
     
     padding-left: 0;
     padding-right: 0;
+  }
+  @include from-to(576px, 950px){
+    --bottom-block-margin: 50px;
   }
   align-content: flex-start;
   margin-top: 83px;
@@ -576,6 +587,12 @@ text-transform: uppercase;
 		@include size(11);
 		@include shift-left(12);
 		@include shift-right(1);
+		@include from-to(576px, 950px){
+			@include size(13);
+			@include shift-left(9);
+			@include shift-right(1);
+			
+		}
 	}
 }
 
@@ -606,8 +623,8 @@ text-transform: uppercase;
 }
 
 .heartbeat {
-	-webkit-animation: heartbeat 0.5s ease-in-out infinite both;
-	        animation: heartbeat 0.5s ease-in-out infinite both;
+	-webkit-animation: heartbeat 0.25s ease-in-out infinite both;
+	        animation: heartbeat 0.25s ease-in-out infinite both;
 }
 @-webkit-keyframes heartbeat {
 	0% {
@@ -615,8 +632,8 @@ text-transform: uppercase;
             transform: scale(1);
   }
   50% {
-    -webkit-transform: scale(1.25);
-            transform: scale(1.25);
+    -webkit-transform: scale(1.45);
+            transform: scale(1.45);
   }
   100% {
     -webkit-transform: scale(1);
@@ -629,8 +646,8 @@ text-transform: uppercase;
             transform: scale(1);
   }
   50% {
-    -webkit-transform: scale(1.25);
-            transform: scale(1.25);
+    -webkit-transform: scale(1.45);
+            transform: scale(1.45);
   }
   100% {
     -webkit-transform: scale(1);

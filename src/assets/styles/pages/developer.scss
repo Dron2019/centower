@@ -28,7 +28,7 @@
   }
   p {
     margin-top: 20px;
-    @include size(16);
+    @include size(18);
   }
   @include from(1680px){
     font-size: 24px;

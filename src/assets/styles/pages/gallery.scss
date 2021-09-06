@@ -3,7 +3,9 @@
   margin-right: calc(var(--page-side-fields) * -1);
   margin-top: 50px;
   .swiper-slide {
-    height: 52.5vw;
+    // height: 52.5vw;
+    height: 100vh;
+    object-fit: cover;
     object-fit: cover;
     object-position: bottom;
   }

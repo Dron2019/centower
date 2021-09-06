@@ -78,7 +78,7 @@
 
   window.addEventListener('DOMContentLoaded', () => {
     console.log(gsap);
-    const loaderDuration = 2.5;
+    const loaderDuration = 3.5;
     const tl = gsap.timeline({ paused: true })
       .to('.loader-wrap', {  yPercent: -100, duration: loaderDuration, ease: 'expo.inOut' })
       .to('.loader-wrap svg', {  scale: 0.5, duration: loaderDuration, ease: 'expo.inOut', clearProps: 'all' }, '<')

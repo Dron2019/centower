@@ -11,3 +11,6 @@ panoramaWrapper.addEventListener('mouseleave', () => {
 panoramaOverlay.addEventListener('click', () => {
   panoramaOverlay.style.display = 'none';
 });
+
+
+locoScroll.scrollTo(document.querySelector('.panorama-wrapper__faq'))

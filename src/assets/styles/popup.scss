@@ -18,6 +18,7 @@ body>.popup-wrapper {
     form {
         background-color: var(--color-milk, #ffffff);
         position: relative;
+        height: 100%;
     }
     // display: none;
     @include to(575px){
@@ -67,6 +68,8 @@ color: var(--color-black);
     padding-left: 140px;
     padding-right: 74px;
     padding-top: 48px;
+    padding-bottom: 94px;
+    padding-top: 94px;
     padding-bottom: 94px;
     width: 100vw;
     max-width: 1366px;
