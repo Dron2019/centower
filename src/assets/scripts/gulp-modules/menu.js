@@ -43,6 +43,13 @@ const menu = document.querySelector('[data-menu]');
 const menuTransitions = {
   opening: () => {
     gsap.timeline()
+      .set( callMenu, { pointerEvents: 'none' })
+      .fromTo(menu,
+        { webkitClipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)' },
+        { webkitClipPath: 'polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)', ease: 'power4.inOut', duration: 2 })
+      .fromTo(menu.querySelector('.menu__image-fixed img'), { autoAlpha: 0, x: 50 }, { autoAlpha: 1, x: 0 }, '<+1')
+      .fromTo(menu.querySelector('.menu__soc-icons-wrap'), { autoAlpha: 0, x: 50 }, { autoAlpha: 1, x: 0 }, '<')
+      .fromTo(menu.querySelectorAll('.menu__head-links li'), { autoAlpha: 0, x: 35 }, { autoAlpha: 1, x: 0, ease: 'power4.out', stagger: 0.075, duration: 0.75 }, '<')
       .add(() => {
         document.querySelector('[data-call-menu-span]').textContent = callMenu.dataset.whenOpened;
       })
@@ -55,10 +62,18 @@ const menuTransitions = {
           stroke: 'rgba(152, 152, 152, 0.25)',
         },
         '<',
-      );
+      )
+      .set(callMenu, { pointerEvents: 'all' });
   },
   closing: () => {
     gsap.timeline()
+      .set(callMenu, { pointerEvents: 'none' })
+      .fromTo(menu,
+        { webkitClipPath: 'polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)' },
+        { webkitClipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)', ease: 'power4.inOut', duration: 1.5 })
+      .fromTo(menu.querySelector('.menu__image-fixed img'), { autoAlpha: 1, x: 0 }, { autoAlpha: 0, x: 50 }, '<')
+      .fromTo(menu.querySelector('.menu__soc-icons-wrap'), { autoAlpha: 1, x: 0 }, { autoAlpha: 0, x: 50 }, '<')
+      .fromTo(menu.querySelectorAll('.menu__head-links li'), { autoAlpha: 1, x: 0 }, { autoAlpha: 0, x: 35, ease: 'power4.out', stagger: 0.075, duration: 0.75 }, '<')
       .add(() => {
         document.querySelector('[data-call-menu-span]').textContent = callMenu.dataset.whenClosed;
       })
@@ -71,16 +86,20 @@ const menuTransitions = {
           stroke: 'rgba(152, 152, 152, 0)',
         },
         '<',
-      );
+      )
+      .set(callMenu, { pointerEvents: 'all' });
   },
 };
-
-callMenu.addEventListener('click', () => {
-  menu.classList.toggle('opened');
-  if (menu.classList.contains('opened')) {
+  callMenu.addEventListener('click', () => {
+  // menu.classList.toggle('opened');
+  if (!menu.classList.contains('opened')) {
     menuTransitions.opening();
+    menu.classList.add('opened');
   } else {
     menuTransitions.closing();
+    setTimeout(() => {
+      menu.classList.remove('opened');
+    }, 2000);
   }
 });
 
