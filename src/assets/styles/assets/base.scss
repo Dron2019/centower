@@ -397,8 +397,15 @@ button, a {
 	@include from-to(576px, 951px){
 		font-size: 24px;
 	}
+	@include to(575px) {
+	font-size: 21px;	
+	}
 	svg {
 		margin-left: 30px;
+		@include to(575px) {
+		width: 40px;
+		height: 13px;	
+		}
 	}
 	path {
 	transition: .3s ease-in-out;
@@ -426,6 +433,9 @@ button, a {
 	}
 	@include from-to(576px, 950px){
 		font-size: 72px;
+	}
+	@include to(575px) {
+		font-size: 40px;	
 	}
 }
 
@@ -485,10 +495,12 @@ text-transform: uppercase;
 
 
 .page-section {
-  --bottom-block-margin: 100px;
+  	--bottom-block-margin: 100px;
 	perspective: 500px;
 	position: relative;
 	z-index: 1;
+	align-content: flex-start;
+  	margin-top: 83px;
   @include row-flex();
   @include shift-padding(2);
 	@include from(1680px){
@@ -503,20 +515,31 @@ text-transform: uppercase;
   @include from-to(576px, 950px){
     --bottom-block-margin: 50px;
   }
-  align-content: flex-start;
-  margin-top: 83px;
+  @include to(575px) {
+	margin-top: 30px;  
+	--bottom-block-margin: 50px;
+  }
+  
   .round-image-on-first-section {
     @include size(12);
     @include shift(0);
-		@include from(1680px){
-			max-height: 100vh;
-		}
+	@include from(1680px){
+		max-height: 100vh;
+	}
+	@include to(575px) {
+		@include size(24);
+
+	}
   }
   .page-section-common-block {
     @include shift(0);
     @include size(12);
     position: relative;
     z-index: 3;
+	@include to(575px) {
+		@include size(24);
+
+	}
   }
 	.page-section-common-block.image-down {
 		@include shift(0);

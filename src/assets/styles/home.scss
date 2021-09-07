@@ -259,8 +259,8 @@
         animation-name: pulseDots;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
-        animation-duration: 2s;
-        animation-delay: #{$i/2}s;
+        animation-duration: 1.5s;
+        animation-delay: #{$i/4}s;
         // animation: pulseDots 2s infinite ease-in-out #{$i};
     }
   }

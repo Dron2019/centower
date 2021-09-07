@@ -15,6 +15,11 @@
   @include from-to(576px, 950px){
     @include size(12);
   }
+  @include to(575px) {
+    
+    @include size(24);
+    margin-top: 50px;
+  }
 }
 
 @keyframes rotation {
@@ -48,6 +53,9 @@
   @include from-to(576px, 950px){
     font-size: 24px;
   }
+  @include to(575px) {
+    font-size: 21px;
+  }
 }
 
 .conception-paragraph1 {
@@ -60,6 +68,11 @@
     
     @include shift-left(0);
   }
+  @include to(575px) {
+    @include size(24);
+    @include shift(0);
+
+  }
 }
 .conception-block-with-text {
   font-size: 18px; 
@@ -71,8 +84,12 @@
     margin-top: 20px;
     @include size(14);
     @include from(1680px){
-     font-size: 24px; 
-     line-height: 140%;
+      font-size: 24px; 
+      line-height: 140%;
+    }
+    @include to(575px) {
+      
+      @include size(24);
     }
   }
   @include from-to(576px, 950px){
@@ -82,6 +99,9 @@
 .conception-block-with-text1 {
   @include size(14.4);
   @include shift(0);
+  @include to(575px) {
+    @include size(24);
+  }
 }
 .conception-block-with-text2 {
   @include size(8.4);
@@ -93,16 +113,27 @@
     @include size(8.4);
     @include shift-left(0);
   }
+  @include to(575px) {
+    @include size(24);
+    @include shift(0);
+  }
 }
 .conception-paragraph2 {
   @include size(10.8);
   @include shift(0);
+  @include to(575px) {
+    @include size(24);
+  }
 }
 .conception-img3 {
   @include size(12);
   @include shift-left(1);
   @include shift-right(0);
   margin-bottom: var(--bottom-block-margin);
+  @include to(575px) {
+    @include size(24);
+    @include shift(0);
+  }
 }
 .conception-img4 {
   @include size(12);
@@ -117,7 +148,9 @@
   }
   @include from-to(576px, 950px){
     --margin-b: -50px;
-
+  }
+  @include to(575px) {
+    @include size(24);
   }
   
 }
@@ -132,15 +165,28 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
+    @include to(575px) {
+      width: 170px;
+    }
   }
   @include from(1680px){
 
+  }
+  @include to(575px) {
+    @include size(24);
+    padding-left: 0;
+    @include shift-right(0);
+    @include shift-left(0);
+    padding-bottom: var(--bottom-block-margin);
   }
 }
 .conception-block-with-text3 {
   @include size(15);
   @include shift(0);
+  @include to(575px) {
+    
+    @include size(24);
+  }
 }
 .conception-img5 {
   @include size(7.55);
@@ -149,6 +195,11 @@
   @include from-to(576px, 950px){
     
     @include shift-left(0);
+  }
+  @include to(575px) {
+    @include size(24);
+    @include shift(0);
+
   }
 }
 .w-100 {
@@ -168,13 +219,18 @@
   @include from-to(576px, 950px){
     padding-top: 202px;
     padding-bottom: 150px;
-
   }
   @include to(1120px){
     padding-left: var(--page-side-fields);
     padding-right: var(--page-side-fields);
     margin-left: calc( -1 * var(--page-side-fields));
     margin-right: calc( -1 * var(--page-side-fields));
+  }
+  @include to(575px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 0;
+    padding-right: 0;
   }
   // padding-left: var(--page-side-fields);
   // padding-right: var(--page-side-fields);
@@ -187,6 +243,10 @@
     z-index: 3;
     width: 68px;
     height: 68px;
+    @include to(575px) {
+     width: 34px;
+     height: 34px; 
+    }
   }
   &__decor-pattern {
     position: absolute;
@@ -209,7 +269,10 @@
     @include size(15.2);
     @include shift(0);
     @include from(1680px){
-     margin-top: 40px; 
+      margin-top: 40px; 
+    }
+    @include to(575px) {
+      @include size(24);
     }
   }
   &__block {
@@ -240,6 +303,11 @@
     padding-left: var(--page-side-fields);
     padding-right: var(--page-side-fields);
   }
+  @include to(575px) {
+    --decor-height: 120px;
+    padding-left: 0;
+    padding-right: 0;
+  }
   .page-title {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -247,9 +315,18 @@
      margin-top: 60px;
      margin-bottom: 60px; 
     }
+    @include to(575px) {
+     margin-top: 30px;
+     margin-bottom: 30px; 
+    }
   }
   .conception-paragraph {
     margin-bottom: 150px;
+    @include to(575px) {
+      @include size(24);
+      @include shift(0);
+      margin-bottom: var(--bottom-block-margin);
+    }
   }
   .conception-img5,
   .conception-block-with-text {
@@ -259,6 +336,10 @@
     @include size(13.8);
     @include shift(0);
     margin-left: auto;
+    @include to(575px) {
+      @include size(24);
+      
+    }
   }
   .button-std-3 {
     width: 100%;
