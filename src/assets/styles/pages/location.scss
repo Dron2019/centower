@@ -19,6 +19,7 @@
   @include to(575px) {
     @include size(24);
     @include shift(0);
+    margin-bottom: 30px;
   }
 }
 .location-paragraph1 {
@@ -30,6 +31,7 @@
     
     @include size(24);
     @include shift(0);
+    margin-bottom: 40px;
   }
 }
 

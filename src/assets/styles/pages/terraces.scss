@@ -2,6 +2,10 @@
   @include size(10.8);
   @include shift(0);
   // @include shift-padding-right(0.6);
+  @include to(575px) {
+    @include size(24);
+
+  }
 }
 .terraces-paragraph1 {
   @include size(12);
@@ -11,5 +15,10 @@
   margin-top: 100px;
   @include from(1680px){
    margin-top: 120px; 
+  }
+  @include to(575px) {
+    @include shift(0);
+    @include size(24);
+    margin-top: 30px;
   }
 }

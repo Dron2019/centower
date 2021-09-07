@@ -298,6 +298,9 @@ color: var(--color-black);
         color: var(--color-black);
         margin-top: 30px;
         max-width: 345px;
+        @include to(575px) {
+            padding: 20px 15px;
+        }
     }
     .button-std-3 path {
         fill: var(--color-black);

@@ -2,6 +2,10 @@
   @include size(10.8);
   @include shift(0);
   // @include shift-padding-right(0.6);
+  @include to(575px) {
+    @include size(24);
+
+   }
 }
 .inner-yard-paragraph1 {
   @include size(12);
@@ -9,4 +13,9 @@
   @include shift-left(1.2);
   margin-bottom: auto;
   margin-top: 100px;
+  @include to(575px) {
+   margin-top: 30px; 
+   @include size(24);
+   @include shift(0);
+  }
 }

@@ -13,6 +13,7 @@
     ]
 .map
   #map
+  button(type='button').map-mobile-filter-button(data-mobile-filter-button) фільтр
   .opened.map__legend(data-mob-accordeon)
     .map__legend-title 
       +btn1('Обрати квартиру')
@@ -21,6 +22,10 @@
             </svg>
       a(href="tel:+380675230001").link +380 67 523 00 01
     .map__legend-markers-wrap
+      <svg data-mobile-close-legend width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="30" height="30" rx="15" fill="#2D2D2D" stroke="#989898" stroke-opacity="0.25"/>
+        <path d="M12.4001 19.6001L19.6001 12.4001M19.6001 19.6001L12.4001 12.4001" stroke="#F3EFE9"/>
+        </svg>
       each val,i in markers
         .map__legend-marker(data-category=datatypes[i] data-marker)
           .map__legend-marker-icon !{icons[i]}

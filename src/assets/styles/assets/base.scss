@@ -566,6 +566,7 @@ text-transform: uppercase;
 		margin-left: 0;
 		margin-right: 0;
 		margin-top: 50px;
+		margin-bottom: 50px;
 	}
   }
   .page-section-common-block.image-down .ellipse-common {
@@ -575,6 +576,9 @@ text-transform: uppercase;
   }
   .page-title {
     white-space: nowrap;
+	@include to(575px) {
+		white-space: initial;
+	}
   }
 }
 
