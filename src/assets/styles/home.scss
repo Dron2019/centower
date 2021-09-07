@@ -8,6 +8,9 @@
     @include from(1680px){
         font-size: 140px;
     }
+    @include to(575px) {
+        font-size: 50px;
+    }
 }
 .ms-subtitle {
     color: var(--color-gray);
@@ -16,6 +19,9 @@
     text-align: center;
     @include from(1680px){
        margin-bottom: 35px;
+    }
+    @include to(575px) {
+     width: 100%;   
     }
 }
 .ms-slider-overlay  {
@@ -39,6 +45,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
+    @include to(575px) {
+        padding-left: var(--page-side-fields);
+        padding-right: var(--page-side-fields);
+        &:last-child .ms-title {
+            font-size: 36px;
+        }
+    }
     picture {
         pointer-events: none;
     }
@@ -87,19 +100,34 @@
     transform: translateY(-50%);
     top: calc(50% + var(--header-h) / 2);
     z-index: 10;
+    @include to(575px) {
+        bottom: 0; 
+        left: 0;
+        flex-direction: row;
+        height: 40px;
+        justify-content: center;align-items: center;
+        width: 100%;
+        top: auto;
+    }
     svg {
         cursor: pointer;
     }
     svg~svg {
         margin-top: 20px;
+        @include to(575px) {
+         margin-top: 0;
+         margin-left: 10px;   
+        }
     }
     
     .ms-next-slide {
-        
         position: relative;
         width: 50px;
         height: 50px;
         margin-top: 93px;
+        @include to(575px) {
+            display: none;
+        }
     }
     .ms-next-slide:before {
         content: '';
@@ -125,6 +153,12 @@
         }
         svg~svg {
             margin-top: 30px;
+        }
+    }
+    @include to(575px) {
+        svg {
+            width: 40px;
+            height: 40px;
         }
     }
     svg[data-ms-next-slide] {
@@ -164,6 +198,9 @@
 .ms-list {
     display: flex;
     color: var(--color-gray);
+    @include to(575px) {
+        justify-content: space-between;
+    }
     span {
         font-family: MADE Coachella;
         margin-right: 13px;
@@ -176,6 +213,10 @@
         @include from(1680px){
             font-size: 34px;
         }
+        @include to(575px) {
+         font-size: 25px;   
+         margin-right: 0;
+        }
         
     }
     li {
@@ -184,9 +225,17 @@
         @include from(1380px){
             font-size: 17px;
         }
+        @include to(575px) {
+            flex-direction: column;
+            align-items: center;   
+            font-size: 12px;
+        }
     }
     li~li {
         margin-left: 40px;
+        @include to(575px) {
+            margin-left: 20px;
+        }
     }
 }
 
@@ -199,6 +248,9 @@
 
     circle {
         animation: pulseDots 2s infinite ease-in-out;
+    }
+    @include to(575px) {
+     display: none;   
     }
 }
 

@@ -13,4 +13,4 @@ panoramaOverlay.addEventListener('click', () => {
 });
 
 
-locoScroll.scrollTo(document.querySelector('.panorama-wrapper__faq'))
+locoScroll.scrollTo(document.querySelector('.panorama-wrapper__faq'));

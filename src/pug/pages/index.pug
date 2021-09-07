@@ -48,6 +48,7 @@ block scripts
   script(defer src='./assets/scripts/menu.js')
   script(defer src='./assets/scripts/home.js')
 block content
+    include ../components/lang/lang.pug
     .ms-navigation
       each val, i in screens
         <svg  width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">

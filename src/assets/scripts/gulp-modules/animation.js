@@ -40,7 +40,7 @@ paralaxImages.forEach((image) => {
     scrollTrigger: {
       trigger: wrap,
       scrub: 0.5,
-      markers: true,
+      // markers: true,
     },
   })
     .fromTo(image, {
@@ -131,7 +131,7 @@ svgMaskParalax.forEach((svg) => {
     scrollTrigger: {
       trigger: svg,
       scrub: 0.5,
-      markers: true,
+      // markers: true,
     },
   })
     .fromTo(svg.querySelector('[mask] path'), {

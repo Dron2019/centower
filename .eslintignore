@@ -3,7 +3,7 @@ prod
 dist
 node_modules
 src/assets/scripts/gulp-modules/ts
-src/assets/scripts/libs
+src/assets/scripts
 /.git
 /.vscode
 

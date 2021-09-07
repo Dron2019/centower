@@ -46,7 +46,7 @@ body {
 		font-size: 19px;
 	}
 	@include to(575px){
-		font-size: 15px;
+		font-size: 12px;
 	}
 }
 
@@ -234,7 +234,13 @@ button, a {
 		--side-padding: 55px;
 		font-size: 19px;
 	}
+	@include to(575px) {
+		--v-padding: 12px;
+		--side-padding: 26px;
+		font-size: 12px;
+	}
 }
+
 
 .button-std-1 {
 	background-color: transparent;
@@ -270,6 +276,12 @@ button, a {
 			height: 65px;	
 			margin-right: 25px;
 		}
+		@include to(575px) {
+			width: 40px;
+			height: 40px;	
+			background-color: transparent;
+			border: 1px solid var(--color-gold);
+		}
 		svg {
 			position: relative;
 			width: 45%;
@@ -290,6 +302,9 @@ button, a {
 		left: 0;
 		top: 0;
 		border-radius: inherit;
+		@include to(575px) {
+			display: none;	
+		}
 	}
 	&:hover &__icon:after {		
 		transform: scale(0);
@@ -463,6 +478,9 @@ line-height: 130%;
 
 letter-spacing: 0.03em;
 text-transform: uppercase;
+	@include to(575px) {
+		font-size: 12px;	
+	}
 }
 
 

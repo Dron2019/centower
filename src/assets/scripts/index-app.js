@@ -255,7 +255,7 @@ function handleUnloadLinks(link) {
   const isChangeLocationLink = link.href.match(/#|tel:|mailto:/g);
   const isBlank = link.getAttribute('target');
   link.addEventListener('click', (evt) => {
-    if (isBlank === null) evt.preventDefault();
+    if (isBlank === null && isChangeLocationLink === null) evt.preventDefault();
     gsap.set('.loader-wrap', { transition: 'none' });
     if (isChangeLocationLink === null) {
       gsap.timeline()
@@ -263,8 +263,8 @@ function handleUnloadLinks(link) {
           autoAlpha: 1,
           duration: 0.45,
         })
-        .to('.right-letters', { yPercent: -120 }, '<+0.2')
-        .to('.left-letters', { yPercent: 120 }, '<')
+        .fromTo('.right-letters', { yPercent: 0 }, { yPercent: -120 }, '<+0.2')
+        .fromTo('.left-letters', { yPercent: 0 }, { yPercent: 120 }, '<')
         .add(() => {
           window.location = link.href;
         });
@@ -272,3 +272,10 @@ function handleUnloadLinks(link) {
   });
 }
 document.querySelectorAll('a').forEach(handleUnloadLinks);
+
+
+document.querySelectorAll('.mobile-prevent-default').forEach((el) => {
+  if (document.documentElement.clientWidth < 576) {
+    el.addEventListener('click', evt => evt.preventDefault());
+  }
+});

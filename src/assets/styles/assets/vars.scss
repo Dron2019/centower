@@ -74,9 +74,13 @@ $gold: #CFA46E;
     --header-h: 60px;
     --sliceFigure: 100px;
     --sliceFigure-big: 100px;
-    --logo-w: 120px;
+    // --logo-w: 120px;
     --container-top-padding: 30px;
     --footer-margin: 50px;
+    --page-side-fields: 15px;   
+
+    --logo-w: 65px;
+    --logo-h: calc(var(--logo-w) / 65px * 40px);
   }
 }
 @media screen and (max-width: 350px){

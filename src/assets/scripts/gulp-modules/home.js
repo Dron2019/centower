@@ -106,7 +106,8 @@ const params = {
 
 navs.forEach(resetStrokeValue);
 navs.forEach((el, index) => {
-  el.addEventListener('click', function () {
+  el.parentElement.addEventListener('click', function () {
+    console.log('ff');
     if (params.isAnimating === true) return;
     clearTimeoutAndSetNew();
     simulatePathDrawing(navs[index], 1.5, '5');

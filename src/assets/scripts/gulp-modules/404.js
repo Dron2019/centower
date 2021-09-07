@@ -25,4 +25,4 @@ pathes404.forEach((el, i) => {
 // });
 
 locoScroll.destroy();
-document.querySelector('.header').classList.add('not-on-top')
+document.querySelector('.header').classList.add('not-on-top');

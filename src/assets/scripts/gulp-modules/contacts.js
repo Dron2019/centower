@@ -64,9 +64,9 @@ function movePath(svg) {
     time1 += 1;
     const dValue = path1.getAttribute('d').split(' ');
     const medVal = Array.from(dValue[7].split('C'));
-    dValue[5] = +62.5 + (amplitude1 * Math.sin(window.add ).toFixed(1));
-    dValue[8] = +62.5 + (amplitude1 * Math.sin(window.add ).toFixed(1));
-    medVal[0] = 62.5 + (amplitude1 * Math.sin(window.add ).toFixed(1));
+    dValue[5] = +62.5 + (amplitude1 * Math.sin(window.add).toFixed(1));
+    dValue[8] = +62.5 + (amplitude1 * Math.sin(window.add).toFixed(1));
+    medVal[0] = 62.5 + (amplitude1 * Math.sin(window.add).toFixed(1));
     dValue[7] = medVal.join('C');
     gsap.to(path1, {
       attr: {

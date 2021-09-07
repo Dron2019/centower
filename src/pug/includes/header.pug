@@ -3,9 +3,21 @@ header.header
         <svg width="18" height="21" viewBox="0 0 18 21" fill="#FAFAFA" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.0431 17.6887C16.8269 17.3145 16.3481 17.1863 15.9736 17.4024L13.9395 18.5758L12.7651 16.5433L14.7992 15.3699C15.1737 15.1538 15.302 14.6754 15.0858 14.3012C14.8696 13.927 14.3907 13.7988 14.0162 14.0149L11.9821 15.1883L8.4237 9.02991C10.4229 7.37768 10.7031 4.41896 9.04959 2.42136C7.39608 0.423744 4.43494 0.143746 2.43572 1.79593C0.436494 3.44812 0.156273 6.40688 1.80982 8.40448C3.08409 9.94386 5.19382 10.5087 7.06761 9.81217L12.9749 20.0356C13.1911 20.4098 13.6699 20.538 14.0444 20.322L16.7566 18.7574C17.131 18.5414 17.2593 18.0629 17.0431 17.6887ZM2.71993 6.98166C1.85512 5.48496 2.36833 3.57115 3.86623 2.70703C5.36414 1.84291 7.27948 2.35572 8.14429 3.85242C9.0091 5.34912 8.49589 7.26292 6.99799 8.12704C5.50009 8.99116 3.58475 8.47836 2.71993 6.98166Z" />
             </svg>
-    a(href="tel:+380675230001").header__tel.link.link--metis +380 67 523 00 01
+    .langs-header
+        ul
+            li 
+                a(href="#") UA 
+            li 
+                a(href="#") RU 
+            li 
+                a(href="#") EN 
+    a(href="tel:+380675230001" data-call-mobile-callback-popup).mobile-prevent-default.header__tel.link.link--metis +380 67 523 00 01
     a(href="index").header__logo
-        img(src="./assets/images/logo.svg", alt="centower logo")
+        <picture>
+            <source media="(max-width: 575px)" srcset="./assets/images/logo-mobile.svg">
+            <img src="./assets/images/logo.svg" alt="centower logo">
+            </picture>
+        //- img(src="./assets/images/logo.svg", srcset="./assets/images/logo-mobile.svg 575w," sizes="(max-width: 575px) 575px, 1680px" alt="centower logo")
     +btn4('Замовити дзвінок').header__link(data-call-form-popup)
     button(type="button" data-menu-call data-when-opened="Закрити" data-when-closed="Меню").header__menu-call
         span(data-call-menu-span) Меню
@@ -19,3 +31,7 @@ header.header
                 <path class="header__menu-call-icon-path" d="M20.4268 29H35.8553V27.7143H20.4268V29Z" fill="#FAFAFA"/>
                 </g>
             </svg>
+.mobile-callback-popup(data-mobile-callback-popup) 
+    a.mobile-callback-popup__tel(href="tel:+380443563777") Виклик +380 (44) 356 37 77
+    .mobile-callback-popup__callback(data-call-form-popup) Зворотній дзвінок
+    .mobile-callback-popup__close(data-mobile-callback-close) Відмінити
