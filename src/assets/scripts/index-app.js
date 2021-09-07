@@ -279,3 +279,18 @@ document.querySelectorAll('.mobile-prevent-default').forEach((el) => {
     el.addEventListener('click', evt => evt.preventDefault());
   }
 });
+
+/**Перенос блока с текстом на типичных страницах на моб версии */
+function transferBlocksOnMobile() {
+  if (document.documentElement.clientWidth > 576) return; 
+  const blocks = document.querySelectorAll('.page-section-common-block');
+  blocks.forEach((block) => {
+    const svgOnFirstSection = document.querySelector('.round-image-on-first-section');
+    const ellipseOnFirstSection = block.querySelector('.ellipse-common');
+    if (svgOnFirstSection !== null && ellipseOnFirstSection !== null) {
+      svgOnFirstSection.insertAdjacentElement('afterend', ellipseOnFirstSection)
+    }
+  })
+};
+
+transferBlocksOnMobile();

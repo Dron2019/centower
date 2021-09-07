@@ -506,8 +506,8 @@ text-transform: uppercase;
 	z-index: 1;
 	align-content: flex-start;
   	margin-top: 83px;
-  @include row-flex();
-  @include shift-padding(2);
+	@include row-flex();
+	@include shift-padding(2);
 	@include from(1680px){
 		
 		--bottom-block-margin: 120px;
@@ -522,7 +522,7 @@ text-transform: uppercase;
   }
   @include to(575px) {
 	margin-top: 30px;  
-	--bottom-block-margin: 50px;
+	--bottom-block-margin: 40px;
   }
   
   .round-image-on-first-section {
@@ -533,7 +533,7 @@ text-transform: uppercase;
 	}
 	@include to(575px) {
 		@include size(24);
-
+		margin-top: 30px;
 	}
   }
   .page-section-common-block {
@@ -565,7 +565,7 @@ text-transform: uppercase;
 		width: 100%;
 		margin-left: 0;
 		margin-right: 0;
-		
+		margin-top: 50px;
 	}
   }
   .page-section-common-block.image-down .ellipse-common {
