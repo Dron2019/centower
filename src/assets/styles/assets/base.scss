@@ -435,7 +435,8 @@ button, a {
 		font-size: 72px;
 	}
 	@include to(575px) {
-		font-size: 40px;	
+		font-size: 40px;
+		word-break: break-word;	
 	}
 }
 
@@ -471,6 +472,10 @@ button, a {
 		width: 55%;
 		@include from(1680px){
 		font-size: 19px;	
+		}
+		@include to(575px) {
+			font-size: 12px;
+			width: 70%;
 		}
 	}
 	&__decor {
@@ -556,6 +561,12 @@ text-transform: uppercase;
     @include size(26);
     margin-top: auto;
     margin-bottom: auto;
+	@include to(575px) {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+		
+	}
   }
   .page-section-common-block.image-down .ellipse-common {
     @include shift-left(0);
@@ -617,6 +628,10 @@ text-transform: uppercase;
 		--bottom-padding: 145px;
 		padding-bottom: var(--bottom-padding);
 	}
+	@include to(575px) {
+		--top-padding: 60px;
+		--bottom-padding: 60px;
+	}
 	&__decor-pattern {
 		position: absolute;
     left: 0;
@@ -633,6 +648,11 @@ text-transform: uppercase;
 			@include shift-left(9);
 			@include shift-right(1);
 			
+		}
+		@include to(575px) {
+			
+			@include size(24);
+			@include shift(0);
 		}
 	}
 }

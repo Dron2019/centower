@@ -22,7 +22,7 @@ body>.popup-wrapper {
     }
     // display: none;
     @include to(575px){
-     padding-top: var(--header-h);
+    //  padding-top: var(--header-h);
      align-items: center;  
      align-content: center;
     }
@@ -67,8 +67,6 @@ color: var(--color-black);
 .popup-form {
     padding-left: 140px;
     padding-right: 74px;
-    padding-top: 48px;
-    padding-bottom: 94px;
     padding-top: 94px;
     padding-bottom: 94px;
     width: 100vw;
@@ -87,6 +85,9 @@ color: var(--color-black);
     @include to(1120px){
         padding-left: var(--page-side-fields);
         padding-right: var(--page-side-fields);
+    }
+    @include to(575px) {
+        padding: 10px 15px;
     }
     .form-field {
         // border: 1px solid #DBDBDB;
@@ -167,13 +168,9 @@ color: var(--color-black);
         // color: #878787;
     }
     @include to(575px){
-        padding-left: 25px;
-        padding-right: 25px;
-        padding-top: 50px;
-        padding-bottom: 50px;
         // top: var(--header-h);
         .form-field:not(#t) {
-            margin-top: 15px;
+            margin-top: 30px;
         }
         .required-alert {
             line-height: 125%;
@@ -341,6 +338,11 @@ color: var(--color-black);
         display: flex;
         align-items: flex-end;
     }
+    @include to(575px) {
+     width: 100%;   
+     padding-top: 70px;
+     font-size: 30px;
+    }
 }
 
 .popup-decor-group {
@@ -353,6 +355,11 @@ color: var(--color-black);
         align-self: flex-end;
         padding-left: 0px;
     }
+    @include to(575px) {
+     width: 100%;   
+     padding-left: 0;
+     margin-top: 10px;
+    }
     p,
     .button-std-3 {
         position: absolute;
@@ -361,10 +368,18 @@ color: var(--color-black);
         width: 55%;
         transform: translate(-50%,-50%);
         color: var(--color-black);
+        @include to(575px) {
+            width: auto;
+            position: static;
+            transform: none;   
+        }
     }
     .ellipse-with-stars {
         width: 100%;
         height: 100%;
+        @include to(575px) {
+         display: none;   
+        }
     }
 }
 

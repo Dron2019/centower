@@ -8,10 +8,14 @@
   flex-wrap: wrap;
   color: var(--color-grey);
   font-size: 10px;
-line-height: 120%;
-@include from(1680px){
- font-size: 14px; 
-}
+  line-height: 120%;
+  @include from(1680px){
+    font-size: 14px; 
+  }
+  @include to(575px) {
+    --v-padding: 25px;
+    height: 91px;
+  }
   &:before {
     content: '';
     position: absolute;
@@ -24,12 +28,25 @@ line-height: 120%;
     
   }
   &__left {
-    
+    @include to(575px) {
+      order: 2;
+      margin-top: 15px;
+    }
+  }
+  &__right {
+    @include to(575px) {
+      order: 1;
+      margin-left: auto;
+    }
   }
   &__center {
     margin: 0 auto;
+    @include to(575px) {
+      order: -1;
+      margin: 0;
+    }
   }
-  &__center>*:nth-child(n+1) {
+  &__center>*:nth-child(n+2) {
     margin-left: 30px;
   }
   .site-developer {

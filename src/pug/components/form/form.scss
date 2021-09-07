@@ -53,6 +53,7 @@ form {
   }
   @include to(576px){
     // margin: 30px 0 0;
+    padding-left: 0;
   }
 }
 
@@ -100,10 +101,16 @@ form {
   @include from(1680px){
    font-size: 40px; 
   }
+  @include to(575px) {
+   font-size: 21px; 
+  }
   &::placeholder {
     color: var(--color-black, #000000);
     font-size: 36px;
     line-height: 140%;
+    @include to(575px) {
+      font-size: 21px; 
+     }
   }
   &:focus + .form-field-message {
     opacity: 1;
@@ -209,6 +216,7 @@ form {
   }
   @include to(576px){
     // font-size: 14px;
+    padding-bottom: 5px;
   }
 }
 
@@ -417,10 +425,20 @@ line-height: 130%;
   @include to(950px){
     --offset: 30px;
   }
+  @include to(575px){
+    margin-top: 30px;
+  }
   .form-field {
     @include customOffsetWidth(40, var(--offset));
+    @include to(575px) {
+      
+      @include customOffsetWidth(100, var(--offset));
+    }
   }
   .form-btn-wrap {
     @include customOffsetWidth(20, var(--offset));
+    @include to(575px) {
+      margin-left: auto; 
+    }
   }
 }
