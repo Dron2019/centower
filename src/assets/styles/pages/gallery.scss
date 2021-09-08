@@ -2,12 +2,18 @@
   margin-left: calc(var(--page-side-fields) * -1);
   margin-right: calc(var(--page-side-fields) * -1);
   margin-top: 50px;
+  @include to(575px){
+    margin-top: 30px; 
+  }
   .swiper-slide {
     // height: 52.5vw;
     height: 100vh;
     object-fit: cover;
     object-fit: cover;
     object-position: bottom;
+    @include to(575px){
+     height: calc(100vh - var(--header-h)); 
+    }
   }
   @include from(950px){
     .swiper-wrapper {
@@ -43,6 +49,9 @@
   @include from(1680px){
    bottom: 110px; 
   }
+  @include to(575px){
+   bottom: 15px; 
+  }
   &__current {
     font-family: MADE Coachella;
     font-size: 140px;
@@ -59,6 +68,11 @@
       min-width: 190px;
      font-size: 160px; 
     }
+    @include to(575px){
+      font-size: 60px;
+      min-width: 70px;
+      line-height: 85%;
+    }
   }
   &__current span {
     display: inline-block;
@@ -68,14 +82,19 @@
     font-weight: 300;
     font-size: 36px;
     line-height: 100%;
+    letter-spacing: -0.03em;
+    margin-left: 20px;
     /* identical to box height, or 36px */
     @include from(1680px){
       font-size: 40px;
       line-height: 100%;
     }
+    @include to(575px){
+     font-size: 21px; 
+     margin-left: 5px;
+    }
 
-    letter-spacing: -0.03em;
-    margin-left: 20px;
+
   }
   &__all:before {
     content: '/';

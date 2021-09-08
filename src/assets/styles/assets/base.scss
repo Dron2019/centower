@@ -531,11 +531,12 @@ text-transform: uppercase;
 		@include from(1680px){
 			max-height: 100vh;
 		}
-	@include to(575px) {
-		@include size(24);
+		@include to(575px) {
+			@include size(24);
 			margin-top: 30px;
 			margin-bottom: 50px;
-	}
+			height: calc((100vw - (var(--page-side-fields) * 2)) / 290 * 426);
+		}
   }
   .page-section-common-block {
     @include shift(0);
@@ -576,6 +577,12 @@ text-transform: uppercase;
     @include shift-left(0);
     @include size(13.2);
 		margin-top: 100px;
+		@include to(575px){
+			margin-top: 30px;
+			margin-left: 0;
+			margin-right: 0;
+			width: 100%;
+		}
   }
   .page-title {
     white-space: nowrap;
@@ -604,6 +611,10 @@ text-transform: uppercase;
   position: relative;
   padding-top: 202px;
   padding-bottom: 150px;
+	@include to(575px){
+		padding-top: 80px;	
+		padding-bottom: 60px;
+	}
   &__decor-pattern {
     position: absolute;
     top: -2px;
@@ -618,6 +629,12 @@ text-transform: uppercase;
     margin-top: 50px;
 		@include from(1680px){
 		margin-top: 60px;	
+		}
+		@include to(575px){
+			width: 100%;
+			text-align: left;
+			margin-left: 0;
+			margin-right: 0;
 		}
   }
 }
@@ -638,6 +655,7 @@ text-transform: uppercase;
 	@include to(575px) {
 		--top-padding: 60px;
 		--bottom-padding: 60px;
+		--decor-height: 145px;
 	}
 	&__decor-pattern {
 		position: absolute;
@@ -645,6 +663,10 @@ text-transform: uppercase;
     top: -2px;
     height: var(--decor-height);
 		@include shift-left(2);
+		@include to(575px){
+			margin-left: 0;
+			width: var(--decor-height);
+		}
 	}
 	.ellipse-common {
 		@include size(11);

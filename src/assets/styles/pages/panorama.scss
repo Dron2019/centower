@@ -6,6 +6,10 @@
   margin-right: calc(var(--page-side-fields) * -1);
   position: relative;
   margin-top: 50px;
+  @include to(575px){
+   margin-top: 30px; 
+   height: calc(100vh - var(--header-h));
+  }
   @include from(1680px){
     
     height: calc(100vh - var(--header-h));

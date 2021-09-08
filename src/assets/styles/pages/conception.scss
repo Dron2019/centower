@@ -137,6 +137,7 @@
   @include to(575px) {
     @include size(24);
     @include shift(0);
+   
   }
 }
 .conception-img4 {
@@ -155,6 +156,8 @@
   }
   @include to(575px) {
     @include size(24);
+    height: calc((100vw - (var(--page-side-fields) * 2)) / 290 * 426);
+    margin-bottom: 40px;
   }
   
 }

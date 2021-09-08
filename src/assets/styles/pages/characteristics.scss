@@ -2,6 +2,8 @@
   @include size(8.4);
   @include shift-right(0);
   @include shift-left(3);
+  @include shift-sm-left(0);
+  @include size-sm(11.4);
   @include shift-xs-left(0);
   @include size-xs(24);
   align-self: center;
