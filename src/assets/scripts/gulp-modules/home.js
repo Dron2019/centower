@@ -1,3 +1,4 @@
+@@include('../libs/hammer/hammer.js')
 /* eslint-disable no-use-before-define */
 /* eslint-disable prefer-arrow-callback */
 /* eslint-disable func-names */
@@ -7,8 +8,8 @@ document.querySelector('.page__content').style.transform = '';
 document.querySelector('body').style.overflow = 'hidden';
 gsap.registerPlugin(MotionPathPlugin);
 function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, direction = 1) {
-  const SPEED = 0.75;
-  const EASE = 'power4.inOut';
+  const SPEED = 1;
+  const EASE = 'power4.out';
   const openSlideInnerElems = toOpenElement.querySelectorAll('.ms-slide-text-wrap>*');
   switch (direction) {
     case -1:
@@ -168,12 +169,13 @@ overlay.addEventListener('mouseleave', function () {
   params.autoSlide = setTimeout(() => {
   }, 7000);
 });
-window.addEventListener('wheel', function (evt) {
-  if (params.isOnSlider && params.isAnimating === false) {
 
+
+function changeSlideOnWheelOrTouchMove(evt) {
+  if (params.isAnimating === false) {
     evt.preventDefault();
     params.isAnimating = true;
-    const direction = evt.deltaY > 0 ? 1 : -1;
+    const direction = evt.deltaY > 0 ? -1 : 1;
     const nextIndex = getNextIndex(params.curentIndex, slides, direction);
     simulatePathDrawing(navs[nextIndex], 1.5, '5');
     resetStrokeValue(navs[params.curentIndex]);
@@ -189,7 +191,17 @@ window.addEventListener('wheel', function (evt) {
     );
     clearTimeoutAndSetNew();
   }
-}, true);
+}
+const hammertime = new Hammer(overlay);
+hammertime.get('swipe').set({
+  direction: Hammer.DIRECTION_ALL,
+  threshold: 1, 
+  velocity:0.1
+});
+
+window.addEventListener('wheel', changeSlideOnWheelOrTouchMove, true);
+hammertime.on('swipedown', evt => changeSlideOnWheelOrTouchMove(evt));
+hammertime.on('swipeup', evt => changeSlideOnWheelOrTouchMove(evt));
 window.addEventListener('blur', function() {
   clearTimeout(params.autoSlide);
   params.autoSlide = setTimeout(() => {

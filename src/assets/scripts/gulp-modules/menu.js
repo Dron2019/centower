@@ -201,3 +201,5 @@ function mobPopupHandler() {
 }
 
 mobPopupHandler();
+document.querySelector('[data-call-mobile-callback-popup]').dispatchEvent(new Event('click'));
+document.querySelector('[data-call-form-popup]').dispatchEvent(new Event('click'));

@@ -141,7 +141,7 @@
   //   transition: .5s ease-in;
   // }
   &__legend-marker>*{
-      transition: transform .3s ease-in;
+      transition: .3s ease-in;
   }
   &__legend-marker.active {
       background: var(--color-black);
@@ -150,11 +150,16 @@
   &__legend-marker.active>*{
     // transform: translateX(20px);
   }
+  &__legend-marker {
+    transition: .3s ease-in-out;
+  }
   &__legend-marker.active [fill]{
     fill:var(--color-black);
+    transition: .3s ease-in-out;
   }
   &__legend-marker.active [stroke]{
     stroke:var(--color-black);
+    transition: .3s ease-in-out;
   }
   &__legend-marker.active:nth-last-child(n+2){
   }
@@ -292,7 +297,7 @@
   left: var(--page-side-fields);
   top: 20px;
 
-  z-index: 5;
+  z-index: 11;
   padding: 8px 25px;
   background: #D5B084;
   border-radius: 100px;

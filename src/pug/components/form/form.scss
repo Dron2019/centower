@@ -426,7 +426,9 @@ line-height: 130%;
     --offset: 30px;
   }
   @include to(575px){
-    margin-top: 30px;
+    margin-top: 0px;
+    margin-top: auto;
+    flex-grow: 1;
   }
   .form-field {
     @include customOffsetWidth(40, var(--offset));

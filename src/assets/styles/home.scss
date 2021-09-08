@@ -45,6 +45,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
+    will-change: transform;
     @include to(575px) {
         padding-left: var(--page-side-fields);
         padding-right: var(--page-side-fields);

@@ -8,9 +8,28 @@ function handleMapLegendOpening() {
   if (WIDTH < 576) percentToScale = 0;
   const mobileOpenFilterButton = document.querySelector('[data-mobile-filter-button]');
   const mobileCloseFilerButton = document.querySelector('[data-mobile-close-legend]');
+
+  const locationLegendState = {
+    status: 'close',
+  };
+  const locationStateProxy = new Proxy(locationLegendState, {
+    set: (obj, prop, value) => {
+      if (value === 'open') {
+        mobileOpenFilterButton.style.display = 'none';
+      } else {
+        
+        mobileOpenFilterButton.style.display = '';
+      }
+      return true;
+    }
+  })
   gsap.set(legendTop, { yPercent: -100 });
   gsap.set(markersText, { autoAlpha: 0 });
-  gsap.set(legend, { clipPath: `polygon(0% 0%, ${percentToScale}% 0%, ${percentToScale}% 100%, 0% 100%)`, webkitClipPath: `polygon(0% 0%, ${percentToScale}% 0%, ${percentToScale}% 100%, 0% 100%)` });
+  gsap.set(legend, 
+    { 
+      clipPath: `polygon(0% 0%, ${percentToScale}% 0%, ${percentToScale}% 100%, 0% 100%)`, 
+      webkitClipPath: `polygon(0% 0%, ${percentToScale}% 0%, ${percentToScale}% 100%, 0% 100%)` 
+    });
   
   if (WIDTH > 576) {
     legend.addEventListener('mouseenter', openLegend);
@@ -20,6 +39,7 @@ function handleMapLegendOpening() {
     mobileCloseFilerButton.addEventListener('click', closeLegend);
   }
   function openLegend() {
+    locationStateProxy.status = 'open';
     gsap.to(markersText, { autoAlpha: 1, stagger: 0.05 });
     gsap.fromTo(
       legend,
@@ -36,6 +56,7 @@ function handleMapLegendOpening() {
     );
   }
   function closeLegend() {
+    locationStateProxy.status = 'close';
     gsap.to(markersText, { autoAlpha: 0 });
     gsap.fromTo(
       legend,
