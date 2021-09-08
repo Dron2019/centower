@@ -85,7 +85,7 @@ color: var(--color-black);
     padding-top: 94px;
     padding-bottom: 94px;
     width: 100vw;
-    max-width: 1366px;
+    max-width: none;
     @include from(1680px){
         max-width: none;
         height: 100%;
