@@ -1,9 +1,14 @@
 .developer-img2 {
   @include size(10.8);
+  @include size-xs(24);
   @include shift(0);
   @include shift-padding-right(0.5);
+  @include shift-xs-padding-right(0);
   overflow: hidden;
   margin-bottom: 100px;
+  @include to(575px){
+   margin-bottom: 30px; 
+  }
   svg {
     mix-blend-mode: difference;
     display: none;
@@ -15,41 +20,64 @@
   @include shift-right(0);
   margin-top: 100px;
   margin-bottom: auto;
+  @include to(575px){
+    margin-top: 0;
+    @include shift(0);
+    @include size(24); 
+    margin-bottom: 60px;
+  }
 }
 
 .developer-paragraph-with-text {
   @include size(14.4);
   @include shift(0);
+  
+  @include size-xs(24);
   font-size: 18px;
   line-height: 140%;
   overflow: hidden;
+  @include to(575px){
+
+    margin-bottom: 60px;
+  }
   &__img {
     overflow: hidden;
   }
   p {
     margin-top: 20px;
     @include size(18);
+    @include size-xs(24);
   }
   @include from(1680px){
     font-size: 24px;
-line-height: 140%;
+    line-height: 140%;
   }
 }
 .developer-img3 {
   @include size(8.4);
   @include shift-left(1.2);
   @include shift-right(0);
+  @include size-xs(24);
+  @include shift-xs(0);
   overflow: hidden;
+  @include to(575px){
+    margin-bottom: 60px;
+  }
   
 }
 
 
 .dev-mask2 {
   @include size(12);
+  @include size-xs(24);
   @include shift(0);
   margin-top: 100px;
   @include from(1680px){
     height: 90vh;
+  }
+  @include to(575px){
+    margin-top: 0; 
+    height: calc((100vw - (var(--page-side-fields) * 2)) / 290 * 426);
   }
 }
 .dev-bottom-block {
@@ -58,14 +86,21 @@ line-height: 140%;
   align-content: flex-start;
   justify-content: flex-start;
   @include size(13.2);
+  @include size-xs(24);
+  @include size-sm(12);
   @include shift-left(0);
   @include shift-right(-1.2);
+  @include shift-sm-right(0);
+  @include shift-xs-right(0);
   .ellipse-common {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 0;
     margin-top: 100px;
+    @include to(575px){
+      margin-top: 30px; 
+    }
   }
   .button-std-3 {
     align-self: center;
@@ -80,6 +115,10 @@ line-height: 140%;
     }
     @include from(1680px){
       width: 305px;
+    }
+    @include to(575px){
+      width: 159px;
+      margin-top: 30px;
     }
   }
 }

@@ -31,6 +31,7 @@
     @include to(575px) {
       order: 2;
       margin-top: 15px;
+      width: 100%;
     }
   }
   &__right {

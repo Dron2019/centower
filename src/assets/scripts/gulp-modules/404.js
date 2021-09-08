@@ -8,13 +8,13 @@ function multipleByRandom(digit) {
   return digit * Math.random();
 }
 pathes404.forEach((el, i) => {
-  const bottomValue = multipleByRandom(-50);
-  const topAmplitudeValue = multipleByRandom(50);
+  const bottomValue = multipleByRandom(-20);
+  const topAmplitudeValue = multipleByRandom(20);
   gsap.timeline({ repeat: -1, yoyo: true })
     .to(el,
-      { x: i % 2 === 0 ? topAmplitudeValue : bottomValue, duration: 5 })
+      { x: i % 2 === 0 ? topAmplitudeValue : bottomValue, duration: 5, ease: 'linear' })
     .to(el,
-      { x: i % 2 === 0 ? bottomValue : topAmplitudeValue, duration: 5 });
+      { x: i % 2 === 0 ? bottomValue : topAmplitudeValue, duration: 5, ease: 'linear' });
 });
 
 

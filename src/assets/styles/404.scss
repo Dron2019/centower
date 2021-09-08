@@ -43,6 +43,10 @@
         @include to(950px){
             font-size: 64px;
         }
+        @include to(575px){
+            margin-bottom: auto;
+            margin-top: auto;
+        }   
     }
     .page404__title-small {
         font-size: 36px;
@@ -62,6 +66,13 @@
             text-align: center;
         }
     }
+    @include to(575px){
+        .link-wrap>* { 
+            width: 100%;
+            text-align: center;
+        }
+
+    }
 }
 
 .to-home-link {
@@ -76,6 +87,14 @@ background-color: rgba(217, 180, 143, 0.8);;
     width: 100%;
     height: 100%;
     perspective: 500px;
+    @include to(575px){
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, 0%);
+        width: 100%;
+        height: 75%;
+    }
     svg {
         width: 100%;
         height: 100%;

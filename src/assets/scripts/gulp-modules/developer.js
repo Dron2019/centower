@@ -26,6 +26,7 @@ ScrollTrigger.scrollerProxy(document.body, {
 ScrollTrigger.addEventListener('fixed', () => locoScroll.update());
 
 ScrollTrigger.refresh();
+const mediaScreenScaleCoeficient = window.innerWidth > 576 ? 1 : 0.25;
 // gsap.defaults({
 //   ease: 'none',
 //   duration: 1,
@@ -39,19 +40,19 @@ gsap.timeline({
   scrollTrigger: {
     trigger: dev3,
     scrub: 0.5,
-    markers: true,
+    // markers: true,
   },
 })
   .fromTo(dev3Img, {
-    y: -45,
+    y: -45 * mediaScreenScaleCoeficient,
   }, {
-    y: 45,
+    y: 45 * mediaScreenScaleCoeficient,
     ease: 'linear',
   })
   .fromTo('.developer-paragraph-with-text img', {
-    y: -45,
+    y: -45 * mediaScreenScaleCoeficient,
   }, {
-    y: 45,
+    y: 45 * mediaScreenScaleCoeficient,
     ease: 'linear',
   }, '<');
 gsap.set('.developer-img2 img', { scale: 1.2 });
@@ -60,13 +61,13 @@ gsap.timeline({
   scrollTrigger: {
     trigger: '.developer-img2',
     scrub: 0.5,
-    markers: true,
+    // markers: true,
   },
 })
   .fromTo('.developer-img2 img', {
-    y: -45,
+    y: -45 * mediaScreenScaleCoeficient,
   }, {
-    y: 45,
+    y: 45 * mediaScreenScaleCoeficient,
     ease: 'linear',
   });
 
@@ -75,13 +76,13 @@ gsap.timeline({
   scrollTrigger: {
     trigger: '.dev-mask2',
     scrub: 0.5,
-    markers: true,
+    // markers: true,
   },
 })
   .fromTo('[mask="url(#mask1)"] path', {
-    y: -45,
+    y: -45 * mediaScreenScaleCoeficient,
   }, {
-    y: 45,
+    y: 45 * mediaScreenScaleCoeficient,
     ease: 'linear',
   });
 
@@ -91,7 +92,7 @@ function timelineParams(params, trigger = undefined) {
     scrollTrigger: {
       trigger,
       scrub: 0.5,
-      markers: true,
+      // markers: true,
     },
   };
   return Object.assign(initialParams, params);

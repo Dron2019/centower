@@ -44,7 +44,7 @@ cards.forEach((card) => {
     });
   });
 });
-cards[0].dispatchEvent(new Event('click'));
+
 
 function requestBuildDetails(id, cb = () => {}) {
   const sendData = new FormData();

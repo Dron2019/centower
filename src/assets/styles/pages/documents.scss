@@ -8,8 +8,10 @@
   .doc~.doc {
     margin-top: 90px;
     @include from(1680px){
-      
       margin-top: 95px;
+    }
+    @include to(575px){
+     margin-top: 20px; 
     }
   }
 }
@@ -33,8 +35,15 @@
     --clock-width: 40px;
     padding-bottom: 50px;
   }
+  @include to(575px){
+    flex-wrap: wrap; 
+    --clock-width: 0px;
+  }
   .icon--clock {
     margin-right: 20px;
+    @include to(575px){
+      display: none; 
+    }
   }
   &__download {
     width: 50px;
@@ -53,11 +62,23 @@
      height: 65px; 
      font-size: 17px;
     }
+    @include to(575px){
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
 
   }
   &__date-wrapper {
     display: flex;
     flex-direction: column;
+    @include to(575px){
+      width: 100%; 
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 13px;
+    }
   }
   &__date {
     font-family: MADE Coachella;
@@ -70,6 +91,9 @@
     @include from(1680px){
       font-size: 40px;
     }
+    @include to(575px){
+      font-size: 21px;
+    }
   }
   &__year {
     font-size: 13px;
@@ -78,6 +102,11 @@
     margin-left: var(--clock-width);
     @include from(1680px){
       font-size: 15px;
+    }
+    @include to(575px){
+      margin-bottom: 0;
+      font-size: 12px;
+      margin-right: 7px;
     }
   }
   &__name {
@@ -90,6 +119,12 @@
     @include from(1680px){
       font-size: 19px;
       max-width: 690px;
+    }
+    @include to(575px){
+      width: 70%;
+      margin-left: 0;
+      font-size: 12px;
+
     }
   }
 }

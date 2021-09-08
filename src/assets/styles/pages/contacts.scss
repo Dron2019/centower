@@ -11,20 +11,30 @@
     --hover-text-color: var(--color-white);
     position: relative;
     display: inline-block;
-    @include from(1680px){
-      padding: 20px 53px;
-    }
+  @include from(1680px){
+    padding: 20px 53px;
+  }
+  @include to(575px){
+    padding: 12px 35px; 
+  }
 }
 
 .contacts {
   &__map-wrapper {
     @include size(12);
+    @include size-xs(24);
     @include shift(0);
+    @include to(575px){
+     height: calc(100vh - var(--header-h)); 
+    }
     
   }
   &__map {
     position: relative;
     padding-bottom: 95%;
+    @include to(575px){
+     padding-bottom: calc(100vh - var(--header-h)); 
+    }
   }
   .map {
     position: absolute;
@@ -36,21 +46,33 @@
     margin-right: 0;
     padding: 0;
     // margin-right: calc((8.33333% + (var(--page-side-fields) * -1)) + 12.5px);
-    min-height: auto
+    min-height: auto;
+    @include to(575px){
+      width:  calc(100% + (var(--page-side-fields) * 2));
+      margin-left: calc(var(--page-side-fields) * -1);
+      margin-right: calc(var(--page-side-fields) * -1);
+
+    }
   }
   &__text {
     @include size(12);
+    @include size-xs(24);
     @include shift(0);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     align-content: flex-start;
     justify-content: flex-start;
-    
+    @include to(575px){
+      margin-bottom: 60px; 
+    }
     .contacts-button {
       margin-top: 50px;
       @include from(1680px){
         margin-top: 60px;
+       }
+       @include to(575px){
+        margin-top: 30px; 
        }
     }
     &-tel {
@@ -67,6 +89,9 @@
       @include from(1680px){
         font-size: 40px; 
        }
+       @include to(575px){
+        font-size: 21px; 
+       }
     }
     &-adress {
       font-size: 36px;
@@ -77,6 +102,9 @@
       @include from(1680px){
        font-size: 40px; 
       }
+      @include to(575px){
+        font-size: 21px;
+      }
     }
     &-subtitle {
       text-transform: uppercase;
@@ -85,6 +113,9 @@
     }
     &-scheldule {
       margin-bottom: 50px;
+      @include to(575px){
+       margin-bottom: 30px; 
+      }
     }
   }
 }
@@ -113,4 +144,8 @@
   text-align: left;
   left: 50%;
   transform: translate(-50%, -50%);
+  @include to(575px){
+   width: 200px; 
+  }
+  
 }

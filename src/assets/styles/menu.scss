@@ -119,6 +119,7 @@
         }
         @include to(575px) {
             @include size(24);
+            display: none;
         }
     }
     &__sub-links-group {
@@ -174,6 +175,10 @@
         position: absolute;
         right: 0;
         top: calc(100% + 40px);
+        @include to(575px){
+            top: auto;
+            bottom: 0;   
+        }
     }
     &__soc-icons-wrap :nth-child(n+2) {
         margin-left: 30px;

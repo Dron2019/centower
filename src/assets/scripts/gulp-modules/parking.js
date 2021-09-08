@@ -2,7 +2,12 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
+
+
+
+function smoothScrollMobileInit() {
 // Setup
+if (document.documentElement.clientWidth < 576) return;
 const scroller = document.querySelector('.page__inner');
 
 const bodyScrollBar = Scrollbar.init(scroller, 
@@ -32,4 +37,7 @@ if (document.querySelector('.gsap-marker-scroller-start')) {
   });
 }
 bodyScrollBar.setMomentum(0, 50)
-console.log(bodyScrollBar);
+}
+
+
+smoothScrollMobileInit();
