@@ -528,12 +528,13 @@ text-transform: uppercase;
   .round-image-on-first-section {
     @include size(12);
     @include shift(0);
-	@include from(1680px){
-		max-height: 100vh;
-	}
+		@include from(1680px){
+			max-height: 100vh;
+		}
 	@include to(575px) {
 		@include size(24);
-		margin-top: 30px;
+			margin-top: 30px;
+			margin-bottom: 50px;
 	}
   }
   .page-section-common-block {
@@ -555,6 +556,8 @@ text-transform: uppercase;
 		@include from(1680px){
 		margin-bottom: 60px;	
 		}
+		@include to(575px){
+			margin-bottom: 0;		}
 	}
   .ellipse-common {
     @include shift-left(-2);
@@ -565,7 +568,7 @@ text-transform: uppercase;
 		width: 100%;
 		margin-left: 0;
 		margin-right: 0;
-		margin-top: 50px;
+		// margin-top: 50px;
 		margin-bottom: 50px;
 	}
   }
@@ -657,6 +660,9 @@ text-transform: uppercase;
 			
 			@include size(24);
 			@include shift(0);
+			width: 100%;
+			margin-left: 0;
+			margin-right: 0;
 		}
 	}
 }

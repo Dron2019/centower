@@ -3,7 +3,7 @@ $atom: (100% / $columns);
 
 $break_lg: 1200px;
 $break_md: 992px;
-$break_sm: 768px;
+$break_sm: 950px;
 $break_xs: 575px;
 
 $offset: 25px;
@@ -20,6 +20,7 @@ $offset_xs_one_side: ($offset_xs / 2);
 
 $fields: 60px;
 $fields_sm: 20px;
+$fields_xs: 15px;
 
 @mixin wrapper-full(){
     padding-left: $fields;
@@ -28,6 +29,11 @@ $fields_sm: 20px;
     @include sm-block(){
         padding-left: $fields_sm;
         padding-right: $fields_sm;
+    }
+
+    @include xs-block(){
+        padding-left: $fields_xs;
+        padding-right: $fields_xs;
     }
 }
 

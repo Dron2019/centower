@@ -54,6 +54,14 @@ body>.popup-wrapper {
             width: 65px;
             height: 65px;   
         }
+        @include from-to(576px, 950px){
+         width: 50px;
+         height: 50px;   
+        }
+        @include to(575px){
+            width: 40px;
+            height: 40px;   
+        }
     }
     &__close:hover rect{
         fill: var(--color-gold);
@@ -96,6 +104,13 @@ color: var(--color-black);
     @include to(575px) {
         padding: 10px 15px;
         height: 100%;
+    }
+    @include from-to(575px, 950px){
+        @include row-flex();
+        align-content: flex-start;
+        padding-left: 0;
+        padding-right: 0;   
+        padding-top: 30px;
     }
     .form-field {
         // border: 1px solid #DBDBDB;
@@ -155,13 +170,20 @@ color: var(--color-black);
         width: auto;
         opacity: 0;
         transition: opacity .3s ease-in-out;
+        @include to(575px){
+         padding-left: 0;   
+         font-size: 12px
+        }
     }
     .form-field:focus-within:not([data-status="field--error"]) .input-placeholder {
         opacity: 1;
         animation: fromBottom .2s 1 ease-in-out;
     }   
     .form-btn-wrap {
-        margin-top: 20px;
+        @include from(950px){
+            margin-top: 20px;
+
+        }
     }
     textarea {
         font-size: 14px;
@@ -309,12 +331,37 @@ color: var(--color-black);
     z-index: 15;
     opacity: 0;
     pointer-events: none;
+    @include from-to(576px, 950px){
+        @include row-flex();
+        align-content: flex-start;
+        align-items: flex-start;
+        padding: 30px var(--page-side-fields);
+        @include size(24);
+        @include shift(0);
+    }
+    @include to(575px){
+        padding: 30px var(--page-side-fields); 
+        display: flex;
+        align-content: flex-start;
+        align-items: flex-start;  
+        flex-direction: column;
+    }
+    .popup-decor-group:not(.popup-decor-group-tablet-show) .button-std-3 {
+        @include to(575px){
+            display: none;
+        }
+    }
     .succes-overlay__subtitle {
         color: var(--color-black);
         margin-top: 30px;
         max-width: 345px;
         @include to(575px) {
-            padding: 20px 15px;
+            padding: 0;
+        }
+        @include from-to(576px, 950px){
+            @include size(16);   
+            @include shift(1);   
+            max-width: none;
         }
     }
     .button-std-3 path {
@@ -325,6 +372,21 @@ color: var(--color-black);
     }
     .button-std {
         margin-top: 30px;
+    }
+    .popup-top-group {
+        @include from-to(576px, 950px){
+            padding-left: 0;
+            margin-left: 0;
+            width: 100%;
+            padding-right: 0;
+            margin-right: 0;
+        }
+    }
+    .popup-title {
+        @include from-to(576px, 950px){
+            @include size(22);   
+            @include shift(1);   
+        }
     }
     @include from(951px){
         .popup-decor-group {
@@ -361,6 +423,10 @@ color: var(--color-black);
      padding-top: 70px;
      font-size: 30px;
     }
+    @include from-to(576px, 950px){
+        font-size: 80px;
+        padding-top: 99px;
+    }
 }
 
 .popup-decor-group {
@@ -378,6 +444,9 @@ color: var(--color-black);
      padding-left: 0;
      margin-top: 10px;
     }
+    @include to(575px){
+    //  display: none;   
+    }
     p,
     .button-std-3 {
         position: absolute;
@@ -390,6 +459,9 @@ color: var(--color-black);
             width: auto;
             position: static;
             transform: none;   
+        }
+        @include from-to(576px, 950px){
+            width: 70%;
         }
     }
     .ellipse-with-stars {
@@ -409,6 +481,12 @@ color: var(--color-black);
         align-items: flex-start;
         align-self: stretch;
     }
+    @include from-to(575px, 950px){
+        @include size-sm(24);
+        @include shift-sm-padding-left(1);
+        @include shift-sm-padding-right(1);
+        @include shift-sm(0);
+    }
 }
 
 .my-popup-content {
@@ -422,5 +500,42 @@ color: var(--color-black);
     @include to(575px){
         height: 100% !important;   
         min-height: -webkit-fill-available; 
+    }
+}
+
+.popup-decor-group-tablet-show {
+    @include size(20);
+    @include shift(2);
+    margin-top: 60px;
+    @include to(575px){
+        display: none;   
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    @include from(951px){
+        display: none;   
+    }
+    @include to(575px){
+        display: initial;   
+    }
+    .ellipse-with-stars {
+        display: initial;
+    }
+    .button-std-3 {
+        position: absolute;
+        transform: translate(-50%,-50%);
+        font-size: 36px;
+        width: 60%;
+        left: 50%;
+        @include to(575px){
+            font-size: 21px;
+            width: 190px;
+        }
+        svg {
+            @include to(575px){
+                margin-left: 10px;
+            }   
+        }
     }
 }

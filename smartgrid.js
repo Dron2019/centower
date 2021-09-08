@@ -19,11 +19,12 @@ const settings = {
       width: '992px',
     },
     sm: {
-      width: '768px',
+      width: '950px',
       fields: '20px', /* set fields only if you want to change container.fields */
     },
     xs: {
       width: '575px',
+      fields: '15px',
     },
     /*
         We can create any quantity of break points.

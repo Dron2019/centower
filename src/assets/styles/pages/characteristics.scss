@@ -5,6 +5,12 @@
   @include shift-xs-left(0);
   @include size-xs(24);
   align-self: center;
+  td {
+    @include to(575px){
+      padding-left: 20px;
+      padding-right: 20px; 
+    }
+  }
   li {
     // width: 50%;
     display: flex;
@@ -14,6 +20,9 @@
   }
   tr:nth-child(n+2) td {
     padding-top: 65px;
+    @include to(575px){
+      padding-top: 30px; 
+    }
   }
   li:nth-child(odd) {
     margin-right: auto;
@@ -24,6 +33,9 @@
   }
   .characteristic-span-small {
     margin-bottom: 20px;
+    @include to(575px){
+      margin-bottom: 15px; 
+    }
   }
 }
 .characteristic-digit-large {
@@ -41,6 +53,9 @@
   @include from(1680px){
     font-size: 120px;
   }
+  @include to(575px){
+      font-size: 70px;
+  } 
 }
 .characteristic-span-small {
   color: var(--color-grey);
@@ -67,7 +82,7 @@
    padding-bottom: 60px; 
   }
   @include to(575px){
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 30px;
 
   }
@@ -88,10 +103,14 @@
     @include from(1680px){
       font-size: 40px;
     }
+    @include from-to(576px, 950px){
+      padding-right: 25px;
+      word-break: break-word;
+    }
     @include to(575px){
       font-size: 24px;
       width: 100%;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
   }
 }
