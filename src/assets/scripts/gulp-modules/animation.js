@@ -127,7 +127,7 @@ splitTolines.forEach((eleArgs) => {
 
 const svgMaskParalax = document.querySelectorAll('[data-svg-paralax]');
 svgMaskParalax.forEach((svg) => {
-  gsap.set(svg.querySelector('[mask] path'), { willChange: 'transform' });
+  // gsap.set(svg.querySelector('[mask] path'), { willChange: 'transform' });
   gsap.timeline({
     ease: 'none',
     scrollTrigger: {

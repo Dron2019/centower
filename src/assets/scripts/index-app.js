@@ -271,7 +271,7 @@ function handleUnloadLinks(link) {
           autoAlpha: 1,
           duration: 0.45,
           ease: 'power4.in'
-        })
+        },'<+0.4')
         timline.fromTo('.right-letters', { yPercent: 0 }, { yPercent: -120 }, '<+0.3')
         .fromTo('.left-letters', { yPercent: 0 }, { yPercent: 120 }, '<')
         .add(() => {

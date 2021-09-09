@@ -90,7 +90,7 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     cursor: pointer;
-    transition: .5s ease-in;
+    transition: .3s ease-in-out;
     @include to(575px) {
       font-size: 16px;
     }
@@ -111,12 +111,25 @@
   &__legend-marker-icon {
     width: 50px;
     height: 50px;
-    background-color: #fff;
+    // background-color: #fff;
     border-radius: 50%;
     margin-right: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-color: #fff;
+      border-radius: 50%;
+      z-index: -1;
+      transition: .3s ease-in-out;
+    }
     @include from(1680px){
      width: 65px;
      height: 65px; 
@@ -131,6 +144,12 @@
       height: 55%;
       width: 50%;
       height: 50%;
+      width: 45%;
+      height: 45%;
+      @include from(1680px){
+        width: 40%;
+        height: 40%;
+      }
   
     }
   }
@@ -141,11 +160,11 @@
   //   transition: .5s ease-in;
   // }
   &__legend-marker>*{
-      transition: .3s ease-in;
+      transition: .3s ease-in-out;
   }
   &__legend-marker.active {
-      background: var(--color-black);
-      color: #fff;
+      // background: var(--color-black);
+      // color: #fff;
   }
   &__legend-marker.active>*{
     // transform: translateX(20px);
@@ -154,14 +173,15 @@
     transition: .3s ease-in-out;
   }
   &__legend-marker.active [fill]{
-    fill:var(--color-black);
+    fill:var(--color-white);
     transition: .3s ease-in-out;
   }
   &__legend-marker.active [stroke]{
-    stroke:var(--color-black);
+    stroke:var(--color-white);
     transition: .3s ease-in-out;
   }
-  &__legend-marker.active:nth-last-child(n+2){
+  &__legend-marker.active &__legend-marker-icon:before {
+    background-color: var(--color-black);
   }
   &__legend-marker[data-type="main"]{
     // font-weight: 500;
@@ -172,19 +192,19 @@
   @include from(769px){
     &__legend-marker:hover {
       // background: var(--color-black);
-      color: #fff;
+      // color: #fff;
     }
-    &__legend-marker:hover &__legend-marker-icon {
-      background-color: var(--color-black);
+    &__legend-marker:hover &__legend-marker-icon:before {
+      transform: scale(1.12);
     }
     &__legend-marker:hover>*{
       // transform: translateX(20px);
     }
     &__legend-marker:hover [fill]{
-      fill:#fff;
+      // fill:#fff;
     }
     &__legend-marker:hover [stroke]{
-      stroke:#fff;
+      // stroke:#fff;
     }
   }
   @include from(1680px){
@@ -314,4 +334,7 @@
   top: 30px;
   width: 30px;
   height: 30px;
+  @include from(576px){
+   display: none; 
+  }
 }

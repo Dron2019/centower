@@ -8,7 +8,7 @@ document.querySelector('.page__content').style.transform = '';
 document.querySelector('body').style.overflow = 'hidden';
 gsap.registerPlugin(MotionPathPlugin);
 function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, direction = 1) {
-  const SPEED = 1;
+  const SPEED = 0.75;
   const EASE = 'power4.out';
   const openSlideInnerElems = toOpenElement.querySelectorAll('.ms-slide-text-wrap>*');
   switch (direction) {
@@ -111,7 +111,7 @@ navs.forEach((el, index) => {
     console.log('ff');
     if (params.isAnimating === true) return;
     clearTimeoutAndSetNew();
-    simulatePathDrawing(navs[index], 1.5, '5');
+    simulatePathDrawing(navs[index], 1.5, '7');
     resetStrokeValue(navs[params.curentIndex]);
     params.isAnimating = true;
     changeScreenWithEffects(slides[index], slides[params.curentIndex], () => {
@@ -127,19 +127,24 @@ gsap.set('.ms-slide:not(:first-child)', { display: 'none' });
 window.addEventListener('load', function () {
   const urlString = window.location.href;
   const url = new URL(urlString);
-  const c = +url.searchParams.get(params.url);
-  if (typeof c === 'number' && slides[c] !== undefined && +c !== 0) {
+  const loadedSlideCount = +url.searchParams.get(params.url);
+  if (typeof loadedSlideCount === 'number' && slides[loadedSlideCount] !== undefined && +loadedSlideCount !== 0) {
     params.isAnimating = true;
     changeScreenWithEffects(
-      slides[c],
+      slides[loadedSlideCount],
       slides[0],
       () => {
-        params.curentIndex = c;
+        params.curentIndex = loadedSlideCount;
         params.isAnimating = false;
-        insertUrlParam(params.url, c);
+        insertUrlParam(params.url, loadedSlideCount);
       },
-    );
+      );
+    simulatePathDrawing(navs[loadedSlideCount], 1.5, '7');
     clearTimeoutAndSetNew();
+  } else {
+    clearTimeoutAndSetNew();
+    simulatePathDrawing(navs[0], 1.5, '7');
+
   }
 });
 
@@ -147,7 +152,7 @@ nextSlideButton.addEventListener('click',function(evt){
 
   if (params.isAnimating === true) return;
   const nextIndex = getNextIndex(params.curentIndex, slides, 1);
-  simulatePathDrawing(navs[nextIndex], 1.5, '5');
+  simulatePathDrawing(navs[nextIndex], 1.5, '7');
   resetStrokeValue(navs[params.curentIndex]);
   params.isAnimating = true;
   changeScreenWithEffects(slides[nextIndex], slides[params.curentIndex], () => {
@@ -175,9 +180,9 @@ function changeSlideOnWheelOrTouchMove(evt) {
   if (params.isAnimating === false) {
     evt.preventDefault();
     params.isAnimating = true;
-    const direction = evt.deltaY > 0 ? -1 : 1;
+    let direction = evt.deltaY > 0 ? 1 : -1;
     const nextIndex = getNextIndex(params.curentIndex, slides, direction);
-    simulatePathDrawing(navs[nextIndex], 1.5, '5');
+    simulatePathDrawing(navs[nextIndex], 1.5, '7');
     resetStrokeValue(navs[params.curentIndex]);
     changeScreenWithEffects(
       slides[nextIndex],
