@@ -113,7 +113,7 @@
   margin-bottom: var(--bottom-block-margin);
   @include from-to(576px, 950px){
     
-    @include size(8.4);
+    @include size(9.4);
     @include shift-left(0);
   }
   @include to(575px) {
@@ -153,6 +153,7 @@
   }
   @include from-to(576px, 950px){
     --margin-b: -50px;
+    height: calc((50vw - (var(--page-side-fields) * 2)) / 290 * 426);
   }
   @include to(575px) {
     @include size(24);
@@ -368,3 +369,4 @@
     height: var(--decor-height);
   }
 }
+

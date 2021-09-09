@@ -531,6 +531,10 @@ text-transform: uppercase;
 		@include from(1680px){
 			max-height: 100vh;
 		}
+		@include from-to(576px, 950px){
+			height: calc((50vw - (var(--page-side-fields) * 2)) / 290 * 426);
+
+		}
 		@include to(575px) {
 			@include size(24);
 			margin-top: 30px;

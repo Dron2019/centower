@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-use-before-define */
+
 /* eslint-disable no-undef */
 const popupContentInit = {
   title: 'Title',
@@ -25,7 +26,7 @@ const buildPopup = new Popup({
   content: popup,
   close: document.querySelector('[data-detail-close]'),
 });
-
+console.log(buildPopup);
 const popupContent = new Proxy(popupContentInit, {
   set(obj, prop, value) {
     renderTargets[prop](value);
@@ -33,7 +34,9 @@ const popupContent = new Proxy(popupContentInit, {
   },
 });
 
-
+buildPopup.close.addEventListener('click', () =>{
+  document.body.style.overflow = '';
+})
 cards.forEach((card) => {
   card.addEventListener('click', () => {
     requestBuildDetails(card.dataset.id, (response) => {
@@ -42,10 +45,12 @@ cards.forEach((card) => {
       popupContent.url = response.url;
       popupContent.date = response.date;
     });
+    document.body.style.overflow = 'hidden';
+
   });
 });
 
-
+cards[0].dispatchEvent(new Event('click'))
 function requestBuildDetails(id, cb = () => {}) {
   const sendData = new FormData();
   sendData.append('action', 'build');
@@ -60,5 +65,3 @@ function requestBuildDetails(id, cb = () => {}) {
     });
 }
 
-
-// locoScroll.scrollTo(document.querySelector('.build-status-section'))

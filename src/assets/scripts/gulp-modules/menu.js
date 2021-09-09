@@ -198,6 +198,7 @@ function mobPopupHandler() {
   const closeEl = document.querySelector('[data-mobile-callback-close]');
   closeEl.addEventListener('click', () => close(popup));
   call.forEach(el => el.addEventListener('click', () => open(popup)));
+  call.forEach(el => el.addEventListener('touchstart', () => open(popup)));
 }
 
 mobPopupHandler();

@@ -40,13 +40,17 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: calc(100% + (30.33333% + (var(--page-side-fields))) + 12.5px);
     height: 100%;
+    width: calc(100% + (30.33333% + (var(--page-side-fields))) + 12.5px);
     margin-left: 0;
     margin-right: 0;
     padding: 0;
     // margin-right: calc((8.33333% + (var(--page-side-fields) * -1)) + 12.5px);
     min-height: auto;
+    @include from-to(576px, 950px){
+      
+      width: calc(100% + (0% + (var(--page-side-fields))) + 12.5px);
+    }
     @include to(575px){
       width:  calc(100% + (var(--page-side-fields) * 2));
       margin-left: calc(var(--page-side-fields) * -1);
@@ -89,6 +93,10 @@
       @include from(1680px){
         font-size: 40px; 
        }
+       @include from-to(576px, 950px){
+        font-size: 28px; 
+
+      }
        @include to(575px){
         font-size: 21px; 
        }
@@ -101,6 +109,10 @@
       margin-bottom: 20px;
       @include from(1680px){
        font-size: 40px; 
+      }
+      @include from-to(576px, 950px){
+        font-size: 28px; 
+
       }
       @include to(575px){
         font-size: 21px;
@@ -144,6 +156,15 @@
   text-align: left;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 0;
+  @include from-to(576px, 950px){
+    width: 200px;
+    svg {
+      width: 42px;
+    height: 13px;
+    margin-left: 10px;
+    }
+  }
   @include to(575px){
    width: 200px; 
   }

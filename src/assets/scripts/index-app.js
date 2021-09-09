@@ -14,6 +14,7 @@ import Popup from '../../pug/components/popup/popup';
  */
 global.gsap = gsap;
 global.ScrollTrigger = ScrollTrigger;
+global.LocomotiveScroll = LocomotiveScroll;
 global.axios = axios;
 global.Popup = Popup;
 
@@ -275,8 +276,9 @@ document.querySelectorAll('a').forEach(handleUnloadLinks);
 
 
 document.querySelectorAll('.mobile-prevent-default').forEach((el) => {
-  if (document.documentElement.clientWidth < 576) {
+  if (document.documentElement.clientWidth < 950) {
     el.addEventListener('click', evt => evt.preventDefault());
+    el.addEventListener('touchstart', evt => evt.preventDefault());
   }
 });
 

@@ -80,16 +80,21 @@
       --logo-w: 175px;
     }
     @include from-to(576px, 950px){
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
+      --logo-w: 175px;
+      margin-right: 65px;
+      // position: absolute;
+      // top: 50%;
+      // left: 50%;
+      // transform: translate(-50%,-50%);
     }
-    @include to(575px) {
-      --logo-w: 65px;
+    @include to(950px) {
       order: -1;
       margin-left: 0;
       margin-right: 30px;
+    }
+    @include to(575px){
+      --logo-w: 65px;
+
     }
   }
   &__link {
@@ -103,7 +108,7 @@
       }
     }
   }
-  @include to(575px) {
+  @include to(950px) {
     &__link>span {
       display: none;   
     }
@@ -124,11 +129,12 @@
       font-size: 16px;
     }
     @include from-to(576px, 950px){
-      display: none;
+      // display: none;
+      width: 50px;
+      height: 50px;
     }
-    @include to(575px) {
-      width: 40px;
-      height: 40px;
+    @include to(950px) {
+      
       border-radius: 50%;
       position: relative;
       color: transparent;
@@ -147,6 +153,10 @@
         transform: translate(-50%, -50%);
 
       }
+    }
+    @include to(575px){
+      width: 40px;
+      height: 40px;
     }
   }
   &__menu-call {
@@ -349,7 +359,7 @@
 	@include from(1680px){
 		width: 25px;
 	}
-	@include from(575px){
+	@include from(951px){
 		display: none;	
 	}
 	@include from(951px){
