@@ -259,22 +259,78 @@ function handleUnloadLinks(link) {
   link.addEventListener('click', (evt) => {
     if (isBlank === null && isChangeLocationLink === null) evt.preventDefault();
     gsap.set('.loader-wrap', { transition: 'none' });
-    if (link.closest('.page-last-section') !== null) {
-
+    const timline  = gsap.timeline();
+    
+    if (link.closest('.page-last-section') !== null || link.closest('.conception-last-section') !== null) {
+      const svgForMotion =link.closest('.page-last-section').querySelector('.ellipse-common__decor');
+      console.log(svgForMotion);
+      timline.add(motionPathLastLink(svgForMotion));
     }
     if (isChangeLocationLink === null) {
-      gsap.timeline()
-        .to('.loader-wrap', {
+        timline.to('.loader-wrap', {
           autoAlpha: 1,
           duration: 0.45,
+          ease: 'power4.in'
         })
-        .fromTo('.right-letters', { yPercent: 0 }, { yPercent: -120 }, '<+0.2')
+        timline.fromTo('.right-letters', { yPercent: 0 }, { yPercent: -120 }, '<+0.3')
         .fromTo('.left-letters', { yPercent: 0 }, { yPercent: 120 }, '<')
         .add(() => {
           window.location = link.href;
         });
     }
   });
+}
+
+/**
+ * 
+ * @param {NodeElement} svg 
+ * @description две звездочки движутся по указаному внутри елемента пути
+ * @returns gsap.timeline
+ */
+function motionPathLastLink(svg) {
+  const circle1 = svg.querySelector('.circle1');
+  const circle2 = svg.querySelector('.circle2');
+  const road1 = svg.querySelector('.road2');
+  const road2 = svg.querySelector('.road2');
+  console.log(MotionPathPlugin.getRawPath(road1));
+  console.log(MotionPathPlugin.sliceRawPath(MotionPathPlugin.getRawPath(road1), 0, 0));
+  const beginOfPath = MotionPathPlugin.sliceRawPath(MotionPathPlugin.getRawPath(road1), 0, 0)[0];
+  gsap.set(circle1, { x: beginOfPath[0], y: beginOfPath[1] })
+  const tl = gsap.timeline()
+    .set(svg, { pointerEvents: 'none' })
+    .to(circle1, {
+      duration: 1,
+      repeat: 0,
+      // yoyo: true,
+      ease: 'power1.inOut',
+      motionPath: {
+        path: road1,
+        align: road1,
+        // autoRotate: true,
+        start: 0.4,
+        end: 0.75,
+        
+        alignOrigin: [0.5, 0.5],
+      },
+    }).to(circle2, {
+      duration: 1,
+      repeat: 0,
+      // yoyo: true,
+      ease: 'power1.inOut',
+
+      motionPath: {
+        path: road2,
+        align: road2,
+        start: 0.935,
+        end:  1.25,
+        // autoRotate: true,
+        alignOrigin: [0.5, 0.5],
+      },
+    }, '<')
+    // .set([circle1,circle2], { transform: '' })
+    .set(svg, { pointerEvents: 'all' })
+    .progress(0);
+    return tl;
 }
 document.querySelectorAll('a').forEach(handleUnloadLinks);
 

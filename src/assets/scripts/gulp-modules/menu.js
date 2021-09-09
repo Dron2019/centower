@@ -145,6 +145,7 @@ const svgs = document.querySelectorAll('[data-motion-svg]');
 // locoScroll.destroy();
 
 svgs.forEach((svg) => {
+  if (svg.closest('.page-last-section') !== null || svg.closest('.conception-last-section')) return;
   const circle1 = svg.querySelector('.circle1');
   const circle2 = svg.querySelector('.circle2');
   const road1 = svg.querySelector('.road1');

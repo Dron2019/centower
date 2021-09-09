@@ -69,8 +69,10 @@
   .left-letters {
     /* animation: leftLetters 1s 1 ease-in-out; */
     /* transform: translateY(105px); */
+    opacity: 0;
   }
   .right-letters {
+    opacity: 0;
     /* transform: translateY(-105px); */
     /* transform-origin: 0 0; */
     /* animation: rightLetters 1s 1 ease-in-out; */
@@ -83,10 +85,10 @@
     console.log(gsap);
     const loaderDuration = 2.5;
     const tl = gsap.timeline({ paused: true })
-      .fromTo('.left-letters', { yPercent: 105 }, { yPercent: 0, ease: 'expo.inOut',duration: 1 })
-      .fromTo('.right-letters', { yPercent: -105 }, { yPercent: 0, ease: 'expo.inOut',duration: 1 }, '<')
-      .fromTo('.left-letters', { yPercent: 0 }, { yPercent: 105, ease: 'expo.inOut',duration: 0.75 })
-      .fromTo('.right-letters', { yPercent: 0 }, { yPercent: -105, ease: 'expo.inOut',duration: 0.75  }, '<')
+      .fromTo('.left-letters', { yPercent: 105, autoAlpha: 1 }, { yPercent: 0, ease: 'expo.inOut',duration: 1, autoAlpha: 1 })
+      .fromTo('.right-letters', { yPercent: -105, autoAlpha: 1 }, { yPercent: 0, ease: 'expo.inOut',duration: 1, autoAlpha: 1 }, '<')
+      // .fromTo('.left-letters', { yPercent: 0 }, { yPercent: 105, ease: 'expo.inOut',duration: 0.75 })
+      // .fromTo('.right-letters', { yPercent: 0 }, { yPercent: -105, ease: 'expo.inOut',duration: 0.75  }, '<')
       .to('.loader-wrap', {  yPercent: -105, duration: loaderDuration, ease: 'expo.inOut' }, '<')
       .to('.loader-wrap svg', {  scale: 0.5, duration: loaderDuration, ease: 'expo.inOut', clearProps: 'all' }, '<')
       .fromTo('.page-title:not(.ms-title)', {
