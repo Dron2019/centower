@@ -547,6 +547,9 @@ text-transform: uppercase;
     @include size(12);
     position: relative;
     z-index: 3;
+		.ellipse-common {
+			cursor: initial;
+		}
 	@include to(575px) {
 		@include size(24);
 

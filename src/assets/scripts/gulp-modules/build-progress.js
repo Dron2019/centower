@@ -50,7 +50,7 @@ cards.forEach((card) => {
   });
 });
 
-cards[0].dispatchEvent(new Event('click'))
+// cards[0].dispatchEvent(new Event('click'))
 function requestBuildDetails(id, cb = () => {}) {
   const sendData = new FormData();
   sendData.append('action', 'build');
@@ -65,3 +65,17 @@ function requestBuildDetails(id, cb = () => {}) {
     });
 }
 
+
+function activeStatusInCenterOfHorizontalView(){
+  let xScrollDistance = 0;
+  const statuses = document.querySelectorAll('.status');
+  const activeStatus = document.querySelector('.status.active')
+  const scrollContainer = document.querySelector('.statuses-wrapper');
+  for (let i = 0; i <= statuses.length; i++) {
+    if (statuses[i].classList.contains('active') || statuses[i].classList.contains('disabled')) break;
+    xScrollDistance += statuses[i].scrollWidth;
+  }
+  xScrollDistance -= (document.documentElement.clientWidth / 2) - activeStatus.scrollWidth  / 2;
+  scrollContainer.scrollTo(xScrollDistance, 0);
+}
+activeStatusInCenterOfHorizontalView();

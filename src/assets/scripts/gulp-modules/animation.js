@@ -32,7 +32,7 @@ paralaxImages.forEach((image) => {
   const wrap = document.createElement('div');
   wrap.style.overflow = 'hidden';
   image.parentElement.prepend(wrap);
-  gsap.set(image, { willChange: 'transform' });
+  gsap.set(image, { willChange: 'transform', scale: 1.1 });
   wrap.prepend(image);
 
   gsap.timeline({
@@ -44,9 +44,9 @@ paralaxImages.forEach((image) => {
     },
   })
     .fromTo(image, {
-      y: -45,
+      y: -35,
     }, {
-      y: 45,
+      y: 35,
       ease: 'linear',
     });
 });
@@ -55,6 +55,8 @@ paralaxImages.forEach((image) => {
 const splitTolines = document.querySelectorAll('[data-split-to-lines]');
 splitTolines.forEach((eleArgs) => {
   const elem = eleArgs;
+  elem.innerHTML = elem.innerHTML.replace(/~/g, '');
+  return;
   if (document.documentElement.clientWidth < 1024) {
     elem.innerHTML = elem.innerHTML.replace(/~/g, '');
   } else {
@@ -135,9 +137,9 @@ svgMaskParalax.forEach((svg) => {
     },
   })
     .fromTo(svg.querySelector('[mask] path'), {
-      y: -45,
+      y: -95,
     }, {
-      y: 45,
+      y: 95,
       ease: 'linear',
     });
 });

@@ -24,6 +24,7 @@ const locoScroll = new LocomotiveScroll({
   smooth: true,
   smoothMobile: false,
   // inertia: 1.1,
+  multiplier: 0.55,
   lerp: 0.05,
 });
 
@@ -241,7 +242,7 @@ function handleVisibilityOnScroll(elems = [], direction = 'up') {
 }
 const header = document.querySelector('header');
 locoScroll.on('scroll', (position) => {
-  if (position.scroll.y > 150) {
+  if (position.scroll.y > 75) {
     handleVisibilityOnScroll([
       [header, 'not-on-top'],
     ], 'down');
@@ -258,6 +259,9 @@ function handleUnloadLinks(link) {
   link.addEventListener('click', (evt) => {
     if (isBlank === null && isChangeLocationLink === null) evt.preventDefault();
     gsap.set('.loader-wrap', { transition: 'none' });
+    if (link.closest('.page-last-section') !== null) {
+
+    }
     if (isChangeLocationLink === null) {
       gsap.timeline()
         .to('.loader-wrap', {

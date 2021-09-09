@@ -160,7 +160,7 @@ svgs.forEach((svg) => {
         path: road1,
         align: road1,
         // autoRotate: true,
-        // end: 0.5,
+        end: 0.25,
         alignOrigin: [0.5, 0.5],
       },
     }).to(circle2, {
@@ -172,7 +172,7 @@ svgs.forEach((svg) => {
       motionPath: {
         path: road2,
         align: road2,
-
+        end: 0.25,
         // autoRotate: true,
         alignOrigin: [0.5, 0.5],
       },

@@ -111,6 +111,9 @@
   @include shift-left(1);
   @include shift-right(0);
   margin-bottom: var(--bottom-block-margin);
+  p {
+    width: 100%;
+  }
   @include from-to(576px, 950px){
     
     @include size(9.4);
