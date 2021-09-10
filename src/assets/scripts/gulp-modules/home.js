@@ -108,8 +108,7 @@ const params = {
 navs.forEach(resetStrokeValue);
 navs.forEach((el, index) => {
   el.parentElement.addEventListener('click', function () {
-    console.log('ff');
-    if (params.isAnimating === true) return;
+    if (params.isAnimating === true || navs[params.curentIndex] === navs[index]) return;
     clearTimeoutAndSetNew();
     simulatePathDrawing(navs[index], 1.5, '7');
     resetStrokeValue(navs[params.curentIndex]);
@@ -242,14 +241,12 @@ function simulatePathDrawing(pathArgs, strokeWidth = '3', duration = '1.5') {
 function resetStrokeValue(pathArgs) {
   const path = pathArgs;
   const length = 900;
-  console.log(length);
   // Clear any previous transition
   // eslint-disable-next-line no-multi-assign
   path.style.transition = path.style.WebkitTransition = 'none';
   // Set up the starting positions
   path.style.strokeDasharray = `${length} ${length}`.replace(/px/g, '');
   path.style.strokeDashoffset = length;
-  console.log('i clear path cvalue', path.style.strokeDashoffset);
 }
 
 function clearTimeoutAndSetNew() {

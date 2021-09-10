@@ -70,20 +70,23 @@ const menuTransitions = {
         stagger: 0.075,
         duration: 0.75,
       }, '<');
+    /**Смена состояния иконки */
     tl.add(() => {
       document.querySelector('[data-call-menu-span]').textContent = callMenu.dataset.whenOpened;
-    });
-    tl.to('[data-close-icon]', { stroke: 'rgba(45,45,45,1)' });
-    tl.to('[data-open-icon]', { autoAlpha: 0 }, '<');
+    },'<');
+    tl.to('[data-close-icon]', { stroke: 'rgba(45,45,45,1)', duration: 0.35 },'<');
+    tl.to('[data-open-icon]', { autoAlpha: 0, duration: 0.35 }, '<');
     tl.to(
       document.querySelector('[data-menu-call] rect:not(.hover-bg)'),
       {
         fill: 'rgba(0,0,0,0)',
         stroke: 'rgba(152, 152, 152, 0.25)',
+        duration: 0.35
       },
       '<',
-    );
-    tl.set(callMenu, { pointerEvents: 'all' });
+      );
+      tl.set(callMenu, { pointerEvents: 'all' });
+      /**Смена состояния иконки END */
   },
   closing: () => {
     const tl = gsap.timeline();
@@ -113,14 +116,15 @@ const menuTransitions = {
     );
     tl.add(() => {
       document.querySelector('[data-call-menu-span]').textContent = callMenu.dataset.whenClosed;
-    });
-    tl.to('[data-close-icon]', { stroke: 'rgba(0,0,0,0)' });
-    tl.to('[data-open-icon]', { autoAlpha: 1 }, '<');
+    },'<');
+    tl.to('[data-close-icon]', { stroke: 'rgba(0,0,0,0)', duration: 0.35 },'<');
+    tl.to('[data-open-icon]', { autoAlpha: 1, duration: 0.35 }, '<');
     tl.to(
       document.querySelector('[data-menu-call] rect:not(.hover-bg)'),
       {
         fill: 'rgb(217, 180, 143)',
         stroke: 'rgba(152, 152, 152, 0)',
+        duration: 0.35
       },
       '<',
     );
@@ -150,7 +154,7 @@ svgs.forEach((svg) => {
   const circle2 = svg.querySelector('.circle2');
   const road1 = svg.querySelector('.road2');
   const road2 = svg.querySelector('.road2');
-  const duration = 3;
+  const duration = 7;
   const easing = 'linear';
   const tl = gsap.timeline({ paused: true })
     .set(svg, { pointerEvents: 'none' })
@@ -164,7 +168,7 @@ svgs.forEach((svg) => {
         align: road1,
         // autoRotate: true,
         start: 0.4,
-        end: 0.75,
+        end: 1.4,
         alignOrigin: [0.5, 0.5],
       },
     }).to(circle2, {
@@ -177,7 +181,7 @@ svgs.forEach((svg) => {
         path: road2,
         align: road2,
         start: 0.94,
-        end: 1.19,
+        end: 1.94,
         // autoRotate: true,
         alignOrigin: [0.5, 0.5],
       },

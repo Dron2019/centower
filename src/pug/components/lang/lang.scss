@@ -19,9 +19,15 @@
     /* or 19px */
     text-transform: lowercase;
     color: #989898;
+    @include from(1680px){
+      font-size: 19px; 
+    }
   }
   &__item~&__item {
     margin-top: 15px;
+    @include from(1680px){
+     margin-top: 20px; 
+    }
   }
   &__item.lang__item--active a {
     color: #F1F1F1;

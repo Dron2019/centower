@@ -135,7 +135,7 @@ function scssTemplateCreater() {
   fs.readdir(paths.styles.stylesPages, (err, nameFiles) => {
     const filesNameWithoutExt =  nameFiles.map(el => el.replace(/\.scss/g, ''));
     const contentImportsFiles =  filesNameWithoutExt.reduce((acc, el) => acc += `@import './pages/${el}';\n`, ``);
-    console.log(paths.styles.importsFiles, contentImportsFiles);
+    // console.log(paths.styles.importsFiles, contentImportsFiles);
     fs.writeFile(paths.styles.importsFiles, contentImportsFiles, null, ()=>{});
   });
 

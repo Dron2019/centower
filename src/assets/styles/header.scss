@@ -172,6 +172,7 @@
 
     // width: 141px;
     span {
+      // max-width: 4ch;
       @include to(575px) {
        display: none; 
       }

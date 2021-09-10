@@ -80,6 +80,6 @@
   margin-left: calc(var(--page-side-fields) * -1);
   margin-right: calc(var(--page-side-fields) * -1);
   @include from(1680px){
-   height: 970px; 
+   height: calc(100vh - var(--header-h)); 
   }
 }

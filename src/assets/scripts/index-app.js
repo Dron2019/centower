@@ -267,12 +267,22 @@ function handleUnloadLinks(link) {
       timline.add(motionPathLastLink(svgForMotion));
     }
     if (isChangeLocationLink === null) {
-        timline.to('.loader-wrap', {
+        timline.fromTo('.loader-wrap', {
+          yPercent: 100,
           autoAlpha: 1,
-          duration: 0.45,
-          ease: 'power4.in'
-        },'<+0.4')
-        timline.fromTo('.right-letters', { yPercent: 0 }, { yPercent: -120 }, '<+0.3')
+          
+        },{
+          yPercent: 0,
+          autoAlpha: 1,
+          ease: 'power4.out',
+          duration: 1.25,
+        },'<+1')
+        // timline.to('.loader-wrap', {
+        //   autoAlpha: 1,
+        //   duration: 0.45,
+        //   ease: 'power4.in'
+        // },'<+1')
+        timline.fromTo('.right-letters', { yPercent: 0 }, { yPercent: -120 }, '<+1')
         .fromTo('.left-letters', { yPercent: 0 }, { yPercent: 120 }, '<')
         .add(() => {
           window.location = link.href;
@@ -308,7 +318,7 @@ function motionPathLastLink(svg) {
         align: road1,
         // autoRotate: true,
         start: 0.4,
-        end: 0.75,
+        end: 0.65,
         
         alignOrigin: [0.5, 0.5],
       },
@@ -322,7 +332,7 @@ function motionPathLastLink(svg) {
         path: road2,
         align: road2,
         start: 0.935,
-        end:  1.25,
+        end:  1.185,
         // autoRotate: true,
         alignOrigin: [0.5, 0.5],
       },

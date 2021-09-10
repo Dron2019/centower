@@ -91,6 +91,9 @@
     text-transform: uppercase;
     cursor: pointer;
     transition: .3s ease-in-out;
+    @include from(1680px){
+      padding-top: 10px;
+    }
     @include to(575px) {
       font-size: 16px;
     }
@@ -147,8 +150,8 @@
       width: 45%;
       height: 45%;
       @include from(1680px){
-        width: 40%;
-        height: 40%;
+        width: 35%;
+        height: 35%;
       }
   
     }
