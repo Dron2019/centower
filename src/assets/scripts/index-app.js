@@ -253,6 +253,12 @@ locoScroll.on('scroll', (position) => {
   }
 });
 
+/**
+ * 
+ * @param {NodeElement} link 
+ * @description - анимация прелоадера перед переходом по внутренней ссылке
+ *
+ */
 function handleUnloadLinks(link) {
   const isChangeLocationLink = link.href.match(/\/#|tel:|mailto:/g);
   const isBlank = link.getAttribute('target');
