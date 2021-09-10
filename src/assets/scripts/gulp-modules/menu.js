@@ -148,40 +148,48 @@ svgs.forEach((svg) => {
   if (svg.closest('.page-last-section') !== null || svg.closest('.conception-last-section')) return;
   const circle1 = svg.querySelector('.circle1');
   const circle2 = svg.querySelector('.circle2');
-  const road1 = svg.querySelector('.road1');
+  const road1 = svg.querySelector('.road2');
   const road2 = svg.querySelector('.road2');
+  const duration = 3;
+  const easing = 'linear';
   const tl = gsap.timeline({ paused: true })
     .set(svg, { pointerEvents: 'none' })
     .to(circle1, {
-      duration: 5,
-      repeat: 0,
-      // yoyo: true,
-      // ease: 'power1.inOut',
+      duration: duration,
+      repeat: -1,
+      yoyo: true,
+      ease: easing,
       motionPath: {
         path: road1,
         align: road1,
         // autoRotate: true,
-        end: 0.25,
+        start: 0.4,
+        end: 0.75,
         alignOrigin: [0.5, 0.5],
       },
     }).to(circle2, {
-      duration: 5,
-      repeat: 0,
-      // yoyo: true,
-      // ease: 'power1.inOut',
+      duration: duration,
+      repeat: -1,
+      yoyo: true,
+      ease: easing,
 
       motionPath: {
         path: road2,
         align: road2,
-        end: 0.25,
+        start: 0.94,
+        end: 1.19,
         // autoRotate: true,
         alignOrigin: [0.5, 0.5],
       },
     }, '<')
     .set(svg, { pointerEvents: 'all' })
     .progress(0);
-  svg.addEventListener('mouseenter', () => {
-    tl.restart();
+  svg.closest('.ellipse-common').addEventListener('mouseenter', () => {
+    tl.play();
+    // tl.resume();
+  });
+  svg.closest('.ellipse-common').addEventListener('mouseleave', () => {
+    tl.pause();
   });
 });
 

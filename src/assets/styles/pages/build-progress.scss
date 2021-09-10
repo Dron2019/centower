@@ -197,6 +197,7 @@
   &__content {
     @include row-flex();
     align-self: flex-start;
+    width: 100%;
    
     // width: 100%;
     @include from(1680px){

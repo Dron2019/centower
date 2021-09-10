@@ -53,6 +53,9 @@
   @include from-to(576px, 950px){
     font-size: 24px;
   }
+  @include to(1200px){
+   font-size: 28px; 
+  }
   @include to(575px) {
     font-size: 21px;
   }

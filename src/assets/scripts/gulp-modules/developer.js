@@ -102,7 +102,7 @@ function timelineParams(params, trigger = undefined) {
 const splitTolines = document.querySelectorAll('[data-split-to-lines]');
 splitTolines.forEach((eleArgs) => {
   const elem = eleArgs;
-  if (document.documentElement.clientWidth < 1024) {
+  if (document.documentElement.clientWidth < 2500) {
     elem.innerHTML = elem.innerHTML.replace(/~/g, '');
   } else {
     gsap.set(elem, { perspective: 250 });

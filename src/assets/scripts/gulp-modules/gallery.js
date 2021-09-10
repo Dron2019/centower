@@ -100,7 +100,7 @@ const currentSlideShow = [
 ];
 currentSlideShow[0].textContent = 0;
 currentSlideShow[1].textContent = swiper.realIndex + 1;
-document.querySelector('.gallery-nav__all').textContent = swiper.imagesLoaded - 2;
+document.querySelector('.gallery-nav__all').textContent = document.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)').length;
 swiper.on('activeIndexChange', (self) => {
   const splitedIndex = (self.realIndex + 1).toString().split('');
   const firstDigit = splitedIndex.length > 1 ? splitedIndex[0] : 0;
