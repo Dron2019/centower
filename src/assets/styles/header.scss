@@ -99,6 +99,7 @@
   }
   &__link {
     margin-right: var(--between-margin);
+    white-space: nowrap;
     @include from(1680px){
         margin-right: calc(var(--between-margin) + 20px);
     }

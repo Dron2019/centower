@@ -393,7 +393,9 @@ button, a {
 	@include from(1680px){
 		font-size: 40px;
 	}
-
+	@include from-to(952px, 1100px){
+		font-size: 30px;	
+	}
 	@include from-to(576px, 951px){
 		font-size: 24px;
 	}
@@ -528,8 +530,12 @@ text-transform: uppercase;
   .round-image-on-first-section {
     @include size(12);
     @include shift(0);
+		
 		@include from(1680px){
 			max-height: 100vh;
+		}
+		@include from-to(951px, 1680px){
+			height: calc((45vw - (var(--page-side-fields) * 2)) / 290 * 426);
 		}
 		@include from-to(576px, 950px){
 			height: calc((50vw - (var(--page-side-fields) * 2)) / 290 * 426);
@@ -692,6 +698,14 @@ text-transform: uppercase;
 			width: 100%;
 			margin-left: 0;
 			margin-right: 0;
+		}
+	}
+	.button-std-3.many-text {
+		white-space: initial;
+		text-align: left;
+		@include from-to(950px, 1680px){
+			width: 70%;
+			left: 15%;
 		}
 	}
 }

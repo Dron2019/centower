@@ -143,7 +143,7 @@
       .fromTo('.right-letters', { yPercent: 0 }, { yPercent: -105, ease: 'expo.inOut',duration: 0.75  }, '<')
       .to('.loader-wrap', {  yPercent: -105, duration: loaderDuration, ease: 'expo.inOut' }, '<')
       .to('.loader-wrap svg', {  scale: 0.5, duration: loaderDuration, ease: 'expo.inOut', clearProps: 'all' }, '<')
-      .fromTo('.page-title:not(.ms-title)', {
+      .fromTo(document.querySelector('.page-title:not(.ms-title)'), {
         y: "3em",
         z: .01,
         rotationX: "-32.5",
