@@ -254,7 +254,7 @@ locoScroll.on('scroll', (position) => {
 });
 
 function handleUnloadLinks(link) {
-  const isChangeLocationLink = link.href.match(/#|tel:|mailto:/g);
+  const isChangeLocationLink = link.href.match(/\/#|tel:|mailto:/g);
   const isBlank = link.getAttribute('target');
   link.addEventListener('click', (evt) => {
     if (isBlank === null && isChangeLocationLink === null) evt.preventDefault();
@@ -267,6 +267,7 @@ function handleUnloadLinks(link) {
       timline.add(motionPathLastLink(svgForMotion));
     }
     if (isChangeLocationLink === null) {
+      timline.set(link, { pointerEvents: 'none' });
         timline.fromTo('.loader-wrap', {
           yPercent: 100,
           autoAlpha: 1,
@@ -366,3 +367,16 @@ function transferBlocksOnMobile() {
 };
 
 transferBlocksOnMobile();
+
+
+/* anchor links handler in locomotive scroll START */
+window.addEventListener('DOMContentLoaded', () => {
+  const anchor = document.querySelector(`[data-anchor="${window.location.hash}"]`);
+  // eslint-disable-next-line no-undef
+  if (anchor !== null && locoScroll !== undefined) {
+    // eslint-disable-next-line no-undef
+    console.log('here');
+    locoScroll.scrollTo(anchor, { offset: -150 });
+  }
+});
+/* anchor links handler in locomotive scroll END */

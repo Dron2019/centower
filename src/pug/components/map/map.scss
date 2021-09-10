@@ -1,6 +1,6 @@
 .map {
   position: relative;
-  --markers-side-padding:30px;
+  --markers-side-padding: max(calc((100vw - 1680px) / 2), var(--page-side-fields));
   --self-side-padding:var(--page-side-fields);
   --self-vertical-padding:45px;
   padding: var(--self-vertical-padding) var(--self-side-padding);
@@ -9,7 +9,9 @@
   width: calc(100% + (var(--self-side-padding) * 2));
   margin-left: calc(var(--self-side-padding) * -1);
   min-height: calc(100vh - var(--header-h));
-  
+  @include from(1680px){
+     --markers-side-padding: max(calc((100vw - 1680px) / 2), var(--page-side-fields));
+  }
   #map{
     background-image: url('../images/logo.svg');
     background-repeat: no-repeat;
@@ -41,6 +43,9 @@
     overflow-x: hidden;
     overflow-y: scroll;
     margin-top: 35px;
+    @include from(1680px){
+      max-height: calc(100vh - var(--header-h) - 200px);
+    }
     @include to(575px) {
      margin-top: 0;padding-top: 80px; 
     }
@@ -136,6 +141,7 @@
     @include from(1680px){
      width: 65px;
      height: 65px; 
+     margin-right: calc(var(--markers-side-padding) / 2);
     }
     @include to(575px) {
      width: 30px;

@@ -4,7 +4,7 @@ function handleMapLegendOpening() {
   const legend = document.querySelector('[data-mob-accordeon]');
   const legendTop = legend.querySelector('.map__legend-title');
   const markersText = legend.querySelectorAll('.map__legend-marker-text');
-  let percentToScale = document.documentElement.clientWidth > 1680 ? 24 : 20;
+  let percentToScale = document.documentElement.clientWidth > 1680 ? 45 : 35;
   if (WIDTH < 576) percentToScale = 0;
   const mobileOpenFilterButton = document.querySelector('[data-mobile-filter-button]');
   const mobileCloseFilerButton = document.querySelector('[data-mobile-close-legend]');
@@ -57,11 +57,13 @@ function handleMapLegendOpening() {
   }
   function closeLegend() {
     locationStateProxy.status = 'close';
-    gsap.to(markersText, { autoAlpha: 0 });
+    console.log('closing');
+    gsap.to(markersText, { autoAlpha: 0, duration: 0.1 });
     gsap.fromTo(
       legend,
       { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', webkitClipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' },
       { clipPath: `polygon(0% 0%, ${percentToScale}% 0%, ${percentToScale}% 100%, 0% 100%)`, webkitClipPath: `polygon(0% 0%, ${percentToScale}% 0%, ${percentToScale}% 100%, 0% 100%)` },
+      '<'
     );
   }
 }
