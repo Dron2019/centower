@@ -68,6 +68,11 @@
   @include size(24);
   @include shift(0);
   margin-top: 30px;
+  @include from(2040px){
+    max-width: 1680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 

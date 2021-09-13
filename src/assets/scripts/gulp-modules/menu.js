@@ -48,18 +48,19 @@ const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 
 const menuTransitions = {
   opening: () => {
+    callMenu.classList.add('opened');
     const tl = gsap.timeline();
     tl.set(callMenu, { pointerEvents: 'none' });
     if (isFirefox) {
       tl.fromTo(menu,
         { clipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)' },
-        { clipPath: 'polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)', ease: 'power4.inOut', duration: 2 });
+        { clipPath: 'polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)', ease: 'power4.inOut', duration: 1 });
     } else {
       tl.fromTo(menu,
         { webkitClipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)' },
-        { webkitClipPath: 'polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)', ease: 'power4.inOut', duration: 2 });
+        { webkitClipPath: 'polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)', ease: 'power4.inOut', duration: 1 });
     }
-    tl.fromTo(menu.querySelector('.menu__image-fixed img'), { autoAlpha: 0, x: 50 }, { autoAlpha: 1, x: 0 }, '<+1');
+    tl.fromTo(menu.querySelector('.menu__image-fixed img'), { autoAlpha: 0, x: 50 }, { autoAlpha: 1, x: 0 }, '<+0.5');
     tl.fromTo(menu.querySelector('.menu__soc-icons-wrap'), { autoAlpha: 0, x: 50 }, { autoAlpha: 1, x: 0 }, '<');
     tl.fromTo(menu.querySelectorAll('.menu__head-links li'),
       { autoAlpha: 0, x: 35 },
@@ -89,6 +90,7 @@ const menuTransitions = {
       /**Смена состояния иконки END */
   },
   closing: () => {
+    callMenu.classList.remove('opened');
     const tl = gsap.timeline();
     tl.set(callMenu, { pointerEvents: 'none' });
     if (isFirefox) {

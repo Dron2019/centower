@@ -21,7 +21,7 @@ function sideSwitchArrow(swiper, arrowArgs, conArgs) {
     // this.style.pointerEvents = 'auto';
   };
   arrow.dataset.side = 'leftSide';
-
+  arrow.hide();
 
   container.addEventListener('mousemove', desktopNavButtonHandler);
   container.addEventListener('mouseenter', () => {

@@ -44,9 +44,15 @@
     --links-padding: 40px;
     padding-left: calc((100vw - 1680px) / 2);
     padding-right: calc((100vw - 1680px) / 2);
+
+    padding-left: var(--page-side-fields);
+    padding-right: var(--page-side-fields);
   }
   @include from(1680px){
     --between-margin: 78px;
+  }
+  @include from(2040px){
+    --between-margin: 110px;
   }
   @include from-to(576px, 950px){
     padding-top: 0;
@@ -222,6 +228,13 @@
       transition: .3s ease-in-out;
       content: attr(data-open);
     }
+  }
+
+  &__menu-call.opened:hover .hover-bg {
+    transform: scale(0);
+  }
+  &__menu-call.opened:hover [data-close-icon] {
+    stroke: var(--color-milk) !important;
   }
   &__menu-call:hover &__menu-call-icon-path {
     // transform: scaleX(1.4);

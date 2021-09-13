@@ -20,6 +20,7 @@
     margin-bottom: 25px;
     max-width: 420px;
     text-align: center;
+    // max-width: initial;
     @include from(1680px){
        margin-bottom: 35px;
     }
@@ -28,6 +29,12 @@
     }
     @include to(575px) {
      width: 100%;   
+    }
+}
+
+.ms-slide:last-child {
+    .ms-subtitle {
+        max-width: initial;
     }
 }
 .ms-slider-overlay  {

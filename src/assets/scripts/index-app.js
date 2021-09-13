@@ -283,7 +283,7 @@ function handleUnloadLinks(link) {
           autoAlpha: 1,
           ease: 'power4.out',
           duration: 1.25,
-        },'<+1')
+        },'<+0.5')
         // timline.to('.loader-wrap', {
         //   autoAlpha: 1,
         //   duration: 0.45,

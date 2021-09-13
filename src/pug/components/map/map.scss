@@ -11,6 +11,7 @@
   min-height: calc(100vh - var(--header-h));
   @include from(1680px){
      --markers-side-padding: max(calc((100vw - 1680px) / 2), var(--page-side-fields));
+     --markers-side-padding: var(--page-side-fields);
   }
   #map{
     background-image: url('../images/logo.svg');

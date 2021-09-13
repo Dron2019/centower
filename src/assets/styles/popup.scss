@@ -26,6 +26,9 @@ body>.popup-wrapper {
         }   
     }
     // display: none;
+    @include from(1680px){
+        background-color: var(--color-milk);
+    }
     @include to(575px){
     //  padding-top: var(--header-h);
     height: 100%;
@@ -63,8 +66,16 @@ body>.popup-wrapper {
             height: 40px;   
         }
     }
-    &__close:hover rect{
-        fill: var(--color-gold);
+    .hover-rect {
+        transition: .3s ease-in-out;
+        transform-origin: center;
+        transform-box: fill-box;
+    }
+    &__close:hover .hover-rect{
+        transform: scale(0);
+    }
+    &__close:hover path {
+        stroke: var(--color-black);
     }
     .form-std__subtitle {
         font-size: 22px;
@@ -96,6 +107,7 @@ color: var(--color-black);
         padding-bottom: 190px;
         padding-left: 180px;
         padding-right: 146px;
+        max-width: 1930px;
     }
     @include to(1120px){
         padding-left: var(--page-side-fields);
@@ -184,6 +196,9 @@ color: var(--color-black);
             margin-top: 20px;
 
         }
+        @include from(1680px){
+            justify-content: flex-start;   
+        }
     }
     textarea {
         font-size: 14px;
@@ -216,7 +231,7 @@ color: var(--color-black);
     }
 }
 .form-btn-wrap {
-    --offset:32px;
+    // --offset:32px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -331,6 +346,10 @@ color: var(--color-black);
     z-index: 15;
     opacity: 0;
     pointer-events: none;
+    @include from(1680px){
+        padding-left: 160px;
+        padding-right: 160px;   
+    }
     @include from-to(576px, 950px){
         @include row-flex();
         align-content: flex-start;
@@ -362,6 +381,9 @@ color: var(--color-black);
             @include size(16);   
             @include shift(1);   
             max-width: none;
+        }
+        @include from(1680px){
+         margin-top: 40px;   
         }
     }
     .button-std-3 path {
@@ -395,7 +417,7 @@ color: var(--color-black);
     }
     @include from(1680px){
         .button-std-3 {
-            max-width: 320px;
+            max-width: 360px;
         }
     }
 }
@@ -462,6 +484,9 @@ color: var(--color-black);
         }
         @include from-to(576px, 950px){
             width: 70%;
+        }
+        @include from(1680px){
+            left: 50%;
         }
     }
     .ellipse-with-stars {
