@@ -366,7 +366,7 @@ color: var(--color-black);
         flex-direction: column;
     }
     .popup-decor-group:not(.popup-decor-group-tablet-show) .button-std-3 {
-        @include to(575px){
+        @include to(950px){
             display: none;
         }
     }
@@ -461,6 +461,9 @@ color: var(--color-black);
         align-self: flex-end;
         padding-left: 0px;
     }
+    @include from-to(576px, 950px){
+
+    }
     @include to(950px) {
      width: 100%;   
      padding-left: 0;
@@ -474,7 +477,7 @@ color: var(--color-black);
         position: absolute;
         left: 60%;
         top: 50%;
-        width: 55%;
+        width: 50%;
         transform: translate(-50%,-50%);
         color: var(--color-black);
         @include to(950px) {

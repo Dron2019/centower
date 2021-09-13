@@ -12,5 +12,7 @@ panoramaOverlay.addEventListener('click', () => {
   panoramaOverlay.style.display = 'none';
 });
 
-
-locoScroll.scrollTo(document.querySelector('.panorama-wrapper__faq'));
+console.log();
+locoScroll.scrollTo(document.querySelector('.panorama-wrapper__faq'), { 
+  offset: parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) * -1
+});

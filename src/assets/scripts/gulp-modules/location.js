@@ -88,6 +88,3 @@ function handleMapLegendOpening() {
   }
 }
 handleMapLegendOpening();
-
-
-locoScroll.scrollTo(document.querySelector('.map'))

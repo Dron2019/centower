@@ -418,6 +418,8 @@ line-height: 130%;
   margin-top: 75px;
   @include from(1680px){
     --offset: 137px;
+    // width: calc(100% + (var(--offset) * 2));
+    justify-content: space-between;
 }
   @include from(1680px){
     width: 100%;
@@ -442,6 +444,11 @@ line-height: 130%;
   }
   .form-field {
     @include customOffsetWidth(40, var(--offset));
+    @include from(1680px){
+      width: calc(40% - 120px);
+      margin-left: 0;
+      margin-right: 0; 
+    }
     @include from-to(576px, 950px){
       
       @include customOffsetWidth(70, var(--offset));
@@ -455,6 +462,11 @@ line-height: 130%;
   }
   .form-btn-wrap {
     @include customOffsetWidth(20, var(--offset));
+    @include from(1680px){
+     width: auto; 
+      margin-left: 0;
+      margin-right: 0; 
+    }
     @include to(575px) {
       margin-left: auto; 
     }
