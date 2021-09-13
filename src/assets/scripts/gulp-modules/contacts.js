@@ -59,7 +59,6 @@ function movePath(svg) {
   const amplitude1 = 62.5;
   const path1 = svg.querySelector('path');
   let time1 = 0;
-  console.log(path1.getAttribute('d').split(' '));
   function render1() {
     time1 += 1;
     const dValue = path1.getAttribute('d').split(' ');

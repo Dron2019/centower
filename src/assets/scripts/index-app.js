@@ -45,7 +45,7 @@ function changFormOverlay($form) {
   const overlay = $form.querySelector('[data-succes-overlay]');
   gsap.timeline()
     .fromTo(overlay, { scale: 0.5, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, ease: 'expo.inOut' });
-  console.log(gsap);
+  // console.log(gsap);
   // overlay.style.opacity = 1;
   overlay.style.pointerEvents = 'all';
   overlay.style.visibility = 'visible';
@@ -269,7 +269,7 @@ function handleUnloadLinks(link) {
     
     if (link.closest('.page-last-section') !== null || link.closest('.conception-last-section') !== null) {
       const svgForMotion =link.closest('.page-last-section').querySelector('.ellipse-common__decor');
-      console.log(svgForMotion);
+      // console.log(svgForMotion);
       timline.add(motionPathLastLink(svgForMotion));
     }
     if (isChangeLocationLink === null) {
@@ -309,8 +309,8 @@ function motionPathLastLink(svg) {
   const circle2 = svg.querySelector('.circle2');
   const road1 = svg.querySelector('.road2');
   const road2 = svg.querySelector('.road2');
-  console.log(MotionPathPlugin.getRawPath(road1));
-  console.log(MotionPathPlugin.sliceRawPath(MotionPathPlugin.getRawPath(road1), 0, 0));
+  // console.log(MotionPathPlugin.getRawPath(road1));
+  // console.log(MotionPathPlugin.sliceRawPath(MotionPathPlugin.getRawPath(road1), 0, 0));
   const beginOfPath = MotionPathPlugin.sliceRawPath(MotionPathPlugin.getRawPath(road1), 0, 0)[0];
   gsap.set(circle1, { x: beginOfPath[0], y: beginOfPath[1] })
   const tl = gsap.timeline()
@@ -381,7 +381,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // eslint-disable-next-line no-undef
   if (anchor !== null && locoScroll !== undefined) {
     // eslint-disable-next-line no-undef
-    console.log('here');
+    // console.log('here');
     locoScroll.scrollTo(anchor, { offset: -150 });
   }
 });

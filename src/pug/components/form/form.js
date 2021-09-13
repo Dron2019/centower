@@ -224,7 +224,7 @@ export default class FormMonster {
   }
 
   init() {
-    console.log(this);
+    // console.log(this);
     this.listers();
   }
 }

@@ -321,7 +321,6 @@ function initMap() {
   ]
   });
   const filterMarkers = function (category, categoriesArray) {
-    console.log(categoriesArray);
     gmarkers1.forEach((el) => {
       if (categoriesArray.has(el.category) || categoriesArray.size === 1) {
         el.setMap(map);

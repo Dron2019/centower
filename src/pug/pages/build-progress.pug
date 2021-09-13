@@ -39,9 +39,9 @@ block scripts
   script(defer src='./assets/scripts/vendors.bundle.js')
   script(defer src='./assets/scripts/index.bundle.js')
   script(defer src='./assets/scripts/libs.js')
-  script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/menu.js')
   script(defer src='./assets/scripts/build-progress.js')
+  script(defer src='./assets/scripts/animation.js')
 block content
   section.page-section
     .page-section-common-block.image-down
@@ -68,7 +68,7 @@ block content
           img(src="./assets/images/test-build.jpg")
   section.page-white-section.build-status-section
     <svg class="page-white-section__decor-pattern " preserveAspectRatio="xMidYMin meet" data-first-screen-anim width="399" height="199" viewBox="0 0 399 199" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0.672607C155.167 0.672607 199.5 52.0908 199.5 199C199.5 52.0908 251.222 0.672607 399 0.672607C251.222 0.672607 199.5 0.672714 199.5 0.672714C199.5 0.672714 155.167 0.672607 0 0.672607Z" fill="#2D2D2D"/>
+      <path d="M0 4.00543e-05C155.167 4.00543e-05 199.5 9 199.5 9C199.5 9 251.222 4.00543e-05 399 4.00543e-05C251.222 4.00543e-05 199.5 0 199.5 0C199.5 0 155.167 4.00543e-05 0 4.00543e-05Z" fill="#2D2D2D"/>
       </svg>
     .page-title.dark статус робіт
     .statuses-wrapper
@@ -91,8 +91,9 @@ block content
         </svg>
 
   section.page-last-section
-    <svg class="page-last-section__decor-pattern" preserveAspectRatio="xMidYMin meet" data-first-screen-anim="" width="399" height="199" viewBox="0 0 399 199" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0.672607C155.167 0.672607 199.5 52.0908 199.5 199C199.5 52.0908 251.222 0.672607 399 0.672607C251.222 0.672607 199.5 0.672714 199.5 0.672714C199.5 0.672714 155.167 0.672607 0 0.672607Z" fill="#F3EFE9"></path>
+    <svg class="page-last-section__decor-pattern" data-first-screen-anim preserveAspectRatio="xMidYMin meet" data-first-screen-anim="" width="399" height="199" viewBox="0 0 399 199" fill="none" xmlns="http://www.w3.org/2000/svg">
+      //- <path d="M0 0.672607C155.167 0.672607 199.5 52.0908 199.5 199C199.5 52.0908 251.222 0.672607 399 0.672607C251.222 0.672607 199.5 0.672714 199.5 0.672714C199.5 0.672714 155.167 0.672607 0 0.672607Z" fill="#F3EFE9"></path>
+      <path d="M0 4.00543e-05C155.167 4.00543e-05 199.5 9 199.5 9C199.5 9 251.222 4.00543e-05 399 4.00543e-05C251.222 4.00543e-05 199.5 0 199.5 0C199.5 0 155.167 4.00543e-05 0 4.00543e-05Z" fill="#F3EFE9"/>
       </svg>
     a(href="documents").ellipse-common
       +btn3('Документи', '#')

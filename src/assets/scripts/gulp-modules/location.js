@@ -25,7 +25,6 @@ function handleMapLegendOpening() {
   // let percentToScale = document.documentElement.clientWidth > 1680 ? 45 : 35;
   let percentToScale = getPercentOfScale(legend);
   if (WIDTH < 576) percentToScale = 0;
-  console.log(getPercentOfScale(legend));
   const mobileOpenFilterButton = document.querySelector('[data-mobile-filter-button]');
   const mobileCloseFilerButton = document.querySelector('[data-mobile-close-legend]');
 
@@ -77,7 +76,6 @@ function handleMapLegendOpening() {
   }
   function closeLegend() {
     locationStateProxy.status = 'close';
-    console.log('closing');
     gsap.to(markersText, { autoAlpha: 0, duration: 0.1 });
     gsap.fromTo(
       legend,
