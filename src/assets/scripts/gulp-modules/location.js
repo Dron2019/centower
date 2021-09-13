@@ -1,11 +1,31 @@
 /* eslint-disable no-undef */
+
+/**
+ * 
+ * @param {NodeElement} el 
+ * @returns {Number} Процент от ширины указаных длин дочерних елементов контейнера
+ */
+function getPercentOfScale(el) {
+  const { width } = el.getBoundingClientRect();
+
+  const distanceArray = [
+    parseInt(getComputedStyle(el.querySelector('[data-category]')).paddingLeft),
+    parseInt(getComputedStyle(el.querySelector('.map__legend-marker-icon')).width),
+    parseInt(getComputedStyle(el.querySelector('.map__legend-marker-icon')).marginRight),
+  ];
+
+  const totalPixelDistance = distanceArray.reduce((acc, el) => acc += el);
+  return 100 * totalPixelDistance / width;
+}
 function handleMapLegendOpening() {
   const WIDTH = document.documentElement.clientWidth;
   const legend = document.querySelector('[data-mob-accordeon]');
   const legendTop = legend.querySelector('.map__legend-title');
   const markersText = legend.querySelectorAll('.map__legend-marker-text');
-  let percentToScale = document.documentElement.clientWidth > 1680 ? 45 : 35;
+  // let percentToScale = document.documentElement.clientWidth > 1680 ? 45 : 35;
+  let percentToScale = getPercentOfScale(legend);
   if (WIDTH < 576) percentToScale = 0;
+  console.log(getPercentOfScale(legend));
   const mobileOpenFilterButton = document.querySelector('[data-mobile-filter-button]');
   const mobileCloseFilerButton = document.querySelector('[data-mobile-close-legend]');
 
@@ -68,3 +88,6 @@ function handleMapLegendOpening() {
   }
 }
 handleMapLegendOpening();
+
+
+locoScroll.scrollTo(document.querySelector('.map'))
