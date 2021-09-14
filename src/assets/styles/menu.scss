@@ -90,6 +90,9 @@
                 text-transform: none;
             }
         }
+        @include from-to(375px, 575px){
+            font-size: 19px;
+        }
     }
     a {
         text-decoration: none;
@@ -180,8 +183,10 @@
         right: 0;
         top: calc(100% + 40px);
         @include to(575px){
+            position: fixed;
             top: auto;
-            bottom: 0;   
+            bottom: var(--page-side-fields);   
+            right: var(--page-side-fields);   
         }
     }
     &__soc-icons-wrap :nth-child(n+2) {

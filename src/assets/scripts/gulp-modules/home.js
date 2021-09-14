@@ -7,10 +7,17 @@ locoScroll.destroy();
 document.querySelector('.page__content').style.transform = '';
 document.querySelector('body').style.overflow = 'hidden';
 gsap.registerPlugin(MotionPathPlugin);
-function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, direction = 1) {
-  const SPEED = 0.75;
+function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, direction = document.documentElement.clientWidth < 576 ? 2 : 1) {
+  
+  const SPEED = document.documentElement.clientWidth > 576 ? 0.75 : 1;
   const EASE = 'power4.out';
   const openSlideInnerElems = toOpenElement.querySelectorAll('.ms-slide-text-wrap>*');
+  /**Directions
+   * -1 вверх
+   * 1 вниз
+   * 2 вправо
+   * -2 влево
+   */
   switch (direction) {
     case -1:
       gsap.timeline()
@@ -64,6 +71,70 @@ function changeScreenWithEffects(toOpenElement, toCloseElement, cb = () => {}, d
           '<',
         )
         .fromTo(openSlideInnerElems, { y: 100, autoAlpha: 0 }, { y: 0, autoAlpha: 1, ease: EASE, duration: 2, stagger: 0.1 }, '<')
+        // .from(toOpenElement.querySelectorAll('.ms-slide-text-wrap>*'), { stagger: 0.1, autoAlpha: 0, y: 150, duration: 2, clearProps: 'all' }, '<')
+        .fromTo(
+          toOpenElement.querySelector('img'), 
+          { scale: 1.2 }, 
+          { scale: 1, duration: 2, ease: EASE,}, 
+          '<')
+        .set(toCloseElement, { display: 'none' })
+        .add(() => {
+          // locoScroll.update();
+          cb();
+        });
+      break;
+      case -2:
+        gsap.timeline()
+          .timeScale(SPEED)
+          .set(toOpenElement, { display: '', xPercent: -100 }, '<')
+          .to(toCloseElement, {
+            xPercent: 100, autoAlpha: 1, duration: 2, ease: EASE,
+          }, '<')
+          .to(toCloseElement.querySelector('img'), { scale: 1.2, duration: 2, ease: EASE,}, '<')
+          .fromTo(
+            toOpenElement,
+            { xPercent: -100, autoAlpha: 1 },
+            {
+              xPercent: 0,
+              autoAlpha: 1,
+              duration: 2,
+              ease: EASE,
+            },
+            '<',
+            )
+          .fromTo(openSlideInnerElems, { x: -100, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: EASE, duration: 2, stagger: 0.1 }, '<')
+          // .from(toOpenElement.querySelectorAll('.ms-slide-text-wrap>*'), { stagger: 0.1, autoAlpha: 0, y: -150, duration: 2, clearProps: 'all' }, '<')
+          .fromTo(
+            toOpenElement.querySelector('img'), 
+            { scale: 1.2 }, 
+            { scale: 1, duration: 2, ease: EASE,}, 
+            '<')
+          .set(toCloseElement, { display: 'none' })
+          .add(() => {
+            // locoScroll.update();
+            cb();
+          });
+        break;
+    case 2:
+      gsap.timeline()
+        .timeScale(SPEED)
+        .set(toOpenElement, { display: '', xPercent: 100 }, '<')
+        .to(toCloseElement, {
+          xPercent: -100, autoAlpha: 1, duration: 2, ease: EASE,
+        }, '<')
+        .to(toCloseElement.querySelector('img'), { scale: 1.2, duration: 1.75, ease: EASE, }, '<')
+        .fromTo(
+          toOpenElement,
+          { xPercent: 100, autoAlpha: 1 },
+          {
+            xPercent: 0,
+            autoAlpha: 1,
+            duration: 2,
+            ease: EASE,
+          },
+          '<',
+        )
+        .fromTo(openSlideInnerElems, { x: 100, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: EASE, duration: 2, stagger: 0.1 }, '<')
         // .from(toOpenElement.querySelectorAll('.ms-slide-text-wrap>*'), { stagger: 0.1, autoAlpha: 0, y: 150, duration: 2, clearProps: 'all' }, '<')
         .fromTo(
           toOpenElement.querySelector('img'), 
@@ -180,6 +251,10 @@ function changeSlideOnWheelOrTouchMove(evt) {
     evt.preventDefault();
     params.isAnimating = true;
     let direction = evt.deltaY > 0 ? 1 : -1;
+    if (evt.pointerType === 'touch') {
+      direction = evt.deltaX > 0 ? -2 : 2;
+    }
+    console.log(evt.pointerType);
     const nextIndex = getNextIndex(params.curentIndex, slides, direction);
     simulatePathDrawing(navs[nextIndex], 1.5, '7');
     resetStrokeValue(navs[params.curentIndex]);
@@ -204,8 +279,8 @@ hammertime.get('swipe').set({
 });
 
 window.addEventListener('wheel', changeSlideOnWheelOrTouchMove, true);
-hammertime.on('swipedown', evt => changeSlideOnWheelOrTouchMove(evt));
-hammertime.on('swipeup', evt => changeSlideOnWheelOrTouchMove(evt));
+hammertime.on('swipeleft', evt => changeSlideOnWheelOrTouchMove(evt));
+hammertime.on('swiperight', evt => changeSlideOnWheelOrTouchMove(evt));
 window.addEventListener('blur', function() {
   clearTimeout(params.autoSlide);
   params.autoSlide = setTimeout(() => {
@@ -252,7 +327,8 @@ function resetStrokeValue(pathArgs) {
 function clearTimeoutAndSetNew() {
   clearTimeout(params.autoSlide);
   params.autoSlide = setTimeout(() => {
-    const nextIndex = getNextIndex(params.curentIndex, slides, 1);
+    const direction = document.documentElement.clientWidth < 576 ? 2 : 1;
+    const nextIndex = getNextIndex(params.curentIndex, slides, direction);
     simulatePathDrawing(navs[nextIndex], 1.5, '7');
     resetStrokeValue(navs[params.curentIndex]);
     changeScreenWithEffects(
@@ -263,7 +339,7 @@ function clearTimeoutAndSetNew() {
         params.isAnimating = false;
         insertUrlParam(params.url, nextIndex);
       },
-      1,
+      direction,
     );
     clearTimeoutAndSetNew();
   }, 7000);
@@ -277,7 +353,8 @@ function clearTimeoutAndSetNew() {
  * @description Получение следующего индекса
  */
 function getNextIndex(current, $nodeList, direction) {
-  let nextIndex = current + direction;
+  const addValue = direction > 1 ? 1 : -1;
+  let nextIndex = current + addValue;
   if (params.curentIndex === $nodeList.length - 1 && direction > 0) {
     nextIndex = 0;
   } else if (params.curentIndex === 0 && direction < 0) {

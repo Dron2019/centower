@@ -135,12 +135,13 @@
 
 
   window.addEventListener('DOMContentLoaded', () => {
-    const loaderDuration = 2.5;
+    let loaderDuration = 2.5;
+    if (document.documentElement.clientWidth < 576) loaderDuration = 1
     const tl = gsap.timeline({ paused: true })
-      .fromTo('.left-letters', { yPercent: 105, autoAlpha: 1 }, { yPercent: 0, ease: 'expo.inOut',duration: 1, autoAlpha: 1 })
-      .fromTo('.right-letters', { yPercent: -105, autoAlpha: 1 }, { yPercent: 0, ease: 'expo.inOut',duration: 1, autoAlpha: 1 }, '<')
-      .fromTo('.left-letters', { yPercent: 0 }, { yPercent: 105, ease: 'expo.inOut',duration: 0.75 })
-      .fromTo('.right-letters', { yPercent: 0 }, { yPercent: -105, ease: 'expo.inOut',duration: 0.75  }, '<')
+      .fromTo('.left-letters', { yPercent: 105, autoAlpha: 1 }, { yPercent: 0, ease: 'expo.inOut',duration: loaderDuration / 2.5, autoAlpha: 1 })
+      .fromTo('.right-letters', { yPercent: -105, autoAlpha: 1 }, { yPercent: 0, ease: 'expo.inOut',duration: loaderDuration / 2.5, autoAlpha: 1 }, '<')
+      .fromTo('.left-letters', { yPercent: 0 }, { yPercent: 105, ease: 'expo.inOut',duration: loaderDuration / 2.7 })
+      .fromTo('.right-letters', { yPercent: 0 }, { yPercent: -105, ease: 'expo.inOut',duration: loaderDuration / 2.7  }, '<')
       .to('.loader-wrap', {  yPercent: -105, duration: loaderDuration, ease: 'expo.inOut' }, '<')
       .to('.loader-wrap svg', {  scale: 0.5, duration: loaderDuration, ease: 'expo.inOut', clearProps: 'all' }, '<')
       .fromTo(document.querySelector('.page-title:not(.ms-title)'), {

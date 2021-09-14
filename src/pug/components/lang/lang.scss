@@ -9,7 +9,7 @@
   transform: translateY(-50%);
   flex-direction: column;
   z-index: 10;
-  @include to(575px) {
+  @include to(950px) {
    display: none; 
   }
   &__item a {

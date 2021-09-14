@@ -28,7 +28,9 @@ block content
   .panorama-wrapper(data-panorama-wrapper)
     <iframe data-panorama allowfullscreen="" style="border-style:none;" src="./static/panorama/pannellum.htm#panorama=../../assets/images/panorama/panorama.jpg&amp;autoLoad=true&amp;preview=../../assets/images/panorama/panorama.jpg"></iframe>
     .panorama-wrapper__faq(data-panorama-faq)
-      +img('panorama/cursor.svg')
+      picture 
+        source(srcset="./assets/images/panorama/cursor-mob.svg" media="(max-width: 950px)")
+        img(src="./assets/images/panorama/cursor.svg")
       .panorama-wrapper__faq-text Зажміть ліву кнопку миші щоб обдивитись
   section.page-last-section
     a(href="build-progress").ellipse-common

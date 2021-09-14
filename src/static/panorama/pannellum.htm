@@ -8,6 +8,10 @@
     <meta name="robots" content="noindex,follow" />
     <title>Pannellum</title>
     <style type="text/css">
+        html, body {
+            touch-action: auto;
+
+        }
         .pnlm-container {
             margin: 0;
             padding: 0;
@@ -2384,7 +2388,13 @@
         "file:" == window.location.protocol ? anError("Due to browser security restrictions, Pannellum can't be run from the local filesystem; some sort of web server must be used.") : parseURLParameters();
     </script>
 </body>
-
+<script>
+    window.addEventListener('touchstart', () => {
+        console.log('RRRR');
+        console.log(window.parent);
+        window.parent.postMessage("DisableOverlay", "*");   
+    })
+</script>
 <style>
     .pnlm-container {
         /* background: #ffffff40 url(https://boston-house.kiev.ua/wp-content/themes/boston/assets/images/panorama/preview.jpg) center no-repeat; */

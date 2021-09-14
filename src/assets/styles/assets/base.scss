@@ -440,6 +440,9 @@ button, a {
 		font-size: 40px;
 		word-break: break-word;	
 	}
+	@include from-to(375px, 575px){
+		font-size: 56px;
+	}
 }
 
 .ellipse-common {
@@ -496,7 +499,7 @@ line-height: 130%;
 letter-spacing: 0.03em;
 text-transform: uppercase;
 	@include to(575px) {
-		font-size: 12px;	
+		font-size: 14px;	
 	}
 }
 
