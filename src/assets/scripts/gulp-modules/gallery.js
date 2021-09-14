@@ -90,7 +90,7 @@ function sideSwitchArrow(swiper, arrowArgs, conArgs) {
 /** СТрелка переключатель в зависимости от положения на єкране END */
 const swiper = new Swiper('[data-swiper]', {
   loop: true,
-  speed: 1000,
+  // speed: 1000,
 });
 
 
