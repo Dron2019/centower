@@ -1,3 +1,27 @@
+.page-section-common-block.build-progress-first-section {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  .button-std-4 {
+    background-color: var(--color-gold);
+    margin-left: auto;
+    --hover-color: var(--color-white);
+    --hover-text-color: var(--color-black);
+    padding-left: 56px;
+    padding-right: 57px;
+    @include to(575px){
+      margin-bottom: 50px;
+      margin-right: auto;
+    }
+  }
+  .ellipse-common {
+    
+    @include to(575px){
+      margin-bottom: 30px;
+    }
+
+  }
+}
 .build-status-section {
   .page-title {
     margin-bottom: 50px;
@@ -162,6 +186,10 @@
     @include size(12);
     // @include shift(0);
     margin-bottom: 100px;
+    @include from(950px){
+      width: 50%;
+
+    }
     @include to(575px){
       @include shift(0);
       @include size(24);
@@ -373,14 +401,35 @@
 
 }
 
-
+.statuses-wrapper-mobile-scroll-pointer {
+  @include from(576px){
+   display: none; 
+  }
+  display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-top: -68px;
+    pointer-events: none;
+    height: 26px;
+  //   &__line {
+  //     height: 1px;
+  //     width: 100%;
+  //     position: absolute;
+  //     left: 50%;
+  //     top: 50%;
+  //     background-color: var(--color-black);
+  //     transform: translate(-50%,-50%);
+  // }
+}
 .statuses-wrapper {
   text-transform: uppercase;
   display: flex;
   max-width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
-  
+  position: relative;
   
   .status~.status {
     padding-left: 20px;
@@ -390,7 +439,11 @@
     height: 2px;
   }
   &::-webkit-scrollbar-thumb {
+
     -webkit-box-shadow: inset 0 0 6px var(--color-black);
+  }
+  @include to(575px){
+    padding-bottom: 15px;
   }
 }
 

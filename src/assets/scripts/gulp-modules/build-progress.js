@@ -79,3 +79,8 @@ function activeStatusInCenterOfHorizontalView(){
   scrollContainer.scrollTo(xScrollDistance, 0);
 }
 activeStatusInCenterOfHorizontalView();
+
+
+document.querySelector('[data-status-anchor]').addEventListener('click',function(evt){
+  locoScroll.scrollTo(document.querySelector('.build-status-section'))
+});

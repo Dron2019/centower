@@ -260,7 +260,7 @@ locoScroll.on('scroll', (position) => {
  *
  */
 function handleUnloadLinks(link) {
-  const isChangeLocationLink = link.href.match(/.{1}|\/#|tel:|mailto:/g);
+  const isChangeLocationLink = link.href.match(/#{1}|\/#|tel:|mailto:/g);
   const isBlank = link.getAttribute('target');
   link.addEventListener('click', (evt) => {
     if (isBlank === null && isChangeLocationLink === null) evt.preventDefault();
