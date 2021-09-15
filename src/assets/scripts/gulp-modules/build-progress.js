@@ -84,3 +84,14 @@ activeStatusInCenterOfHorizontalView();
 document.querySelector('[data-status-anchor]').addEventListener('click',function(evt){
   locoScroll.scrollTo(document.querySelector('.build-status-section'))
 });
+
+
+function horizontalScrolButtons() {
+  const delta = 50;
+  const scrollEl  = document.querySelector('.statuses-wrapper');
+  const right = document.querySelector('[data-hor-scroll-right]');
+  const left = document.querySelector('[data-hor-scroll-left]');
+  left.addEventListener('click', () => scrollEl.scrollTo( scrollEl.scrollLeft - delta ,0));
+  right.addEventListener('click',() => scrollEl.scrollTo( scrollEl.scrollLeft + delta ,0));
+}
+horizontalScrolButtons();

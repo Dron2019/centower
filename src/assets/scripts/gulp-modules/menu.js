@@ -50,7 +50,9 @@ const menuTransitions = {
   opening: () => {
     callMenu.classList.add('opened');
     const tl = gsap.timeline();
-    tl.set(callMenu, { pointerEvents: 'none' });
+    tl.add(()=>{
+      callMenu.disabled = true;
+    });
     if (isFirefox) {
       tl.fromTo(menu,
         { clipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)' },
@@ -86,13 +88,19 @@ const menuTransitions = {
       },
       '<',
       );
-      tl.set(callMenu, { pointerEvents: 'all' });
+      tl.add(()=>{
+        setTimeout(() => {
+          callMenu.disabled = false;
+        }, 700);
+      })
       /**Смена состояния иконки END */
   },
   closing: () => {
     callMenu.classList.remove('opened');
     const tl = gsap.timeline();
-    tl.set(callMenu, { pointerEvents: 'none' });
+    tl.add(()=>{
+      callMenu.disabled = true;
+    })
     if (isFirefox) {
       tl.fromTo(menu,
         { clipPath: 'polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)' },
@@ -130,7 +138,11 @@ const menuTransitions = {
       },
       '<',
     );
-    tl.set(callMenu, { pointerEvents: 'all' });
+    tl.add(()=>{
+      setTimeout(() => {
+        callMenu.disabled = false;
+      }, 700);
+    })
   },
 };
 callMenu.addEventListener('click', () => {

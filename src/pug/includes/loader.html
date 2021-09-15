@@ -143,29 +143,34 @@
       .fromTo('.left-letters', { yPercent: 0 }, { yPercent: 105, ease: 'expo.inOut',duration: loaderDuration / 2.7 })
       .fromTo('.right-letters', { yPercent: 0 }, { yPercent: -105, ease: 'expo.inOut',duration: loaderDuration / 2.7  }, '<')
       .to('.loader-wrap', {  yPercent: -105, duration: loaderDuration, ease: 'expo.inOut' }, '<')
-      .to('.loader-wrap svg', {  scale: 0.5, duration: loaderDuration, ease: 'expo.inOut', clearProps: 'all' }, '<')
-      .fromTo(document.querySelector('.page-title:not(.ms-title)'), {
-        y: "3em",
-        z: .01,
-        rotationX: "-32.5",
-        rotationY: "-7.5",
-        rotationZ: "7.5",
-        autoAlpha: 0,
-      }, {
-        y: 0,
-        z: .01,
-        rotationX: 0,
-        rotationY: .01,
-        rotationZ: 0,
-        duration: 1.75,
-        autoAlpha: 1, ease: 'expo.inOut'
-      }, `<+=${loaderDuration / 5}`)
-      .fromTo('.page-title', {
-        autoAlpha: 0,
-      }, {
-        autoAlpha: 1, ease: 'expo.inOut'
-      }, `<`)
-      .from('.round-image-on-first-section', { autoAlpha: 0, y: 200, duration: 2.2, ease: 'expo.out' },  `<+=${loaderDuration / 4}`)
+      .to('.loader-wrap svg', {  scale: 0.5, duration: loaderDuration, ease: 'expo.inOut', clearProps: 'all' }, '<');
+      if (document.documentElement.clientWidth < 576) {
+        tl.from(document.querySelector('.page-title:not(.ms-title)'), { autoAlpha: 0, y: 200, duration: 2.2, ease: 'expo.out' },  `<+=${loaderDuration / 4}`)
+      } else {
+
+        tl.fromTo(document.querySelector('.page-title:not(.ms-title)'), {
+          y: "3em",
+          z: .01,
+          rotationX: "-32.5",
+          rotationY: "-7.5",
+          rotationZ: "7.5",
+          autoAlpha: 0,
+        }, {
+          y: 0,
+          z: .01,
+          rotationX: 0,
+          rotationY: .01,
+          rotationZ: 0,
+          duration: 1.75,
+          autoAlpha: 1, ease: 'expo.inOut'
+        }, `<+=${loaderDuration / 5}`)
+        .fromTo('.page-title', {
+          autoAlpha: 0,
+        }, {
+          autoAlpha: 1, ease: 'expo.inOut'
+        }, `<`)
+      }
+      tl.from('.round-image-on-first-section', { autoAlpha: 0, y: 200, duration: 2.2, ease: 'expo.out' },  `<+=${loaderDuration / 4}`)
       .from('.ellipse-common', { autoAlpha: 0, y: 200, duration: 2.2, ease: 'expo.out' },  `<+0.1`)
       .from('.breadcrumbs-item', { autoAlpha: 0, y: 50, duration: 0.35 }, '<+0.15')
       .from('[data-other-fade-in-content]', { autoAlpha: 0, y: 50, duration: 0.35 }, '<')
