@@ -377,10 +377,16 @@ button, a {
 		height: 100%;
 	}
 	circle {
+		transform-origin: center;
+		transform-box: fill-box;
 		transition: .3s ease-in-out;
 	}
-	&:hover circle {
-		fill: var(--color-gold);
+	&:hover circle:not(.button-std-2__hover-circle) {
+		// fill: var(--color-gold);
+		transform: scale(0);
+	}
+	&:hover path {
+		fill: var(--color-black);
 	}
 	&:disabled {
 		cursor: not-allowed;

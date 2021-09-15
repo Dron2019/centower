@@ -240,13 +240,19 @@
       content: attr(data-open);
     }
   }
-
+  &__menu-call.opened .hover-bg {
+    transition: .3s ease-in-out;
+    transform: scale(0);
+  }
+  &__menu-call.opened [data-close-icon] {
+    stroke: var(--color-milk) !important;
+  }
   @include from(950px){
     &__menu-call.opened:hover .hover-bg {
-      transform: scale(0);
+      transform: scale(1);
     }
     &__menu-call.opened:hover [data-close-icon] {
-      stroke: var(--color-milk) !important;
+      stroke: var(--color-black) !important;
     }
     &__menu-call:hover &__menu-call-icon-path {
       // transform: scaleX(1.4);
