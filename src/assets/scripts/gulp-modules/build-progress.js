@@ -86,12 +86,15 @@ document.querySelector('[data-status-anchor]').addEventListener('click',function
 });
 
 
-function horizontalScrolButtons() {
+function horizontalScrolButtons({ forwardButton, backwardButton }, elWithScroll) {
   const delta = 50;
-  const scrollEl  = document.querySelector('.statuses-wrapper');
-  const right = document.querySelector('[data-hor-scroll-right]');
-  const left = document.querySelector('[data-hor-scroll-left]');
+  const scrollEl  = document.querySelector(elWithScroll);
+  const right = document.querySelector(forwardButton);
+  const left = document.querySelector(backwardButton);
   left.addEventListener('click', () => scrollEl.scrollTo( scrollEl.scrollLeft - delta ,0));
   right.addEventListener('click',() => scrollEl.scrollTo( scrollEl.scrollLeft + delta ,0));
 }
-horizontalScrolButtons();
+horizontalScrolButtons({
+  forwardButton: '[data-hor-scroll-right]',
+  backwardButton: '[data-hor-scroll-left]',
+}, '.statuses-wrapper');
