@@ -353,7 +353,7 @@ function clearTimeoutAndSetNew() {
  * @description Получение следующего индекса
  */
 function getNextIndex(current, $nodeList, direction) {
-  const addValue = direction > 1 ? 1 : -1;
+  const addValue = direction >= 1 ? 1 : -1;
   let nextIndex = current + addValue;
   if (params.curentIndex === $nodeList.length - 1 && direction > 0) {
     nextIndex = 0;
