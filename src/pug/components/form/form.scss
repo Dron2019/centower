@@ -475,7 +475,7 @@ line-height: 130%;
       margin-top: 60px;
     } 
     @include to(575px){
-      margin-right: var(--page-side-fields); 
+      margin-left: var(--page-side-fields); 
     }
   }
 }

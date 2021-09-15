@@ -7,6 +7,10 @@
   @include shift-xs-left(0);
   @include size-xs(24);
   align-self: center;
+  @include from-to(576px, 950px){
+    @include size(9.4);
+    @include shift-left(2);
+  }
   td {
     @include to(575px){
       padding-left: 20px;
@@ -54,6 +58,9 @@
   color: transparent;
   @include from(1680px){
     font-size: 120px;
+  }
+  @include from-to(576px, 950px){
+   font-size: 70px; 
   }
   @include to(575px){
       font-size: 70px;

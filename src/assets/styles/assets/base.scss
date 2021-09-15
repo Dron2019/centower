@@ -276,6 +276,10 @@ button, a {
 			height: 65px;	
 			margin-right: 25px;
 		}
+		@include from-to(576px, 950px){
+			background-color: transparent;
+			border: 1px solid var(--color-gold);
+		}
 		@include to(575px) {
 			width: 40px;
 			height: 40px;	
@@ -289,6 +293,10 @@ button, a {
 			fill: var(--color-white);
 			z-index: 3;
 			transition: .3s ease-in-out;
+			@include to(950px){
+				fill: #FAFAFA;
+			}
+			
 		}
 	}
 	&__icon:after {
@@ -302,7 +310,10 @@ button, a {
 		left: 0;
 		top: 0;
 		border-radius: inherit;
-		@include to(575px) {
+		
+	}
+	@include to(950px){
+		&__icon:after  {
 			display: none;	
 		}
 	}

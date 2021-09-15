@@ -62,8 +62,8 @@ body>.popup-wrapper {
          height: 50px;   
         }
         @include to(575px){
-            width: 40px;
-            height: 40px;   
+            width: 45px;
+    height: 45px;
         }
     }
     .hover-rect {
@@ -215,7 +215,7 @@ color: var(--color-black);
     @include to(575px){
         // top: var(--header-h);
         .form-field:not(#t) {
-            margin-top: 30px;
+            margin-top: 40px;
             margin-bottom: auto;
         }
         .form-field:not(#t):first-child {
@@ -444,10 +444,12 @@ color: var(--color-black);
      width: 100%;   
      padding-top: 70px;
      font-size: 30px;
+     font-size: 42px;
     }
     @include from-to(576px, 950px){
         font-size: 80px;
         padding-top: 99px;
+        
     }
 }
 
@@ -488,8 +490,14 @@ color: var(--color-black);
         @include from-to(576px, 950px){
             width: 70%;
         }
+        @include to(575px){
+           width: 75%;
+           font-size: 15px;
+           line-height: 1.4em;
+        }
         @include from(1680px){
             left: 50%;
+            
         }
     }
     .ellipse-with-stars {
