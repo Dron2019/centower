@@ -169,3 +169,37 @@ splitTolines.forEach((eleArgs) => {
     ));
   }
 });
+
+
+function mobileChangeElementPosition(selectorToTransef, selectorAfterWhatPut) {
+  const transferedEl = document.querySelector(selectorToTransef);
+  const elDestination = document.querySelector(selectorAfterWhatPut);
+  let defaultInsertionAfterElement = true;
+  let defaultPositionOfEl = transferedEl.previousElementSibling;
+  if (defaultPositionOfEl === null) {
+    defaultPositionOfEl = transferedEl.parentElement;
+    defaultInsertionAfterElement = false;
+  }
+  if (document.documentElement.clientWidth < 576) {
+    elDestination.insertAdjacentElement('afterend', transferedEl);
+  }
+  window.addEventListener('resize', () => {
+    if (document.documentElement.clientWidth > 576) {
+      switch (defaultInsertionAfterElement) {
+        case true:
+          defaultPositionOfEl.append(transferedEl);
+          break;
+          case false:
+            defaultPositionOfEl.insertAdjacentElement('beforeend', transferedEl);
+          break;
+        default:
+          break;
+      }
+      
+    } else {
+      elDestination.insertAdjacentElement('afterend', transferedEl);
+    }
+  })
+}
+mobileChangeElementPosition('.dev-ellipse-bottom', '.developer-img3');
+mobileChangeElementPosition('[data-mobile-build-tranfer]', '.dev-ellipse-bottom');

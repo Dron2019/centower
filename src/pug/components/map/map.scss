@@ -144,10 +144,16 @@
      height: 65px; 
      margin-right: calc(var(--markers-side-padding) / 2);
     }
+    
     @include to(575px) {
      width: 30px;
      height: 30px; 
      margin-right: 10px;
+    }
+    @include from-to(375px, 575px){
+      width: 45px;
+      height: 45px; 
+      margin-right: 15px;
     }
     svg {
       width: 55%;
@@ -344,6 +350,10 @@
   top: 30px;
   width: 30px;
   height: 30px;
+  @include from-to(375px, 575px){
+    width: 40px;
+    height: 40px; 
+  }
   @include from(576px){
    display: none; 
   }

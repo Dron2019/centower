@@ -20,6 +20,9 @@
   @include shift-right(0);
   margin-top: 100px;
   margin-bottom: auto;
+  @include from-to(576px, 950px){
+    margin-top: 40px;
+  }
   @include to(575px){
     margin-top: 0;
     @include shift(0);
@@ -75,6 +78,10 @@
   @include from(1680px){
     height: 90vh;
   }
+  @include from-to(576px, 950px){
+   height: auto; 
+   height: 65vw;
+  }
   @include to(575px){
     margin-top: 0; 
     height: calc((100vw - (var(--page-side-fields) * 2)) / 290 * 426);
@@ -117,6 +124,7 @@
     @include from(1680px){
       width: 305px;
     }
+    
     @include to(575px){
       width: 159px;
       margin-top: 30px;
@@ -126,5 +134,13 @@
 .page-section {
 
   .dev-ellipse-bottom {
+  }
+}
+
+[data-mobile-build-tranfer] {
+  @include to(575px){
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 20px; 
   }
 }

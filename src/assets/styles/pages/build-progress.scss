@@ -190,6 +190,12 @@
       width: 50%;
 
     }
+    @include from-to(576px, 950px){
+      &:last-child:nth-child(odd) {
+        margin-right: auto;
+        margin-left: 25px;
+      }
+    }
     @include to(575px){
       @include shift(0);
       @include size(24);
@@ -223,7 +229,7 @@
   position: relative;
   @include from-to(576px, 950px){
     
-    padding: calc(30px + 40px + 10px) var(--page-side-fields) 30px var(--page-side-fields); 
+    padding: calc(50px + 40px + 10px) var(--page-side-fields) 30px var(--page-side-fields); 
   }
   @include to(575px){
     padding: calc(30px + 40px + 10px) var(--page-side-fields) 30px var(--page-side-fields); 
@@ -402,7 +408,7 @@
 }
 
 .statuses-wrapper-mobile-scroll-pointer {
-  @include from(576px){
+  @include from(951px){
    display: none; 
   }
   display: flex;
