@@ -173,7 +173,7 @@ const params = {
   url: 'slide',
   autoSlide: setTimeout(() => {
     
-  }, 7000),
+  }, 7000*0.95),
 };
 
 navs.forEach(resetStrokeValue);
@@ -242,7 +242,7 @@ overlay.addEventListener('mouseleave', function () {
   params.isOnSlider = false;
   clearTimeout(params.autoSlide);
   params.autoSlide = setTimeout(() => {
-  }, 7000);
+  }, 7000 * 0.95);
 });
 
 
@@ -284,7 +284,7 @@ hammertime.on('swiperight', evt => changeSlideOnWheelOrTouchMove(evt));
 window.addEventListener('blur', function() {
   clearTimeout(params.autoSlide);
   params.autoSlide = setTimeout(() => {
-  }, 7000);
+  }, 7000 * 0.95);
 });
 
 // gsap.defaults({ duration: 1 });
@@ -342,7 +342,7 @@ function clearTimeoutAndSetNew() {
       direction,
     );
     clearTimeoutAndSetNew();
-  }, 7000);
+  }, 7000 * 0.95);
 }
 
 /**

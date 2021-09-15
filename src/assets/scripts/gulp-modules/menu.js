@@ -75,14 +75,14 @@ const menuTransitions = {
     tl.add(() => {
       document.querySelector('[data-call-menu-span]').textContent = callMenu.dataset.whenOpened;
     },'<');
-    tl.to('[data-close-icon]', { stroke: 'rgba(45,45,45,1)', duration: 0.15 },'<');
-    tl.to('[data-open-icon]', { autoAlpha: 0, duration: 0.15 }, '<');
+    tl.to('[data-close-icon]', { stroke: 'rgba(45,45,45,1)', duration: 0.05 },'<');
+    tl.to('[data-open-icon]', { autoAlpha: 0, duration: 0.05 }, '<');
     tl.to(
       document.querySelector('[data-menu-call] rect:not(.hover-bg)'),
       {
         fill: 'rgba(0,0,0,0)',
-        stroke: 'rgba(152, 152, 152, 0.25)',
-        duration: 0.15
+        stroke: 'rgba(152, 152, 152, 1)',
+        duration: 0.05
       },
       '<',
       );
@@ -119,14 +119,14 @@ const menuTransitions = {
     tl.add(() => {
       document.querySelector('[data-call-menu-span]').textContent = callMenu.dataset.whenClosed;
     },'<');
-    tl.to('[data-close-icon]', { stroke: 'rgba(0,0,0,0)', duration: 0.15 },'<');
-    tl.to('[data-open-icon]', { autoAlpha: 1, duration: 0.15 }, '<');
+    tl.to('[data-close-icon]', { stroke: 'rgba(0,0,0,0)', duration: 0.05 },'<');
+    tl.to('[data-open-icon]', { autoAlpha: 1, duration: 0.05 }, '<');
     tl.to(
       document.querySelector('[data-menu-call] rect:not(.hover-bg)'),
       {
         fill: 'rgb(217, 180, 143)',
         stroke: 'rgba(152, 152, 152, 0)',
-        duration: 0.15
+        duration: 0.05
       },
       '<',
     );

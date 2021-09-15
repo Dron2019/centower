@@ -56,11 +56,18 @@
   }
   @include from-to(576px, 950px){
     padding-top: 0;
+    
+    padding-top: 40px;
+
     --between-margin: 40px;
     justify-content: space-between;
   }
   @include to(575px){
     --between-margin: 15px;
+  }
+  @include from-to(375px, 575px){
+    
+    --between-margin: 25px;
   }
   z-index: 100;
   .langs-header {
@@ -104,7 +111,9 @@
     }
     @include to(575px){
       --logo-w: 65px;
-
+    }
+    @include from-to(375px, 575px){
+      --logo-w: 80px;
     }
   }
   &__link {
@@ -175,6 +184,10 @@
     @include to(575px){
       width: 40px;
       height: 40px;
+    }
+    @include from-to(375px, 575px){
+      width: 45px;
+      height: 45px; 
     }
   }
   &__menu-call {
@@ -307,6 +320,7 @@
       width: 40px;
       height: 40px;
       margin-left: var(--between-margin);
+      margin-left: 0;
       svg {
         width: 10px;
         height: 10px;
@@ -320,6 +334,12 @@
     }
     .button-std-1__icon {
       margin-right: 0;
+    }
+  }
+  @include from-to(375px, 575px){
+    &__menu-call-icon {
+      width: 45px;
+      height: 45px;
     }
   }
   .langs-header {
@@ -402,6 +422,9 @@
 			color: var(--color-gold);		
 		}
 	}
+  @include from-to(375px, 575px){
+    font-size: 15px;
+  }
 }
 
 

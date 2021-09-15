@@ -345,7 +345,10 @@ function initMap() {
 
   // var baseFolder = '/wp-content/themes/rusaniv/assets/images/markers/';
   const baseFolder = './assets/images/markers/';
-  const defaultMarkerSize = new google.maps.Size(60, 81);
+  let defaultMarkerSize = new google.maps.Size(60, 81);
+  if (document.documentElement.clientWidth < 950) {
+    // defaultMarkerSize = new google.maps.Size(40, 53);
+  }
   const buildLogoSize = new google.maps.Size(125, 55);
   const markersAdresses = {
     main: `${baseFolder}marker-main.svg`,

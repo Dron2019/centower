@@ -215,7 +215,7 @@ color: var(--color-black);
     @include to(575px){
         // top: var(--header-h);
         .form-field:not(#t) {
-            margin-top: 40px;
+            margin-top: 30px;
             margin-bottom: auto;
         }
         .form-field:not(#t):first-child {
@@ -446,10 +446,14 @@ color: var(--color-black);
      font-size: 30px;
      font-size: 42px;
     }
+
     @include from-to(576px, 950px){
         font-size: 80px;
         padding-top: 99px;
         
+    }
+    @include from-to(375px, 575px){
+        font-size: 50px;
     }
 }
 
@@ -469,7 +473,7 @@ color: var(--color-black);
     @include to(950px) {
      width: 100%;   
      padding-left: 0;
-     margin-top: 10px;
+     margin-top: 20px;
     }
     @include to(575px){
     //  display: none;   

@@ -11,11 +11,11 @@
     @include from-to(576px, 950px){
         font-size: 72px;
     }
-    @include to(575px) {
-        font-size: 50px;
+    @include to(375px) {
+        font-size: 36px;
     }
     @include from-to(375px, 575px){
-        font-size: 56px;
+        font-size: 42px;
     }
 }
 .ms-subtitle {
@@ -70,7 +70,8 @@
         padding-left: var(--page-side-fields);
         padding-right: var(--page-side-fields);
         &:last-child .ms-title {
-            font-size: 36px;
+            text-align: center;
+            // font-size: 36px;
         }
     }
     picture {

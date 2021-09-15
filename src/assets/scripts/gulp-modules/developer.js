@@ -99,76 +99,76 @@ function timelineParams(params, trigger = undefined) {
 }
 
 
-const splitTolines = document.querySelectorAll('[data-split-to-lines]');
-splitTolines.forEach((eleArgs) => {
-  const elem = eleArgs;
-  if (document.documentElement.clientWidth < 2500) {
-    elem.innerHTML = elem.innerHTML.replace(/~/g, '');
-  } else {
-    gsap.set(elem, { perspective: 250 });
-    const text = elem.innerHTML.split('~').reduce((accArg, el) => {
-      let acc = accArg;
-      acc += `<div style="white-space:nowrap; overflow:hidden;">
-        <div style="display:inline-block">${el}</div>
-      </div>`;
-      return acc;
-    }, '');
-    elem.innerHTML = text;
-    const n = 0.4 / elem.querySelectorAll('div>div').length;
-    const tl = gsap.timeline({
-      paused: true,
-      scrollTrigger: {
-        triggerHook: 0.9,
-        trigger: elem,
-        start: '0% bottom',
-      },
-    });
-    // tl.fromTo(
-    //   elem.querySelectorAll('div>div'),
-    //   {
-    //     y: 0,
-    //     z: 0.01,
-    //     rotationX: -90,
-    //     rotationY: 0,
-    //     rotationZ: 0,
-    //   },
-    //   {
-    //     y: 0,
-    //     z: 0.01,
-    //     rotationX: 0,
-    //     rotationY: 0.01,
-    //     rotationZ: 0,
-    //     duration: 0.9,
-    //     stagger: 0.075,
-    //     ease: 'power4.out',
-    //   },
-    // );
-    elem.querySelectorAll('div>div').forEach(((t, i) => {
-      tl.fromTo(t, {
-        y: 0,
-        z: 0.01,
-        rotationX: -90,
-        rotationY: 0,
-        rotationZ: 0,
-      }, {
-        y: 0,
-        z: 0.01,
-        rotationX: 0,
-        rotationY: 0.01,
-        rotationZ: 0,
-        duration: 0.9,
-      }, 0.1 + n * i);
-      tl.fromTo(t, {
-        autoAlpha: 0,
-      }, {
-        autoAlpha: 1,
-        ease: 'power4.out',
-        duration: 1,
-      }, 0.1 + n * i);
-    }
-    ));
-  }
-});
+// const splitTolines = document.querySelectorAll('[data-split-to-lines]');
+// splitTolines.forEach((eleArgs) => {
+//   const elem = eleArgs;
+//   if (document.documentElement.clientWidth < 2500) {
+//     elem.innerHTML = elem.innerHTML.replace(/~/g, '');
+//   } else {
+//     gsap.set(elem, { perspective: 250 });
+//     const text = elem.innerHTML.split('~').reduce((accArg, el) => {
+//       let acc = accArg;
+//       acc += `<div style="white-space:nowrap; overflow:hidden;">
+//         <div style="display:inline-block">${el}</div>
+//       </div>`;
+//       return acc;
+//     }, '');
+//     elem.innerHTML = text;
+//     const n = 0.4 / elem.querySelectorAll('div>div').length;
+//     const tl = gsap.timeline({
+//       paused: true,
+//       scrollTrigger: {
+//         triggerHook: 0.9,
+//         trigger: elem,
+//         start: '0% bottom',
+//       },
+//     });
+//     // tl.fromTo(
+//     //   elem.querySelectorAll('div>div'),
+//     //   {
+//     //     y: 0,
+//     //     z: 0.01,
+//     //     rotationX: -90,
+//     //     rotationY: 0,
+//     //     rotationZ: 0,
+//     //   },
+//     //   {
+//     //     y: 0,
+//     //     z: 0.01,
+//     //     rotationX: 0,
+//     //     rotationY: 0.01,
+//     //     rotationZ: 0,
+//     //     duration: 0.9,
+//     //     stagger: 0.075,
+//     //     ease: 'power4.out',
+//     //   },
+//     // );
+//     elem.querySelectorAll('div>div').forEach(((t, i) => {
+//       tl.fromTo(t, {
+//         y: 0,
+//         z: 0.01,
+//         rotationX: -90,
+//         rotationY: 0,
+//         rotationZ: 0,
+//       }, {
+//         y: 0,
+//         z: 0.01,
+//         rotationX: 0,
+//         rotationY: 0.01,
+//         rotationZ: 0,
+//         duration: 0.9,
+//       }, 0.1 + n * i);
+//       tl.fromTo(t, {
+//         autoAlpha: 0,
+//       }, {
+//         autoAlpha: 1,
+//         ease: 'power4.out',
+//         duration: 1,
+//       }, 0.1 + n * i);
+//     }
+//     ));
+//   }
+// });
 
 
 function mobileChangeElementPosition(selectorToTransef, selectorAfterWhatPut) {
@@ -203,3 +203,17 @@ function mobileChangeElementPosition(selectorToTransef, selectorAfterWhatPut) {
 }
 mobileChangeElementPosition('.dev-ellipse-bottom', '.developer-img3');
 mobileChangeElementPosition('[data-mobile-build-tranfer]', '.dev-ellipse-bottom');
+
+
+function splitToLines(selector) {
+  const element = document.querySelector(selector);
+  const { width,height } = element.getBoundingClientRect();
+  const { fontSize } = getComputedStyle(element);
+  const characterWidth = parseInt(fontSize) * 0.6;
+  console.log(Math.floor(width / characterWidth),characterWidth);
+
+  for (i = 0; i < element.innerText.length; i+=Math.floor(width / characterWidth)) {
+    console.log('f');
+  }
+}
+splitToLines('.developer-paragraph1')

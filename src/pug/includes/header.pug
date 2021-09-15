@@ -19,13 +19,13 @@ header.header
             </picture>
         //- img(src="./assets/images/logo.svg", srcset="./assets/images/logo-mobile.svg 575w," sizes="(max-width: 575px) 575px, 1680px" alt="centower logo")
     +btn4('Замовити дзвінок').header__link(data-call-form-popup)
-    button(type="button" data-menu-call data-when-opened="Закрити" data-when-closed="Меню").header__menu-call
-        span(data-call-menu-span) Меню
-        <svg class="header__menu-call-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    button(type="button" data-menu-call data-when-opened="Закрити" data-when-closed="Меню\u00A0\u00A0\u00A0\u00A0").header__menu-call
+        span(data-call-menu-span) Меню&nbsp;&nbsp;&nbsp;&nbsp;
+        <svg preserveAspectRatio="xMidYMid meet" class="header__menu-call-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 
             <rect class="hover-bg" width="50" height="50" rx="25" fill="#fff" fill-opacity="1"/>
             <path data-close-icon transform="translate(18, 18)" d="M1 13L13 1M13 13L1 1" stroke="none"/>
-            <rect width="50" height="50" rx="25" fill="#D9B48F" fill-opacity="0.8"/>
+            <rect width="50" height="50" rx="25" fill="rgba(181, 152, 122, 1)"    />
             <g data-open-icon>
                 <path  class="header__menu-call-icon-path" d="M14 21.2861H35.8571V20.0004H14V21.2861Z" fill="#FAFAFA"/>
                 <path class="header__menu-call-icon-path" d="M20.4268 29H35.8553V27.7143H20.4268V29Z" fill="#FAFAFA"/>

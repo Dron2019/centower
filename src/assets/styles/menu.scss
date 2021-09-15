@@ -90,11 +90,11 @@
         @include to(575px) {
             @include size(24);
             @include shift-left(0);
-            a {
+            .menu__sub-links-group a {
 
                 font-size: 17px;
             }
-            font-size: 17px;
+            font-size: 19px;
             .menu__sub-links-group {
                 margin-top: 20px;
             }
@@ -104,9 +104,9 @@
             }
         }
         @include from-to(375px, 575px){
-            a {
+            .menu__sub-links-group a {
 
-                font-size: 19px;
+                font-size: 17px;
             }
             font-size: 19px;
         }
@@ -199,7 +199,7 @@
         position: absolute;
         right: 0;
         top: calc(100% + 40px);
-        @include to(575px){
+        @include to(950px){
             position: fixed;
             top: auto;
             bottom: var(--page-side-fields);   

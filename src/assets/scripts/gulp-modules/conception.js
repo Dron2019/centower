@@ -116,3 +116,9 @@ function effectOnScroll(element) {
 }
 const clipEntrie = document.querySelectorAll('[data-clip-enter]');
 clipEntrie.forEach(effectOnScroll);
+
+
+if (document.documentElement.clientWidth < 576) {
+  document.querySelector('.conception-img3').insertAdjacentElement('afterend',
+  document.querySelector('.conception-paragraph2'));
+}
