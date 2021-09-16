@@ -26,7 +26,7 @@ ScrollTrigger.scrollerProxy(document.body, {
 ScrollTrigger.addEventListener('fixed', () => locoScroll.update());
 ScrollTrigger.refresh();
 
-
+const matchTablet = () => window.matchMedia('(max-width: 950px) and (min-width: 576px)').matches;
 const paralaxImages = document.querySelectorAll('[data-paralax]');
 paralaxImages.forEach((image) => {
   const wrap = document.createElement('div');
