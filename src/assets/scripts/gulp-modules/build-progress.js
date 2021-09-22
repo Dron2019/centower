@@ -42,7 +42,7 @@ cards.forEach((card) => {
     requestBuildDetails(card.dataset.id, (response) => {
       popupContent.title = response.title;
       popupContent.text = response.text;
-      popupContent.url = response.url;
+      popupContent.url = response.video;
       popupContent.date = response.date;
     });
     document.body.style.overflow = 'hidden';
@@ -53,9 +53,11 @@ cards.forEach((card) => {
 // cards[0].dispatchEvent(new Event('click'))
 function requestBuildDetails(id, cb = () => {}) {
   const sendData = new FormData();
-  sendData.append('action', 'build');
+  sendData.append('action', 'buildProgress');
   sendData.append('id', id);
-  fetch('./static/build-test.php', {
+  let sendUrl = '/wp-admin/admin-ajax.php';
+  if (window.location.href.match(/localhost/)) sendUrl = './static/build-test.php';
+  fetch(sendUrl, {
     method: 'POST',
     body: sendData,
   })

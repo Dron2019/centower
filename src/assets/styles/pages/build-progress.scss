@@ -275,6 +275,21 @@
     }
     rect {
       transition: all .3s ease-in-out;
+      transform-origin: center;
+    }
+    .hover-rect {
+      transform: scale(0);
+    }
+    @include from(951px){
+      &:hover .hover-rect {
+        transform: scale(1);
+      }
+      &:hover path {
+        stroke: var(--color-black);
+      }
+      &:hover rect:not(.hover-rect) {
+        transform: scale(0);
+      }
     }
     @include from(1680px){
       right: var(--page-side-fields);
@@ -300,7 +315,7 @@
     }
   }
   &__content-close:hover rect {
-    fill: var(--color-gold);
+    // fill: var(--color-gold);
   }
   &__content-date {
     @include size(23);
