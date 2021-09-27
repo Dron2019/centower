@@ -36,8 +36,8 @@ maps.forEach((image) => {
 function initMap() {
   const gmarkers1 = [];
   const center = {
-    lat: 50.476303,
-    lng: 30.516779,
+    lat: 48.4605169,
+    lng: 35.0525155,
   };
   /** Массив, куда записываются выбраные категории */
   const choosedCategories = new Set();
@@ -343,9 +343,9 @@ function initMap() {
     });
   });
 
-  // var baseFolder = '/wp-content/themes/rusaniv/assets/images/markers/';
-  const baseFolder = './assets/images/markers/';
-  let defaultMarkerSize = new google.maps.Size(60, 81);
+  var baseFolder = '/wp-content/themes/centower/assets/images/markers/';
+//   const baseFolder = './assets/images/markers/';
+  let defaultMarkerSize = new google.maps.Size(40, 53);
   if (document.documentElement.clientWidth < 950) {
     // defaultMarkerSize = new google.maps.Size(40, 53);
   }
@@ -372,39 +372,382 @@ function initMap() {
 
 
   /* beautify preserve:start */
-  const markersData = [
+const markersData =[
+    {
+      content: `<div ${markerPopupStyle}>Apricot private kindergarten</div>`,
+      type: 'school',
+      icon: { url: markersAdresses.education, scaledSize: defaultMarkerSize },
+      position: { lat: 48.465315387607184, lng: 35.057751142925454 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Середня школа №21</div>`,
+      type: 'school',
+      icon: { url: markersAdresses.education, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46599832746873, lng: 35.035520993734906 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Specialized School № 71</div>`,
+      type: 'school',
+      icon: { url: markersAdresses.education, scaledSize: defaultMarkerSize },
+      position: { lat: 48.453248601385674, lng: 35.05303045487341 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Public School № 19</div>`,
+      type: 'school',
+      icon: { url: markersAdresses.education, scaledSize: defaultMarkerSize },
+      position: { lat: 48.47094936663253, lng: 35.04204412631592 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Public School # 23</div>`,
+      type: 'school',
+      icon: { url: markersAdresses.education, scaledSize: defaultMarkerSize },
+      position: { lat: 48.456664020583055, lng: 35.064875090349446 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>СЕРЕДНЯ ЗАГАЛЬНООСВІТНЯ ШКОЛА №18-ЗАГАЛЬНООСВІТНІЙ НАВЧАЛЬНИЙ ЗАКЛАД І-ІІІ СТУПЕНІВ</div>`,
+      type: 'school',
+      icon: { url: markersAdresses.education, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46161597031695, lng: 35.04504820053086 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Частный Садик в Днепре Kids Community "ONE-SEVEN"</div>`,
+      type: 'child',
+      icon: { url: markersAdresses.kinder, scaledSize: defaultMarkerSize },
+      position: { lat: 48.471336133614976, lng: 35.03685137327689 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Pryvatnyy Sadochok Abrykos</div>`,
+      type: 'child',
+      icon: { url: markersAdresses.kinder, scaledSize: defaultMarkerSize },
+      position: { lat: 48.463681795385654, lng: 35.055691210123925 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Детский сад «Незабудка», №292</div>`,
+      type: 'child',
+      icon: { url: markersAdresses.kinder, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45956960171781, lng: 35.026422944201244 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>MGym Menorah Fitness</div>`,
+      type: 'gym',
+      icon: { url: markersAdresses.sport, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46439387763201, lng: 35.05418917394757 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Фитнес клуб «Титан»</div>`,
+      type: 'gym',
+      icon: { url: markersAdresses.sport, scaledSize: defaultMarkerSize },
+      position: { lat: 48.457222324039435, lng: 35.06015440703152 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Фитнес клуб Арт Спорт (Art Sport)</div>`,
+      type: 'gym',
+      icon: { url: markersAdresses.sport, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45273073669595, lng: 35.06246119771413 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>BODY SKILL</div>`,
+      type: 'gym',
+      icon: { url: markersAdresses.sport, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46874754085126, lng: 35.04041334790478 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>"Fit4YoU", fitness center</div>`,
+      type: 'gym',
+      icon: { url: markersAdresses.sport, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46840609056688, lng: 35.04513403595683 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Le Silpo</div>`,
+      type: 'shop',
+      icon: { url: markersAdresses.shop, scaledSize: defaultMarkerSize },
+      position: { lat: 48.461132459942284, lng: 35.05051473559797 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Silpo</div>`,
+      type: 'shop',
+      icon: { url: markersAdresses.shop, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46836345230476, lng: 35.04870817081795 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>VARUS</div>`,
+      type: 'shop',
+      icon: { url: markersAdresses.shop, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45092507828519, lng: 35.05939811503264 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Troits'kyi market</div>`,
+      type: 'shop',
+      icon: { url: markersAdresses.shop, scaledSize: defaultMarkerSize },
+      position: { lat: 48.460001227315786, lng: 35.04120210554774 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>ATB-Market</div>`,
+      type: 'shop',
+      icon: { url: markersAdresses.shop, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45815135871281, lng: 35.043691195611544 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Atrium</div>`,
+      type: 'shop',
+      icon: { url: markersAdresses.shop, scaledSize: defaultMarkerSize },
+      position: { lat: 48.458464418106765, lng: 35.05995611151711 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>MOST-City</div>`,
+      type: 'shop',
+      icon: { url: markersAdresses.shop, scaledSize: defaultMarkerSize },
+      position: { lat: 48.4668309274389, lng: 35.05072931234366 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Passage</div>`,
+      type: 'shop',
+      icon: { url: markersAdresses.shop, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46512358856377, lng: 35.04759649209093 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Moya Eko Apteka</div>`,
+      type: 'pharm',
+      icon: { url: markersAdresses.med, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45900937395898, lng: 35.05401233723831 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Аптека Доброго Дня</div>`,
+      type: 'pharm',
+      icon: { url: markersAdresses.med, scaledSize: defaultMarkerSize },
+      position: { lat: 48.461937066199035, lng: 35.057509937931414 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Apteka Ooo Mehafarm</div>`,
+      type: 'pharm',
+      icon: { url: markersAdresses.med, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46210781339058, lng: 35.044935741574605 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Med-Servys</div>`,
+      type: 'pharm',
+      icon: { url: markersAdresses.med, scaledSize: defaultMarkerSize },
+      position: { lat: 48.4674291462819, lng: 35.050858059312624 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Аптека Медакадемии</div>`,
+      type: 'pharm',
+      icon: { url: markersAdresses.med, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46333148478816, lng: 35.05021432912371 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Apteka</div>`,
+      type: 'pharm',
+      icon: { url: markersAdresses.med, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45863584093205, lng: 35.04373411188863 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Mechnikov Hospital</div>`,
+      type: 'pharm',
+      icon: { url: markersAdresses.med, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45456526747864, lng: 35.069440403053314 },
+    },
     {
       content: `<img style="background:white" src="${markersAdresses.main}">`,
-      position: { lat: 50.476303, lng: 30.516779 },
+      position: { lat: 48.4605169, lng: 35.0525155 },
       type: 'main',
+      zIndex: 1000,
       icon: { url: markersAdresses.main, scaledSize: buildLogoSize },
     },
     {
-      content: `<div ${markerPopupStyle}>sport</div>`,
-      position: { lat: 50.478303, lng: 30.516779 },
-      type: 'sport',
-      icon: { url: markersAdresses.sport, scaledSize: defaultMarkerSize },
-    },
-    {
-      content: `<div ${markerPopupStyle}>Shop</div>`,
-      position: { lat: 50.480303, lng: 30.516779 },
-      type: 'shop',
-      icon: { url: markersAdresses.shop, scaledSize: defaultMarkerSize },
-    },
-    {
-      content: `<div ${markerPopupStyle}>Post</div>`,
-      position: { lat: 50.482303, lng: 30.516779 },
-      type: 'cafe',
+      content: `<div ${markerPopupStyle}>DoubleDecker Cake and Coffee</div>`,
+      type: 'coffe',
       icon: { url: markersAdresses.cafe, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46364368364381, lng: 35.048803320872345 },
     },
     {
-      content: `<div ${markerPopupStyle}>Bank</div>`,
-      position: { lat: 50.484303, lng: 30.516779 },
+      content: `<div ${markerPopupStyle}>CULTURIST</div>`,
+      type: 'coffe',
+      icon: { url: markersAdresses.cafe, scaledSize: defaultMarkerSize },
+      position: { lat: 48.458535402921676, lng: 35.05878113866792 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Cafe "nose"</div>`,
+      type: 'coffe',
+      icon: { url: markersAdresses.cafe, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45606645345308, lng: 35.05015515414826 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Eight Coffeebar</div>`,
+      type: 'coffe',
+      icon: { url: markersAdresses.cafe, scaledSize: defaultMarkerSize },
+      position: { lat: 48.458250803912584, lng: 35.053191414928406 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Lyuba Kava</div>`,
+      type: 'coffe',
+      icon: { url: markersAdresses.cafe, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45825791890177, lng: 35.05206488707753 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>SHEPIT coffeebar</div>`,
+      type: 'coffe',
+      icon: { url: markersAdresses.cafe, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45740411240071, lng: 35.054071179405454 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Try Bobry</div>`,
+      type: 'coffe',
+      icon: { url: markersAdresses.cafe, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46283976825555, lng: 35.05056285001356 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>GIANIVINO</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45932871423038, lng: 35.056919685571 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Reporter Restaurant&coffe </div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.462192358108304, lng: 35.0515928183175 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Sokho Restoran I Bar </div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46109672214478, lng: 35.05115293602935 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Senator Restaurant</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45948168313202, lng: 35.0534274493217 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Balkon</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45944610901843, lng: 35.04500531276535 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Kafe Mendeleevʹ</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45878442575683, lng: 35.05837344302182 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Black Sheep</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.4621994725338, lng: 35.04885696506616 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Anchousna Vid Chornomorky</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.4630176267448, lng: 35.05278371919109 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Puri Chveni/Пури Чвени</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.461566283323144, lng: 35.04730128374882 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Old Pal bar</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.461815291271115, lng: 35.04838489623351 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Lumber Gastro Bar</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46207852691645, lng: 35.048063031139044 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Gianni МАГАЗИН</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45936784586007, lng: 35.05690359233385 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Mamoyu Klyanusʹ</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.461978924382365, lng: 35.06102346540692 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Artist</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.4576816011424, lng: 35.0628044521776 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Abajour</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46016470147594, lng: 35.06429576041565 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Dollar</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46017893092978, lng: 35.069231025100166 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Holyi Shef</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45667125046294, lng: 35.05038045975157 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Papa Carla</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45702701001192, lng: 35.059607259088835 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Рыночные Отношения</div>`,
+      type: 'rest',
+      icon: { url: markersAdresses.meal, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46439185459654, lng: 35.052435221497454 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Credit Agricole Bank</div>`,
       type: 'bank',
       icon: { url: markersAdresses.bank, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45978880100821, lng: 35.049431147147764 },
     },
-  ];
-  /* beautify preserve:end */
+    {
+      content: `<div ${markerPopupStyle}>Ukrsibbank Bnp Paribas Group</div>`,
+      type: 'bank',
+      icon: { url: markersAdresses.bank, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46400768987496, lng: 35.04832607706236 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>PrivatBank</div>`,
+      type: 'bank',
+      icon: { url: markersAdresses.bank, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46477601636916, lng: 35.05131942244082 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Отделение ПриватБанка</div>`,
+      type: 'bank',
+      icon: { url: markersAdresses.bank, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46343143736989, lng: 35.04938823186054 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>МТБ БАНК</div>`,
+      type: 'bank',
+      icon: { url: markersAdresses.bank, scaledSize: defaultMarkerSize },
+      position: { lat: 48.46365909346169, lng: 35.04890543421886 },
+    },
+    {
+      content: `<div ${markerPopupStyle}>Відділення ПУМБ</div>`,
+      type: 'bank',
+      icon: { url: markersAdresses.bank, scaledSize: defaultMarkerSize },
+      position: { lat: 48.45742663926395, lng: 35.058851065390094 },
+    },
+  ];  
+/* beautify preserve:end */
   const infowindow = new google.maps.InfoWindow({
     content: '',
     maxWidth: 200,
@@ -414,6 +757,7 @@ function initMap() {
     const mapMarker = new google.maps.Marker({
       map,
       category,
+      zIndex: marker.zIndex || 1,
       icon: marker.icon,
       position: new google.maps.LatLng(marker.position.lat, marker.position.lng),
     });
