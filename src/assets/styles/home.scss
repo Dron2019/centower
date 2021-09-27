@@ -26,6 +26,8 @@
     // max-width: initial;
     @include from(1680px){
        margin-bottom: 35px;
+
+       max-width: 450px;
     }
     @include from-to(575px, 950px){
         max-width: 75vw;   
