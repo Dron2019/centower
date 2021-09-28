@@ -262,8 +262,21 @@ locoScroll.on('scroll', (position) => {
 function handleUnloadLinks(link) {
   const isChangeLocationLink = link.href.match(/#{1}|\/#|tel:|mailto:/g);
   const isBlank = link.getAttribute('target');
+  let isAnimating = false;
   link.addEventListener('click', (evt) => {
-    if (isBlank === null && isChangeLocationLink === null) evt.preventDefault();
+    if (isAnimating === true) {
+      return;
+    }
+    if (isBlank === null && isChangeLocationLink === null) {
+      evt.preventDefault();
+      link.classList.add('pointer-no');
+      link.querySelectorAll('svg, button').forEach(el => el.classList.add('pointer-no'))
+      gsap.set(link.querySelectorAll('svg, button'), { pointerEvents: 'none' });
+
+      isAnimating = true;
+    } else {
+      return;
+    }
     gsap.set('.loader-wrap', { transition: 'none' });
     const timline  = gsap.timeline();
     
@@ -292,6 +305,7 @@ function handleUnloadLinks(link) {
         timline.fromTo('.right-letters', { yPercent: 0 }, { yPercent: -120 }, '<+1')
         .fromTo('.left-letters', { yPercent: 0 }, { yPercent: 120 }, '<')
         .add(() => {
+          isAnimating = false;
           window.location = link.href;
         });
     }
