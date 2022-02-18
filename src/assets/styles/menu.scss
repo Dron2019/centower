@@ -83,6 +83,15 @@
                 height: 12px;
             }
         }
+        @include from-to(1024px, 1440px){
+            @include size(6);
+            @include shift-right(0);
+            @include shift-left(1);
+            a {
+                font-size: 18px;
+
+            }
+        }
         @include from-to(576px, 950px){
             @include size(12);
             @include shift-left(0);
